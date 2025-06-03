@@ -1,0 +1,29 @@
+.input {
+    height: 40px;
+    width: 300px;
+    background-color: #C5DBFF;
+    border: none;
+    border-radius: 5px;
+    outline: unset;
+    padding-inline: 10px;
+}
+
+.inputlogin {
+    height: 50px;
+    width: 350px;
+    background-color: #C5DBFF;
+    border: none;
+    border-radius: 5px;
+    outline: unset;
+    padding-inline: 10px;
+}
+
+.inputform {
+    display : flex; 
+    flex-direction : column; 
+    justify-content : center;
+    align-items : center;
+    width : 50%;
+    padding-block : 7em;
+    gap: 1em;
+}
