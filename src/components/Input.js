@@ -1,6 +1,6 @@
 import styles from '../styles/input.module.css'
 
-export function Input ({id, name, type, placeholder, icon, handleChange}) {
+export function Input ({id, name, type, placeholder, icon, handleChange, styleType}) {
 
     return (
         <input 
@@ -9,7 +9,7 @@ export function Input ({id, name, type, placeholder, icon, handleChange}) {
             name={name} 
             placeholder={placeholder} 
             onChange={handleChange}
-            className={styles.inputlogin}
+            className={styleType === 'login' ? styles.inputlogin : styles.input}
         />
     )
 }

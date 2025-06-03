@@ -28,13 +28,14 @@ export default function Login () {
                     <Title text='Innerly'/>
                     <Subtitle text='Registro de emoções e bem estar'/>
                 </div>
-                <div className={styleInput.inputform}>
+                <div className={styleInput.inputform} style={{paddingBlock : '7em'}}>
                     <Input
                         id='email'
                         name='email'
                         placeholder='Email'
                         type='email'
                         handleChange={onHandleChange}
+                        styleType='login'
                     />
                     <Input
                         id='senha'
@@ -42,6 +43,7 @@ export default function Login () {
                         placeholder='Senha'
                         type='password'
                         handleChange={onHandleChange}
+                        styleType='login'
                     />
                     <ButtonSubmit text='acessar' handleClick={onHandleClick}/>
                     <p onClick={() => navigation('/cadastro')} className={styles.link}>Não tem uma conta? Cadastre-se!</p>

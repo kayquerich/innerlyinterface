@@ -1,6 +1,6 @@
 .input {
     height: 40px;
-    width: 300px;
+    width: 350px;
     background-color: #C5DBFF;
     border: none;
     border-radius: 5px;
@@ -24,6 +24,17 @@
     justify-content : center;
     align-items : center;
     width : 50%;
-    padding-block : 7em;
     gap: 1em;
+}
+
+.cadastroform {
+    display : flex; 
+    flex-direction : column; 
+    justify-content : center;
+    align-items : center;
+    width : 35%;
+    gap: 1em;
+    background-color: #F9FAFB;
+    padding: 1em;
+    border-radius: 10px;
 }
