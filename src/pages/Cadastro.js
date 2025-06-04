@@ -29,6 +29,11 @@ export default function Cadastro () {
 
     const onHandleClickLink = () => {
 
+        if (dadosUsuario.identificador) {
+            delete dadosUsuario.identificador
+            setDadosUsuario(dadosUsuario)
+        }
+
         if (isProUser) {
             setLinkText('Sou profissional da saúde mental! clique aqui!')
         } else {
@@ -40,7 +45,7 @@ export default function Cadastro () {
 
     return (
         <div className={styles.pages}>
-            <div className={styles.content} style={{alignItems : 'center', flexDirection : 'column'}}>
+            <div className={styles.content} style={{alignItems : 'center', flexDirection : 'column', paddingTop : '2.5em'}}>
                 <header style={{marginBottom : '1.5em'}}>
                     <h1 className={styles.title}>Innerly</h1>
                 </header>
@@ -80,7 +85,7 @@ export default function Cadastro () {
                     />
                     <ButtonSubmit text='cadastrar' handleClick={onHandleSubmit}/>
                     <p className={styles.link} onClick={onHandleClickLink}>{linkText}</p>
-                    <p>-------------------------- ou --------------------------</p>
+                    <p>--------------------- ou ---------------------</p>
                     <p className={styles.link} onClick={() => navigation(-1)}>Já tenho uma conta</p>
                 </div>
             </div>

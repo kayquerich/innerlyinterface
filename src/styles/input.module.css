@@ -55,3 +55,21 @@
     gap: 10px;
     margin-top: 5px;
 }
+
+@media screen and (width < 430px) {
+    .cadastroform {
+        width: 350px;
+    }
+    .input, .inputform {
+        width: 300px;
+    }
+    .selectdate {
+        width: 95px;
+    }
+}
+
+@media screen and (width < 800px) {
+    .inputform {
+        width: 100%;
+    }
+}
