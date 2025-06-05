@@ -3,45 +3,13 @@ import { InternalPage as Container } from "../components/Container"
 import styles from '../styles/global.module.css'
 import iStyles from '../styles/registros.module.css'
 import { Registro } from "../components/Registro"
+import { fakeRegistros } from '../assets/registrosfake'
 
 export default function UserRegistros ({dadosUsuario}) {
 
     const [fakeData] = useState({
         nome : 'Kayque Richarlyson' 
     })
-
-    const fakeRegistros = [
-        {
-            title : '05 de Maio de 2025',
-            description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, ducimus dicta consequatur culpa quia molestiae vel animi. In deserunt sunt iusto odio est culpa eum sapiente fugiat at, quasi ipsum.',
-            valuehumor : 0
-        },
-        {
-            title : '05 de Maio de 2025',
-            description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, ducimus dicta consequatur culpa quia molestiae vel animi. In deserunt sunt iusto odio est culpa eum sapiente fugiat at, quasi ipsum.',
-            valuehumor : 1
-        },
-        {
-            title : '05 de Maio de 2025',
-            description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, ducimus dicta consequatur culpa quia molestiae vel animi. In deserunt sunt iusto odio est culpa eum sapiente fugiat at, quasi ipsum.',
-            valuehumor : 2
-        },
-        {
-            title : '05 de Maio de 2025',
-            description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, ducimus dicta consequatur culpa quia molestiae vel animi. In deserunt sunt iusto odio est culpa eum sapiente fugiat at, quasi ipsum.',
-            valuehumor : 3
-        },
-        {
-            title : '05 de Maio de 2025',
-            description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, ducimus dicta consequatur culpa quia molestiae vel animi. In deserunt sunt iusto odio est culpa eum sapiente fugiat at, quasi ipsum.',
-            valuehumor : 4
-        },
-        {
-            title : '05 de Maio de 2025',
-            description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, ducimus dicta consequatur culpa quia molestiae vel animi. In deserunt sunt iusto odio est culpa eum sapiente fugiat at, quasi ipsum.',
-            valuehumor : 4
-        },
-    ]
 
     return (
         <Container dadosUsuario={fakeData}>
