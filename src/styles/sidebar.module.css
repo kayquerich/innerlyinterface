@@ -1,4 +1,6 @@
 .container {
+    position: sticky;
+    top: 0;
     height: 100%;
     width: 20%;
     background-color: #f4c7ff;
@@ -46,6 +48,6 @@
 }
 
 .option:hover {
-    background-color: #e5a9f4;
+    background-color: #f1baff;
     color: gray;
 }

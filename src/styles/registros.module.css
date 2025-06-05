@@ -1,0 +1,41 @@
+.containerregistros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.registro {
+    height: 220px;
+    width: 370px;
+    background-color: #C5DBFF;
+    border-radius: 10px;
+}
+
+.header {
+    height: 40px;
+    border-width: 0px 0px 1px 0px;
+    border-color: black;
+    border-style: solid;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.description {
+    margin-top: 10px;
+    padding-inline: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 9px 20px 0px 0px;
+}
+
+.emoji {
+    height: 40px;
+}

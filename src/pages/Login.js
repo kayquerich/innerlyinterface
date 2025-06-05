@@ -6,6 +6,7 @@ import { ButtonSubmit } from '../components/Button'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import onda from '../assets/onda-cut.png'
+import { Page } from '../components/Container'
 
 export default function Login () {
 
@@ -23,7 +24,7 @@ export default function Login () {
     }
 
     return (
-        <div className={styles.pages}>
+        <Page>
             <div className={styles.content} style={{flexDirection : 'row', justifyContent : 'space-between'}}>
                 <div className={styles.imagelogin}>
                     
@@ -54,6 +55,6 @@ export default function Login () {
 
                 <img src={onda} alt="imagem de onda" className={styles.wavelogin} />
             </div>
-        </div>
+        </Page>
     )
 }

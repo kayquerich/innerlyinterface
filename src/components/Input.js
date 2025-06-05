@@ -83,8 +83,8 @@ function SelectForDate ({options, execute, label}) {
 
     return (
         <>
-            <select onChange={onHandleChange} className={styles.selectdate}>
-                <option value='' disabled selected>{label}</option>
+            <select onChange={onHandleChange} className={styles.selectdate} defaultValue=''>
+                <option value='' disabled>{label}</option>
                 {options.map((value) => (
                     <option value={value} key={value}>{value}</option>
                 ))}

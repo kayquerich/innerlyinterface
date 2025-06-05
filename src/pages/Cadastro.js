@@ -5,6 +5,7 @@ import { Input, DateInput } from '../components/Input'
 import { ButtonSubmit } from '../components/Button'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Page } from '../components/Container'
 
 export default function Cadastro () {
 
@@ -44,7 +45,7 @@ export default function Cadastro () {
     }
 
     return (
-        <div className={styles.pages}>
+        <Page>
             <div className={styles.content} style={{alignItems : 'center', flexDirection : 'column', paddingTop : '2.5em'}}>
                 <header style={{marginBottom : '1.5em'}}>
                     <h1 className={styles.title}>Innerly</h1>
@@ -91,6 +92,6 @@ export default function Cadastro () {
             </div>
             
             <img src={onda} alt="imagem de uma onda" className={styles.wave}/>
-        </div>
+        </Page>
     )
 }
