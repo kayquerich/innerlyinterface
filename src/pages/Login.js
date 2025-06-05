@@ -19,6 +19,7 @@ export default function Login () {
 
     const onHandleClick = () => {
         console.log(dadosUsuario)
+        navigation('registros')
     }
 
     return (
