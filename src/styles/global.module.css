@@ -68,3 +68,14 @@
         display: block;
     }
 }
+
+.rodape {
+    position: fixed;
+    bottom: 20px;
+}
+
+.internallink {
+    color: #a40089;
+    text-decoration: underline;
+    cursor: pointer;
+}

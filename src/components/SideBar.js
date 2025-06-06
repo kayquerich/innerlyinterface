@@ -4,15 +4,22 @@ import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export function SideBar ({dadosUsuario}) {
+
+    const navigation = useNavigate()
+
+    const onHandleClick = () => {
+        navigation('/perfil', {state : dadosUsuario})
+    }
+
     return (
         <div className={styles.container}>
 
-            <div className={styles.header}>
+            <div className={styles.header} onClick={onHandleClick} > 
                 <img src={perfilIcon} alt="imagem estática de icone de perfil" className={styles.perfilicon}/>
                 <div className={styles.username}>{dadosUsuario.nome}</div>
             </div>
 
-            <OptionLink label='Registros' path={'/'} dadosUsuario={{}} icon='rectangle-list'/>
+            <OptionLink label='Registros' path={'/registros'} dadosUsuario={{}} icon='rectangle-list'/>
             <OptionLink label='Histórico' path={'/'} dadosUsuario={{}} icon='chart-simple'/>
 
         </div>

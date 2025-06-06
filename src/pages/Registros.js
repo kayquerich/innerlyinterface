@@ -8,7 +8,10 @@ import { fakeRegistros } from '../assets/registrosfake'
 export default function UserRegistros ({dadosUsuario}) {
 
     const [fakeData] = useState({
-        nome : 'Kayque Richarlyson' 
+        nome : 'Kayque Richarlyson',
+        email : 'kayque@email.com',
+        senha : 'senha123',
+        contato : '(87) 9 9101-0743' 
     })
 
     return (

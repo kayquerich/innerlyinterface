@@ -42,3 +42,16 @@
 .buttonbacklogin:hover {
     background-color: #ffb4f2;
 }
+
+.buttonedit {
+    height: 30px;
+    width: 120px;
+    background-color: #C5DBFF;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.buttonedit:hover {
+    background-color: #aecdff;
+}

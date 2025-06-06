@@ -7,3 +7,11 @@ export function ButtonSubmit ({handleClick, text, typeStyle}) {
         </button>
     )
 }
+
+export function EditButton ({handleClick}) {
+    return (
+        <button onClick={handleClick} className={styles.buttonedit}>
+            editar
+        </button>
+    )
+}
