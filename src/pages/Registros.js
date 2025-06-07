@@ -20,17 +20,15 @@ export default function UserRegistros ({dadosUsuario}) {
                 <h1 className={styles.title}>Meus Registros</h1>
 
                 <div className={iStyles.containerregistros}>
-                    <Registro registro={fakeRegistros[0]}/>
-                    <Registro registro={fakeRegistros[1]}/>
-                    <Registro registro={fakeRegistros[2]}/>
-                    <Registro registro={fakeRegistros[3]}/>
-                    <Registro registro={fakeRegistros[4]}/>
-                    <Registro registro={fakeRegistros[5]}/>
+                    <Registro registro={fakeRegistros[0]} dadosUsuario={fakeData} />
+                    <Registro registro={fakeRegistros[1]} dadosUsuario={fakeData} />
+                    <Registro registro={fakeRegistros[2]} dadosUsuario={fakeData} />
+                    <Registro registro={fakeRegistros[3]} dadosUsuario={fakeData} />
+                    <Registro registro={fakeRegistros[4]} dadosUsuario={fakeData} />
+                    <Registro registro={fakeRegistros[5]} dadosUsuario={fakeData} />
                 </div>
 
-                <div style={{display : 'flex', justifyContent : 'end', width : '100%'}}>
-                    <Add dadosUsuario={fakeData}/>
-                </div>
+                <Add dadosUsuario={fakeData}/>
         </Container>
     )
 }

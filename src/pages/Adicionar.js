@@ -4,11 +4,11 @@ import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, DateInput, EmotionInput } from "../components/Input"
 import global from '../styles/global.module.css'
 
-export default function Adicionar ({dadosUsuario}) {
+export default function Adicionar () {
 
     const navigation = useNavigate()
 
-    const data = dadosUsuario ? dadosUsuario : {
+    const data = {
         nome : 'Kayque Richarlyson',
         email : 'kayque@email.com',
         senha : 'senha123',
@@ -20,7 +20,7 @@ export default function Adicionar ({dadosUsuario}) {
     }
 
     const onHandleSubmit = () => {
-        navigation(-1, data)
+        navigation('/registros', data)
     }
 
     return (
@@ -29,7 +29,7 @@ export default function Adicionar ({dadosUsuario}) {
             <h1 className={global.title}>Adicionar registro</h1>
             <div className={global.mediumsep}></div>
 
-            <h2 className={global.subtitle}>Como está se sentindo hoje?</h2>
+            <h2 className={global.subtitle}>Como está se sentindo?</h2>
             <div className={global.smallsep}></div>
             <EmotionInput handleChange={onEmotionChange}/>
             <div className={global.mediumsep}></div>

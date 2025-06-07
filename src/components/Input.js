@@ -94,10 +94,10 @@ function SelectForDate ({options, execute, label}) {
     )
 }
 
-export function EmotionInput ({handleChange}) {
+export function EmotionInput ({handleChange, valuehumor}) {
 
-    const [chose, setChose] = useState(false)
-    const [value, setValue] = useState(0)
+    const [chose, setChose] = useState(valuehumor !== -1 ? true : false)
+    const [value, setValue] = useState("" + (valuehumor + 1))
 
     const onHandleClick = (e) => {
         setChose(true)
@@ -108,7 +108,6 @@ export function EmotionInput ({handleChange}) {
 
     return (
         <div className={styles.emotioninput}>
- 
             <button className={chose === true && value !== '1' ? styles.emojibuttontransparent : styles.emojibutton} id='1' onClick={onHandleClick}>
                 <img src={listaEmojis[0]} alt={'emoji-' + 1} className={styles.emojiicon} />
                 <span>{listaNomesEmojis[0]}</span>
@@ -138,10 +137,10 @@ export function EmotionInput ({handleChange}) {
     )
 }
 
-export function AnotationInput ({handleChange}) {
+export function AnotationInput ({handleChange, value}) {
     return (
         <>
-            <textarea onChange={handleChange} placeholder='Me conte como está se sentindo...' className={styles.anotationinput} ></textarea>
+            <textarea onChange={handleChange} placeholder='Me conte como está se sentindo...' className={styles.anotationinput} >{value}</textarea>
         </>
     )
 }

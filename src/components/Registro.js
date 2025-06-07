@@ -1,10 +1,14 @@
 import styles from '../styles/registros.module.css'
 import { listaEmojis } from '../assets/dados'
+import { useNavigate } from 'react-router-dom'
 
-export function Registro ({registro}){
+export function Registro ({registro, dadosUsuario}){
+
+    const navigation = useNavigate()
 
     return (
-        <div className={styles.registro}>
+        <div className={styles.registro} onClick={() => navigation('/registros/detalhes', {state : {registro : registro, dadosUsuario : dadosUsuario}})}>
+
             <header className={styles.header}>
                 <p>{registro.title}</p>
             </header>
@@ -18,6 +22,7 @@ export function Registro ({registro}){
                     className={styles.emoji}
                 />
             </footer>
+
         </div>
     )
 }
