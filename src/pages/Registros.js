@@ -27,8 +27,10 @@ export default function UserRegistros ({dadosUsuario}) {
                     <Registro registro={fakeRegistros[4]}/>
                     <Registro registro={fakeRegistros[5]}/>
                 </div>
-                
-                <Add dadosUsuario={fakeData}/>
+
+                <div style={{display : 'flex', justifyContent : 'end', width : '100%'}}>
+                    <Add dadosUsuario={fakeData}/>
+                </div>
         </Container>
     )
 }
