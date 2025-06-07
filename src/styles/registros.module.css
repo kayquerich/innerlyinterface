@@ -42,7 +42,6 @@
 
 @media screen and (width < 1000px) {
     .containerregistros {
-        height: 0;
         justify-content: center;
     }
 }

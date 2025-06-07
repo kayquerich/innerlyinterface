@@ -18,6 +18,7 @@ export default function UserRegistros ({dadosUsuario}) {
     return (
         <Container dadosUsuario={fakeData}>
                 <h1 className={styles.title}>Meus Registros</h1>
+
                 <div className={iStyles.containerregistros}>
                     <Registro registro={fakeRegistros[0]}/>
                     <Registro registro={fakeRegistros[1]}/>
@@ -26,6 +27,7 @@ export default function UserRegistros ({dadosUsuario}) {
                     <Registro registro={fakeRegistros[4]}/>
                     <Registro registro={fakeRegistros[5]}/>
                 </div>
+                
                 <Add dadosUsuario={fakeData}/>
         </Container>
     )
