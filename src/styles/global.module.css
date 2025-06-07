@@ -37,6 +37,14 @@
     height: 30px;
 }
 
+.smallsep {
+    margin: 10px;
+}
+
+.mediumsep {
+    margin: 30px;
+}
+
 .wave {
     position: fixed;
     z-index: -9999;
@@ -81,6 +89,13 @@
     }
 }
 
+.souprd {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin-top: 30px;
+}
+
 @media screen and (width < 1000px) {
 
     .internalpages {
@@ -91,5 +106,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .souprd {
+        justify-content: center;
     }
 }

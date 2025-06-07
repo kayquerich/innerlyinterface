@@ -56,6 +56,46 @@
     margin-top: 5px;
 }
 
+.emotioninput {
+    display: flex;
+    gap: 10px;
+}
+
+
+.emojibutton {
+    background-color: transparent;
+    cursor: pointer;
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emojibuttontransparent {
+    background-color: transparent;
+    cursor: pointer;
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 45%;
+}
+
+.emojiicon {
+    height: 45px;
+    width: 45px;
+}
+
+.anotationinput {
+    width: 90%;
+    height: 170px;
+    resize: none;
+    padding: 15px;
+    background-color: #C5DBFF;
+    outline: unset;
+    border-radius: 10px;
+}
+
 @media screen and (width < 430px) {
     .cadastroform {
         width: 350px;

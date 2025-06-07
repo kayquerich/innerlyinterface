@@ -4,6 +4,7 @@ import Cadastro from './pages/Cadastro'
 import UserRegistros from './pages/Registros';
 import './assets/icons'
 import Perfil from './pages/Perfil';
+import Adicionar from './pages/Adicionar';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path='/cadastro' element={<Cadastro/>} />
                 <Route path='/registros' element={<UserRegistros/>}/>
                 <Route path='/perfil' element={<Perfil/>}/>
+                <Route path='/registros/adicionar' element={<Adicionar/>}/>
             </Routes>
         </HashRouter>
     );  

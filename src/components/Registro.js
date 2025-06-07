@@ -1,14 +1,7 @@
 import styles from '../styles/registros.module.css'
+import { listaEmojis } from '../assets/dados'
 
 export function Registro ({registro}){
-
-    const listaEmojis = [
-        require('../assets/images/emojis/muito-mal.png'), 
-        require('../assets/images/emojis/mal.png'), 
-        require('../assets/images/emojis/mais-ou-menos.png'), 
-        require('../assets/images/emojis/bem.png'), 
-        require('../assets/images/emojis/muito-bem.png')
-    ]
 
     return (
         <div className={styles.registro}>

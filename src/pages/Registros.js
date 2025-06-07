@@ -4,6 +4,7 @@ import styles from '../styles/global.module.css'
 import iStyles from '../styles/registros.module.css'
 import { Registro } from "../components/Registro"
 import { fakeRegistros } from '../assets/registrosfake'
+import { GoToAddRegistro as Add } from "../components/Button"
 
 export default function UserRegistros ({dadosUsuario}) {
 
@@ -25,6 +26,7 @@ export default function UserRegistros ({dadosUsuario}) {
                     <Registro registro={fakeRegistros[4]}/>
                     <Registro registro={fakeRegistros[5]}/>
                 </div>
+                <Add dadosUsuario={fakeData}/>
         </Container>
     )
 }

@@ -3,7 +3,6 @@
     width: 200px;
     background-color: #F4C7FF;
     border-radius: 10px;
-    color: #807E7E;
     cursor: pointer;
     transition: .5s;
 }
@@ -17,7 +16,6 @@
     width: 200px;
     background-color: #F4C7FF;
     border-radius: 10px;
-    color: #807E7E;
     cursor: pointer;
     transition: .5s;
 }
@@ -56,10 +54,32 @@
     background-color: #aecdff;
 }
 
+.contaddres {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.btnaddres {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #d134b6;
+    color: white;
+    font-size: 1.7em;
+    cursor: pointer;
+}
+
 @media screen and (width < 410px) {
     .buttonedit {
         height: 40px;
         width: 40px;
         border-radius: 0px;
+    }
+    .contaddres {
+        justify-content: center;
     }
 }
