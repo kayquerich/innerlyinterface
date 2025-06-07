@@ -21,5 +21,14 @@
 
 .informacoes {
     display: flex;
-    gap: 500px;
+    gap: 50%;
+}
+
+@media screen and (width < 600px) {
+    .informacoes {
+        gap: 40px;
+    }
+    .nome {
+        padding-right: 20px;
+    }
 }

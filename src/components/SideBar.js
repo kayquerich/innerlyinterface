@@ -19,8 +19,10 @@ export function SideBar ({dadosUsuario}) {
                 <div className={styles.username}>{dadosUsuario.nome}</div>
             </div>
 
-            <OptionLink label='Registros' path={'/registros'} dadosUsuario={{}} icon='rectangle-list'/>
-            <OptionLink label='Histórico' path={'/'} dadosUsuario={{}} icon='chart-simple'/>
+            <div className={styles.containeropt}>
+                <OptionLink label='Registros' path={'/registros'} dadosUsuario={{}} icon='rectangle-list'/>
+                <OptionLink label='Histórico' path={'/'} dadosUsuario={{}} icon='chart-simple'/>
+            </div>
 
         </div>
     )
@@ -37,7 +39,7 @@ function OptionLink ({icon, label, path, dadosUsuario}) {
     return (
         <div onClick={onHandleClick} className={styles.option}>
             <FontAwesomeIcon icon={['fas', icon]} />
-            <span>{label}</span>
+            <span className={styles.labelopt}>{label}</span>
         </div>
     )
 }

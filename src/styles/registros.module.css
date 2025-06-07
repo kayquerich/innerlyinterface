@@ -39,3 +39,20 @@
 .emoji {
     height: 40px;
 }
+
+@media screen and (width < 1000px) {
+    .containerregistros {
+        height: 0;
+        justify-content: center;
+    }
+}
+
+@media screen and (width < 390px) {
+    .registro {
+        width: 90%;
+    }
+
+    .description {
+        height: 50%;
+    }
+}

@@ -2,14 +2,14 @@
     position: sticky;
     top: 0;
     height: 100%;
-    width: 20%;
+    width: 25.8%;
     background-color: #f4c7ff;
     padding-top: 35px;
 }
 
 .header {
     width: 85%;
-    height: 70x;
+    height: 70px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -50,4 +50,59 @@
 .option:hover {
     background-color: #f1baff;
     color: gray;
+}
+
+@media screen and (width < 1000px) {
+    .container {
+        margin-bottom: 10px;
+        height: 70px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 0px;
+        padding-inline: .5em;
+        gap: .5em;
+    }
+
+    .header {
+        margin-bottom: 0px;
+        margin-inline: 0px;
+        height: 60px;
+        width: 300px;
+    }
+
+    .containeropt {
+        display: flex;
+        height: 100%;
+        gap: 10px;
+    }
+
+    .option {
+        height: 100%;
+        width: 70px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: x-large;
+    }
+
+    .labelopt {
+        display: none;
+    }
+  
+}
+
+@media screen and (width < 400px) {
+    .perfilicon {
+        display: none;
+    }
+    .username {
+        margin-left: 0px;
+        padding-left: 0px;
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+    }
 }

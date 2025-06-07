@@ -4,6 +4,18 @@
     width: 100%;
 }
 
+.internalpages {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.internalcontainer {
+    width: 100%;
+    padding: 2%;
+}
+
 .content {
     display: flex;
     height: 100%;
@@ -69,13 +81,15 @@
     }
 }
 
-.rodape {
-    position: fixed;
-    bottom: 20px;
-}
+@media screen and (width < 1000px) {
 
-.internallink {
-    color: #a40089;
-    text-decoration: underline;
-    cursor: pointer;
+    .internalpages {
+        flex-direction: column;
+    }
+
+    .internalcontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

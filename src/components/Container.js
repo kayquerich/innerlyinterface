@@ -12,9 +12,9 @@ export function Page ({children}) {
 export function InternalPage ({children, dadosUsuario}) {
 
     return (
-        <div className={styles.pages} style={{display : "flex", overflowY : 'auto', flex : 1}}>
+        <div className={styles.internalpages}>
             <SideBar dadosUsuario={dadosUsuario}/>
-            <div style={{width : '80%', padding : '2%', height : '100%'}}>
+            <div className={styles.internalcontainer}>
                 {children}
             </div>
         </div>

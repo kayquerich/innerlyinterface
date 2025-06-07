@@ -11,6 +11,7 @@
 
 .containerprocard {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -26,4 +27,11 @@
 .notauth {
     color: red;
     display: block;
+}
+
+@media screen and (width < 667px) {
+    .containerprocard {
+        justify-content: center;
+        align-items: center;
+    }
 }
