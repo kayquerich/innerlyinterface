@@ -20,8 +20,8 @@ export function SideBar ({dadosUsuario}) {
             </div>
 
             <div className={styles.containeropt}>
-                <OptionLink label='Registros' path={'/registros'} dadosUsuario={{}} icon='rectangle-list'/>
-                <OptionLink label='Histórico' path={'/'} dadosUsuario={{}} icon='chart-simple'/>
+                <OptionLink label='Registros' path={'/registros'} dadosUsuario={{}} icon='clipboard-list'/>
+                <OptionLink label='Histórico' path={'/historico'} dadosUsuario={{}} icon='chart-column'/>
             </div>
 
         </div>

@@ -6,6 +6,7 @@ import './assets/icons'
 import Perfil from './pages/Perfil';
 import Adicionar from './pages/Adicionar';
 import Detalhes from './pages/Detalhes';
+import Historico from './pages/Historico';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path='/perfil' element={<Perfil/>}/>
                 <Route path='/registros/adicionar' element={<Adicionar/>}/>
                 <Route path='/registros/detalhes' element={<Detalhes/>}/>
+                <Route path='/historico' element={<Historico/>}/>
             </Routes>
         </HashRouter>
     );  
