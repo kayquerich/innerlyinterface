@@ -18,5 +18,5 @@ export const fakeData = {
     nome : 'Kayque Richarlyson',
     email : 'kayque@email.com',
     senha : 'senha123',
-    contato : '(87) 9 9101-0743' 
+    contato : '(99) 9 9999-9999' 
 }
