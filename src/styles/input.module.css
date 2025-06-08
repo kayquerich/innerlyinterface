@@ -1,19 +1,47 @@
+.containerinput {
+    display: flex;
+}
+
+.iconinputl {
+    width: 50px;
+    height: 50px;
+    background-color: #C5DBFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 0px 0px 5px;
+    font-size: larger;
+    color: #807e7e;
+}
+
+.iconinputc {
+    width: 50px;
+    height: 40px;
+    background-color: #C5DBFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 0px 0px 5px;
+    font-size: larger;
+    color: #807e7e;
+}
+
 .input {
     height: 40px;
-    width: 350px;
+    width: 300px;
     background-color: #C5DBFF;
     border: none;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     outline: unset;
     padding-inline: 10px;
 }
 
 .inputlogin {
     height: 50px;
-    width: 350px;
+    width: 300px;
     background-color: #C5DBFF;
     border: none;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;    
     outline: unset;
     padding-inline: 10px;
 }

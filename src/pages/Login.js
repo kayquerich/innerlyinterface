@@ -39,6 +39,7 @@ export default function Login () {
                         type='email'
                         handleChange={onHandleChange}
                         styleType='login'
+                        icon='envelope'
                     />
                     <Input
                         id='senha'
@@ -47,6 +48,7 @@ export default function Login () {
                         type='password'
                         handleChange={onHandleChange}
                         styleType='login'
+                        icon='lock'
                     />
                     <ButtonSubmit text='acessar' handleClick={onHandleClick}/>
                     <p onClick={() => navigation('/cadastro')} className={styles.link}>Não tem uma conta? Cadastre-se!</p>

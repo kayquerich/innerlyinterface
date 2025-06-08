@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styles from '../styles/input.module.css'
 import { listaEmojis, listaNomesEmojis } from '../assets/dados'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 export function Input ({id, name, type, placeholder, icon, handleChange, styleType, value}) {
 
@@ -14,8 +15,29 @@ export function Input ({id, name, type, placeholder, icon, handleChange, styleTy
         }
     }
 
+    const defineIcon = () => {
+        if (icon) {
+            return styles.containerinput
+        } else {
+            return styles.void
+        }
+    }
+
+    const defineTypeIcon = () => {
+        if (styleType === 'login') {
+            return styles.iconinputl
+        } else {
+            return styles.iconinputc
+        }
+    }
+
     return (
-        <>
+        <div className={defineIcon()}>
+            {icon ? (
+                <div className={defineTypeIcon()}>
+                    <Icon icon={icon}/>
+                </div>
+            ) : <></>}
             <input 
                 value={value}
                 type={type}
@@ -25,7 +47,7 @@ export function Input ({id, name, type, placeholder, icon, handleChange, styleTy
                 onChange={handleChange}
                 className={setStyle()}
             />
-        </>
+        </div>
     )
 }
 

@@ -54,13 +54,16 @@ export default function Cadastro () {
                     
                     <p style={{fontSize : '1.5em'}}>Cadastre-se</p>
 
-                    {isProUser ? <Input
-                        id='identificador'
-                        name='identificador'
-                        placeholder='CRM/CRP'
-                        type='text'
-                        handleChange={onHandleChange}
-                    /> : <></>}
+                    {isProUser ? 
+                        <Input
+                            id='identificador'
+                            name='identificador'
+                            placeholder='CRM/CRP'
+                            type='text'
+                            handleChange={onHandleChange}
+                            icon='file-medical'
+                        /> 
+                    : <></>}
 
                     <Input
                         id='nome'
@@ -68,6 +71,7 @@ export default function Cadastro () {
                         placeholder='Nome'
                         type='text'
                         handleChange={onHandleChange}
+                        icon='user'
                     />
                     <Input
                         id='email'
@@ -75,6 +79,7 @@ export default function Cadastro () {
                         placeholder='Email'
                         type='email'
                         handleChange={onHandleChange}
+                        icon='envelope'
                     />
                     <DateInput text='Data de nascimento' handleChange={onHandleDateChange}/>
                     <Input
@@ -83,6 +88,7 @@ export default function Cadastro () {
                         placeholder='Senha'
                         type='password'
                         handleChange={onHandleChange}
+                        icon='lock'
                     />
                     <ButtonSubmit text='cadastrar' handleClick={onHandleSubmit}/>
                     <p className={styles.link} onClick={onHandleClickLink}>{linkText}</p>
