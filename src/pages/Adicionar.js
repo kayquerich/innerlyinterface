@@ -42,10 +42,9 @@ export default function Adicionar () {
             <h2 className={global.subtitle}>Anotações</h2>
             <div className={global.smallsep}></div>
             <AnotationInput/>
+            <div className={global.mediumsep} ></div>
 
-            <div className={global.souprd}>
-                <ButtonSubmit text='enviar' typeStyle='login' handleClick={onHandleSubmit}/>
-            </div>
+            <ButtonSubmit text='enviar' handleClick={onHandleSubmit}/>
             
         </Page>
     )

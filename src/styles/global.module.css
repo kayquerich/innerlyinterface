@@ -89,13 +89,6 @@
     }
 }
 
-.souprd {
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    margin-top: 30px;
-}
-
 @media screen and (width < 1000px) {
 
     .internalpages {

@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from '../styles/button.module.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -32,4 +33,12 @@ export function GoToAddRegistro ({dadosUsuario}) {
         </div>
     )
 
+}
+
+export function CloseButton ({handleClick}) {
+    return (
+        <button className={styles.close} onClick={handleClick}>
+            <FontAwesomeIcon icon='xmark'/>
+        </button>
+    )
 }

@@ -2,17 +2,28 @@ import { useState } from 'react'
 import styles from '../styles/input.module.css'
 import { listaEmojis, listaNomesEmojis } from '../assets/dados'
 
-export function Input ({id, name, type, placeholder, icon, handleChange, styleType}) {
+export function Input ({id, name, type, placeholder, icon, handleChange, styleType, value}) {
+
+    const setStyle = () => {
+        if (styleType === 'login') {
+            return styles.inputlogin
+        } else if (styleType === 'edit') {
+            return styles.editinput
+        } else {
+            return styles.input
+        }
+    }
 
     return (
         <>
             <input 
+                value={value}
                 type={type}
                 id={id} 
                 name={name} 
                 placeholder={placeholder} 
                 onChange={handleChange}
-                className={styleType === 'login' ? styles.inputlogin : styles.input}
+                className={setStyle()}
             />
         </>
     )

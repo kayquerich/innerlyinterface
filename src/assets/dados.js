@@ -14,4 +14,9 @@ export const listaNomesEmojis = [
     'Muito bem'
 ]
 
-export const fakeData = {}
+export const fakeData = {
+    nome : 'Kayque Richarlyson',
+    email : 'kayque@email.com',
+    senha : 'senha123',
+    contato : '(87) 9 9101-0743' 
+}

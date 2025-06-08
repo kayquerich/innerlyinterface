@@ -18,6 +18,17 @@
     padding-inline: 10px;
 }
 
+.editinput {
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    outline: unset;
+    padding-inline: 10px;
+    border-width: 0px 0px 1px 0px;
+    border-color: black;
+    border-style: solid;
+}
+
 .inputform {
     display : flex; 
     flex-direction : column; 

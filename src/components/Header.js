@@ -1,17 +1,13 @@
 import styles from '../styles/perfil.module.css'
 import { EditButton } from './Button'
 
-export function UserHeader ({nome, contato, email}) {
-
-    const onHandleClick = () => {
-        alert('go to edit pages')
-    }
+export function UserHeader ({nome, contato, email, handleClick}) {
 
     return (
         <header className={styles.header}>
             <div className={styles.nome}>
                 <div>{nome}</div>
-                <EditButton handleClick={onHandleClick}/>
+                <EditButton handleClick={handleClick}/>
             </div>
             <div style={{margin : 10}}></div>
             <div className={styles.informacoes}>
