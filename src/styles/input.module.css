@@ -139,11 +139,14 @@
     .cadastroform {
         width: 350px;
     }
-    .input, .inputform {
+    .inputform {
         width: 300px;
     }
     .selectdate {
         width: 95px;
+    }
+    .input {
+        width: 350px;
     }
 }
 
