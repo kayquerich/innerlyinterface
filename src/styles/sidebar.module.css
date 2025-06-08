@@ -52,6 +52,10 @@
     color: gray;
 }
 
+.labelperf {
+    display: none;
+}
+
 @media screen and (width < 1000px) {
     .container {
         margin-bottom: 10px;
@@ -98,6 +102,7 @@
     .perfilicon {
         display: none;
     }
+    
     .username {
         margin-left: 0px;
         padding-left: 0px;

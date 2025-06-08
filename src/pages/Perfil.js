@@ -30,16 +30,14 @@ export default function Perfil () {
                 
                 <h1 className={styles.title} >Meu Perfil</h1>
                 <Header nome={location.state.nome} contato={location.state.contato} email={location.state.email} handleClick={showEditPage}/>
-                <div style={{margin : 30}}></div>
+                <div style={{margin : 20}}></div>
 
                 <h2 className={styles.subtitle}>Profissionais acompanhantes</h2>
                 <div style={{margin : 10}}></div>
 
                 <div className={istyles.containerprocard}>
-                    <ProfissionalCard nome='Nome Profissinal' autorizacao={true}/>
-                    <ProfissionalCard nome='Nome Profissinal' autorizacao={true}/>
-                    <ProfissionalCard nome='Nome Profissinal' autorizacao={true}/>
-                    <ProfissionalCard nome='Nome Profissinal' autorizacao={true}/>
+                    <ProfissionalCard nome='Nome Profissional' autorizacao={true}/>
+                    <ProfissionalCard nome='Nome Profissional' autorizacao={true}/>
                 </div>
 
             </Page>
