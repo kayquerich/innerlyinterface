@@ -72,12 +72,30 @@ export function DateInput ({handleChange, text}) {
         setData(novaData)
     }
 
+    const isBissexto = (ano) => {
+
+        let intAno = parseInt(ano)
+
+        if (ano.substring(2) === '00' && intAno % 400 === 0) {
+            return true
+        } else if (intAno % 4 === 0) {
+            return true
+        }
+
+        return false
+
+    }
+
     const onMonthChange = (e) => {
 
         const novaData = data.substring(0,3) + e + data.substring(5)
 
         if (e === '02') {
-            setDias(preencheArray(28))
+            if (isBissexto(novaData.substring(5))) {
+                setDias(preencheArray(29))
+            } else {
+                setDias(preencheArray(28))
+            }
         } else if (['04', '06', '09', '11'].includes(e)) {
             setDias(preencheArray(30))
         } else {
@@ -90,6 +108,13 @@ export function DateInput ({handleChange, text}) {
 
     const onYearChange = (e) => {
         const novaData = data.substring(0,6) + e
+        
+        if (isBissexto(e) && novaData.substring(3, 5) === '02') {
+            setDias(preencheArray(29))
+        } else {
+            setDias(preencheArray(28))
+        }
+
         execute(handleChange, novaData)
         setData(novaData)
     }
