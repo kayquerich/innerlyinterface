@@ -6,6 +6,8 @@ import { ButtonSubmit } from '../components/Button'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Page } from '../components/Container'
+import 'nprogress/nprogress.css'
+import nProgress from 'nprogress'
 
 export default function Cadastro () {
 
@@ -21,11 +23,35 @@ export default function Cadastro () {
     }
 
     const onHandleDateChange = (e) => {
-        setDadosUsuario({...dadosUsuario, 'datanascimento' : e})
+        setDadosUsuario({...dadosUsuario, 'nascimento' : e})
     }
 
-    const onHandleSubmit = () => {
-        console.log(dadosUsuario)
+    const onHandleSubmit = async () => {
+        nProgress.start()
+        
+        if (!isProUser) {
+
+            await fetch('https://innerlyapi.onrender.com/usuarios/create', {
+                method : 'POST',
+                headers : {'Content-Type': 'application/json'},
+                body : JSON.stringify(dadosUsuario),
+            }).then(async (data) => {
+                data = await data.json()
+
+                if (data.criado) {
+                    alert('Cadastro realizado com sucesso')
+                    navigation('/')
+                } else {
+                    alert('Não foi possivel fazer o cadastro')
+                }
+
+            })
+
+        } else {
+            alert('Ainda não é possivel se cadastrar como profissional da saúde')
+        }
+
+        nProgress.done()
     }
 
     const onHandleClickLink = () => {

@@ -85,7 +85,7 @@ export function DateInput ({handleChange, text}) {
     const [meses] = useState(preencheArray(12))
     const [anos] = useState(Array.from({ length: 2025 - 1925 + 1 }, (_, i) => 2025 - i))
 
-    const [data, setData] = useState('dd/mm/AAAA')
+    const [data, setData] = useState('AAAA-dd-mm')
 
     const execute = (handleChange, value) => {
         if (handleChange) {
@@ -94,7 +94,7 @@ export function DateInput ({handleChange, text}) {
     }
 
     const onDayChange = (e) => {
-        const novaData = e + data.substring(2)
+        const novaData = data.substring(0,8) + e
         execute(handleChange, novaData)
         setData(novaData)
     }
@@ -115,7 +115,7 @@ export function DateInput ({handleChange, text}) {
 
     const onMonthChange = (e) => {
 
-        const novaData = data.substring(0,3) + e + data.substring(5)
+        const novaData = data.substring(0,5) + e + data.substring(7)
 
         if (e === '02') {
             if (isBissexto(novaData.substring(5))) {
@@ -134,7 +134,7 @@ export function DateInput ({handleChange, text}) {
     }
 
     const onYearChange = (e) => {
-        const novaData = data.substring(0,6) + e
+        const novaData = e + data.substring(4)
         
         if (isBissexto(e) && novaData.substring(3, 5) === '02') {
             setDias(preencheArray(29))
