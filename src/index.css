@@ -22,3 +22,26 @@ code {
 html, body, #root {
     height: 100%;
 }
+
+#nprogress .bar {
+  background: #4f46e5; /* cor principal */
+  height: 6px;  
+  display: none;       /* altura da barra */
+}
+
+/* adiciona sombra abaixo da barra */
+#nprogress .bar {
+  box-shadow: 0 0 10px #4f46e5, 0 0 5px #4f46e5;
+  display: none;
+}
+
+/* customiza o spinner opcional */
+#nprogress .spinner-icon {
+  border-top-color: #4f46e5;
+  border-left-color: #4f46e5;
+}
+
+/* remove o spinner se quiser */
+#nprogress .spinner {
+  display: none;
+}

@@ -10,6 +10,10 @@ export function Input ({id, name, type, placeholder, icon, handleChange, styleTy
             return styles.inputlogin
         } else if (styleType === 'edit') {
             return styles.editinput
+        } else if (styleType === 'senha') {
+            return styles.senha
+        } else if (styleType === 'senhac') {
+            return styles.senhac
         } else {
             return styles.input
         }
@@ -24,10 +28,30 @@ export function Input ({id, name, type, placeholder, icon, handleChange, styleTy
     }
 
     const defineTypeIcon = () => {
-        if (styleType === 'login') {
+        if (styleType === 'login' || styleType === 'senha') {
             return styles.iconinputl
         } else {
             return styles.iconinputc
+        }
+    }
+
+    const defineTypeShow = () => {
+        if (styleType === 'senha') {
+            return styles.showpass
+        } else if (styleType === 'senhac') {
+            return styles.showpassc
+        }
+    }
+
+    const [typeInp, setTypeInp] = useState(type)
+    const [eye, setEye] = useState('eye')
+    const showPass = (e) => {
+        if (typeInp === 'text'){
+            setTypeInp('password')
+            setEye('eye')
+        } else {
+            setTypeInp('text')
+            setEye('eye-slash')
         }
     }
 
@@ -40,13 +64,16 @@ export function Input ({id, name, type, placeholder, icon, handleChange, styleTy
             ) : <></>}
             <input 
                 value={value}
-                type={type}
+                type={typeInp}
                 id={id} 
                 name={name} 
                 placeholder={placeholder} 
                 onChange={handleChange}
                 className={setStyle()}
             />
+            {styleType === 'senha' || styleType === 'senhac' ? (
+                <div className={defineTypeShow()} onClick={showPass}><Icon icon={eye}/></div>
+            ) : <></>}
         </div>
     )
 }

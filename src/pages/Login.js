@@ -7,6 +7,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import onda from '../assets/onda-cut.png'
 import { Page } from '../components/Container'
+import 'nprogress/nprogress.css'
+import nProgress from 'nprogress'
 
 export default function Login () {
 
@@ -18,10 +20,38 @@ export default function Login () {
         setDadosUsuario({...dadosUsuario, [e.target.name] : e.target.value})
     }
 
-    const onHandleClick = () => {
-        console.log(dadosUsuario)
-        navigation('registros')
+    const onHandleClick = async () => {
+
+        nProgress.start()
+
+        await fetch('https://innerlyapi.onrender.com/usuarios/login', {
+            method : 'POST',
+            headers : {'Content-Type': 'application/json'},
+            body : JSON.stringify(dadosUsuario),
+        }).then(async (data) => {
+
+            let dados = await data.json()
+            
+            if (dados.token) {
+                navigation('registros', {state : {
+                    token : dados.token
+                }})
+            } else {
+                setIcorrect(true)
+                setTimeout(() => {
+                    setIcorrect(false)
+                }, 2000)
+            }
+
+        }).catch((error) => {
+            alert('erro no login')
+        })
+
+        nProgress.done()
+
     }
+
+    const [isIncorrect, setIcorrect] = useState(false)
 
     return (
         <Page>
@@ -47,9 +77,14 @@ export default function Login () {
                         placeholder='Senha'
                         type='password'
                         handleChange={onHandleChange}
-                        styleType='login'
+                        styleType='senha'
                         icon='lock'
                     />
+
+                    {isIncorrect ? (
+                        <div className={styleInput.warning}>email ou senha incorretos*</div>
+                    ) : <></>}
+
                     <ButtonSubmit text='acessar' handleClick={onHandleClick}/>
                     <p onClick={() => navigation('/cadastro')} className={styles.link}>Não tem uma conta? Cadastre-se!</p>
                     

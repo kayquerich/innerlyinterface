@@ -89,6 +89,7 @@ export default function Cadastro () {
                         type='password'
                         handleChange={onHandleChange}
                         icon='lock'
+                        styleType='senhac'
                     />
                     <ButtonSubmit text='cadastrar' handleClick={onHandleSubmit}/>
                     <p className={styles.link} onClick={onHandleClickLink}>{linkText}</p>

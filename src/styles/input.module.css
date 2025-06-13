@@ -46,6 +46,48 @@
     padding-inline: 10px;
 }
 
+.senha {
+    height: 50px;
+    width: 250px;
+    background-color: #C5DBFF;
+    border: none;
+    outline: unset;
+    padding-inline: 10px;
+}
+
+.senhac {
+    height: 40px;
+    width: 250px;
+    background-color: #C5DBFF;
+    border: none;
+    outline: unset;
+    padding-inline: 10px;
+}
+
+.showpass {
+    height: 50px;
+    width: 50px;
+    background-color: #C5DBFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+    color: #807e7e;
+}
+
+.showpassc {
+    height: 40px;
+    width: 50px;
+    background-color: #C5DBFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+    color: #807e7e;
+}
+
 .editinput {
     height: 40px;
     width: 300px;
@@ -135,6 +177,10 @@
     border-radius: 10px;
 }
 
+.warning {
+    color: red;
+}
+
 @media screen and (width < 430px) {
     .cadastroform {
         width: 350px;
@@ -145,8 +191,12 @@
     .selectdate {
         width: 95px;
     }
-    .input {
+    .input, .inputlogin {
         width: 250px;
+    }
+
+    .senha, .senhac {
+        width: 200px;
     }
 }
 
