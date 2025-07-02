@@ -20,7 +20,11 @@ export default function Login () {
         setDadosUsuario({...dadosUsuario, [e.target.name] : e.target.value})
     }
 
-    const onHandleClick = async () => {
+    const onHandleClick = () => {
+        navigation('registros')
+    }
+
+    /*const onHandleClick = async () => {
 
         nProgress.start()
 
@@ -49,7 +53,7 @@ export default function Login () {
 
         nProgress.done()
 
-    }
+    }*/
 
     const [isIncorrect, setIcorrect] = useState(false)
 

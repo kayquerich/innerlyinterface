@@ -26,7 +26,11 @@ export default function Cadastro () {
         setDadosUsuario({...dadosUsuario, 'nascimento' : e})
     }
 
-    const onHandleSubmit = async () => {
+    const onHandleSubmit = () => {
+        navigation('/')
+    }
+
+    /*const onHandleSubmit = async () => {
         nProgress.start()
         
         if (!isProUser) {
@@ -52,7 +56,7 @@ export default function Cadastro () {
         }
 
         nProgress.done()
-    }
+    }*/
 
     const onHandleClickLink = () => {
 
