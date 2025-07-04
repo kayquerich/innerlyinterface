@@ -3,6 +3,7 @@ import { fakeData } from "../assets/dados"
 import { Subtitle } from "../components/Text"
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 import { ProfissionalCard as Card } from "../components/Card"
+import { UserEditPage as Modal } from "../components/Modal"
 import profileImage from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/perfil.module.css'
 import { useState } from "react"
@@ -12,62 +13,65 @@ export default function Perfil () {
     const [isOpen, setOpen] = useState(false)
 
     return (
-        <Container dadosUsuario={fakeData}>
+        <>
+            {isOpen ? (<Modal dadosUsuario={fakeData} close={() => setOpen(false)}/>) : <></>}
+            <Container dadosUsuario={fakeData}>
 
-            <Subtitle text='Meu Perfil' />
+                <Subtitle text='Meu Perfil' />
 
-            <div className={styles.header} style={{marginBlock : 10}}>
-                <div>
-                    <img src={profileImage} alt="imagem estática de perfil"/>
-                </div>
-                <div className={styles.headerinfos}>
-                    <p className={styles.name} >{fakeData.nome}</p>
-                    <p>{fakeData.username}</p>
-                    <p>{fakeData.nascimento}</p>
-                </div>
-            </div>
-
-            <div className={styles.informacoes} style={{marginBlock : 20}}>
-
-                <h3 className={styles.title} >Informações Pessoais</h3>
-                <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
-                
-                <div className={styles.internal} >
-
-                    <div className={styles.column}>
-                        <Informacao label='Nome' value={fakeData.nome} />
-                        <Informacao label='Username' value={fakeData.username} />
+                <div className={styles.header} style={{marginBlock : 10}}>
+                    <div>
+                        <img src={profileImage} alt="imagem estática de perfil"/>
                     </div>
-                    <div className={styles.column}>
-                        <Informacao label='Email' value={fakeData.email}/>
-                        <Informacao label='Contato' value={fakeData.contato}/>
+                    <div className={styles.headerinfos}>
+                        <p className={styles.name} >{fakeData.nome}</p>
+                        <p>{fakeData.username}</p>
+                        <p>{fakeData.nascimento}</p>
                     </div>
-                    <div className={styles.column}>
-                        <Informacao label='Data de Nascimento' value={fakeData.nascimento}/>
+                </div>
+
+                <div className={styles.informacoes} style={{marginBlock : 20}}>
+
+                    <h3 className={styles.title} >Informações Pessoais</h3>
+                    <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
+                    
+                    <div className={styles.internal} >
+
+                        <div className={styles.column}>
+                            <Informacao label='Nome' value={fakeData.nome} />
+                            <Informacao label='Username' value={fakeData.username} />
+                        </div>
+                        <div className={styles.column}>
+                            <Informacao label='Email' value={fakeData.email}/>
+                            <Informacao label='Contato' value={fakeData.contato}/>
+                        </div>
+                        <div className={styles.column}>
+                            <Informacao label='Data de Nascimento' value={fakeData.nascimento}/>
+                        </div>
+
                     </div>
+
+                    <button className={styles.editbutton} onClick={() => setOpen(true)}>
+                        <span>Editar</span>
+                        <Icon icon='pen'/>
+                    </button>
 
                 </div>
 
-                <button className={styles.editbutton} onClick={() => setOpen(true)}>
-                    <span>Editar</span>
-                    <Icon icon='pen'/>
-                </button>
+                <div className={styles.containerpro}>
 
-            </div>
+                    <h3 className={styles.title}>Profissionais Relacionados</h3>
+                    <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
 
-            <div className={styles.containerpro}>
-
-                <h3 className={styles.title}>Profissionais Relacionados</h3>
-                <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
-
-                <div className={styles.profissionais}>
-                    <Card autorizacao={true} nome='Psicologo'/>
-                    <Card autorizacao={true} nome='Psicologo'/>
-                    <Card autorizacao={false} nome='Psicologo'/>
+                    <div className={styles.profissionais}>
+                        <Card autorizacao={true} nome='Psicologo'/>
+                        <Card autorizacao={true} nome='Psicologo'/>
+                        <Card autorizacao={false} nome='Psicologo'/>
+                    </div>
                 </div>
-            </div>
 
-        </Container>
+            </Container>
+        </>
     )
 }
 

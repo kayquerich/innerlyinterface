@@ -173,7 +173,9 @@
 .editinput {
     height: 40px;
     width: 300px;
-    border: 1px solid gray;
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: gray;
     padding-inline: 10px;
     border-radius: 7px;
     outline: unset;

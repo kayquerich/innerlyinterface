@@ -1,0 +1,61 @@
+.page {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editcontainer {
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    padding: 30px;
+}
+
+.close {
+    position: fixed;
+    z-index: 1;
+    top: 55px;
+    left: 140px;
+    height: 40px;
+    width: 40px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    font-size: larger;
+}
+
+.title {
+    color : #6161d7;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.containerinput {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.submit {
+    height: 30px;
+    width: 120px;
+    color: white;
+    background-color: #6161d7;
+    border-radius: 5px;
+    margin-block: 15px;
+    transition: .5s;
+}
+
+.submit:hover {
+    background-color: #7676d9;
+}
