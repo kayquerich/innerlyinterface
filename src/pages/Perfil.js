@@ -5,8 +5,12 @@ import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 import { ProfissionalCard as Card } from "../components/Card"
 import profileImage from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/perfil.module.css'
+import { useState } from "react"
 
 export default function Perfil () {
+
+    const [isOpen, setOpen] = useState(false)
+
     return (
         <Container dadosUsuario={fakeData}>
 
@@ -44,7 +48,7 @@ export default function Perfil () {
 
                 </div>
 
-                <button className={styles.editbutton}>
+                <button className={styles.editbutton} onClick={() => setOpen(true)}>
                     <span>Editar</span>
                     <Icon icon='pen'/>
                 </button>

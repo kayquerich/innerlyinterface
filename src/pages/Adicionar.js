@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
-import { ButtonSubmit } from "../components/Button"
+import { ButtonSubmit} from "../components/Button";
 import { InternalPage as Page } from "../components/Container"
-import { AnotationInput, DateInput, EmotionInput } from "../components/Input"
+import { AnotationInput, DateInput, EmotionInput } from '../components/Input';
 import global from '../styles/global.module.css'
 
 export default function Adicionar () {

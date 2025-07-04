@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { InternalPage as Page } from "../components/Container";
+import { InternalPage as Page } from "../components/Container"
 import styles from '../styles/global.module.css'
-import { AnotationInput, EmotionInput } from "../components/Input";
+import { AnotationInput, EmotionInput } from "../components/Input"
 import { ButtonSubmit } from "../components/Button";
 
 export default function Detalhes () {

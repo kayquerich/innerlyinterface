@@ -104,6 +104,14 @@ export default function Cadastro () {
                         icon='user'
                     />
                     <Input
+                        id='username'
+                        name='username'
+                        placeholder='Username'
+                        type='text'
+                        handleChange={onHandleChange}
+                        icon='user-tag'
+                    />
+                    <Input
                         id='email'
                         name='email'
                         placeholder='Email'
