@@ -10,14 +10,6 @@ export function ButtonSubmit ({handleClick, text, typeStyle, style}) {
     )
 }
 
-export function EditButton ({handleClick}) {
-    return (
-        <button onClick={handleClick} className={styles.buttonedit}>
-            editar
-        </button>
-    )
-}
-
 export function GoToAddRegistro ({dadosUsuario}) {
 
     const navigation = useNavigate()

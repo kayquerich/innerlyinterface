@@ -16,7 +16,9 @@ export const listaNomesEmojis = [
 
 export const fakeData = {
     nome : 'Kayque Richarlyson',
+    username : 'kayque#1984',
     email : 'kayque@email.com',
+    nascimento : '00/00/0000',
     senha : 'senha123',
     contato : '(99) 9 9999-9999' 
 }
