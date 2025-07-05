@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/innerlyinterface/static/css/main.551e2909.css",
-    "main.js": "/innerlyinterface/static/js/main.5e7f1d1f.js",
+    "main.css": "/innerlyinterface/static/css/main.462d4db5.css",
+    "main.js": "/innerlyinterface/static/js/main.1cbfcd20.js",
     "static/js/453.edde93b5.chunk.js": "/innerlyinterface/static/js/453.edde93b5.chunk.js",
-    "static/media/login-image.png": "/innerlyinterface/static/media/login-image.a124963bfa8fb11b9acd.png",
-    "static/media/onda-cut.png": "/innerlyinterface/static/media/onda-cut.27c98fb74ded1516d8af.png",
+    "static/media/logo-site.png": "/innerlyinterface/static/media/logo-site.649312f4b50a224cc92a.png",
+    "static/media/login-image.png": "/innerlyinterface/static/media/login-image.fe66103fff26df3d9094.png",
+    "static/media/onda-cut.png": "/innerlyinterface/static/media/onda-cut.3c02bac93caeb590cde8.png",
     "static/media/mal.png": "/innerlyinterface/static/media/mal.6641855af73eb3bf2602.png",
     "static/media/muito-mal.png": "/innerlyinterface/static/media/muito-mal.a0a621908e55350c572b.png",
     "static/media/muito-bem.png": "/innerlyinterface/static/media/muito-bem.4d48bf68372d58bbdf9f.png",
@@ -12,12 +13,12 @@
     "static/media/mais-ou-menos.png": "/innerlyinterface/static/media/mais-ou-menos.a1e274cbc2719ee8b620.png",
     "static/media/perfil-static-icon.png": "/innerlyinterface/static/media/perfil-static-icon.a18d5ef15d311676dccd.png",
     "index.html": "/innerlyinterface/index.html",
-    "main.551e2909.css.map": "/innerlyinterface/static/css/main.551e2909.css.map",
-    "main.5e7f1d1f.js.map": "/innerlyinterface/static/js/main.5e7f1d1f.js.map",
+    "main.462d4db5.css.map": "/innerlyinterface/static/css/main.462d4db5.css.map",
+    "main.1cbfcd20.js.map": "/innerlyinterface/static/js/main.1cbfcd20.js.map",
     "453.edde93b5.chunk.js.map": "/innerlyinterface/static/js/453.edde93b5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.551e2909.css",
-    "static/js/main.5e7f1d1f.js"
+    "static/css/main.462d4db5.css",
+    "static/js/main.1cbfcd20.js"
   ]
 }
