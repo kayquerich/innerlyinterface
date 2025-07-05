@@ -105,8 +105,9 @@
     width : 400px;
     gap: 1em;
     background-color: #F9FAFB;
+    box-shadow: 0px 2px 5px -1px black;
     padding: 1em;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .selectdate {
