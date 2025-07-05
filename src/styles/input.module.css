@@ -115,7 +115,7 @@
     height: 40px;
     background-color: #C5DBFF;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     outline: unset;
     padding-inline: 25px;
     color: #374151;
@@ -164,7 +164,7 @@
     padding: 15px;
     background-color: #C5DBFF;
     outline: unset;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .warning {
@@ -180,29 +180,4 @@
     padding-inline: 10px;
     border-radius: 7px;
     outline: unset;
-}
-
-@media screen and (width < 430px) {
-    .cadastroform {
-        width: 350px;
-    }
-    .inputform {
-        width: 300px;
-    }
-    .selectdate {
-        width: 95px;
-    }
-    .input, .inputlogin {
-        width: 250px;
-    }
-
-    .senha, .senhac {
-        width: 200px;
-    }
-}
-
-@media screen and (width < 800px) {
-    .inputform {
-        width: 100%;
-    }
 }

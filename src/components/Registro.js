@@ -13,7 +13,7 @@ export function Registro ({registro, dadosUsuario}){
                 <p>{registro.title}</p>
             </header>
             <div className={styles.description}>
-                <p style={{textAlign : 'justify'}}>{registro.description}</p>
+                <p style={{textAlign : 'justify'}}>{registro.description.substring(0,190) + '...'}</p>
             </div>
             <footer className={styles.footer}>
                 <img 

@@ -1,5 +1,5 @@
 import styles from '../styles/sidebar.module.css'
-import perfilIcon from '../assets/images/perfil-static-icon.png'
+import logo from '../assets/images/logo-site.png'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -7,33 +7,44 @@ export function SideBar ({dadosUsuario}) {
 
     const navigation = useNavigate()
 
-    const onHandleClick = () => {
-        navigation('/perfil', {state : dadosUsuario})
-    }
-
     return (
         <div className={styles.container}>
 
-            <div className={styles.header} onClick={onHandleClick} > 
-                <img src={perfilIcon} alt="imagem estática de icone de perfil" className={styles.perfilicon}/>
-                <div className={styles.username}>{dadosUsuario.nome}</div>
+            <div className={styles.header}>
+                <img src={logo} alt="logo do site" className={styles.logo}/>
+                <div className={styles.headertext}>
+                    <h3>Innerly</h3>
+                    <span>Como está se sentindo hoje?</span>
+                </div>
             </div>
 
-            <div className={styles.containeropt}>
-                <OptionLink label='Registros' path={'/registros'} dadosUsuario={{}} icon='clipboard-list'/>
-                <OptionLink label='Histórico' path={'/historico'} dadosUsuario={{}} icon='chart-column'/>
+            <hr style={{ border: '1px solid #fff', margin: '10px 0' }} />
+
+            <p style={{color : 'white', fontSize : 16, marginBottom : 10}}>Menu</p>
+
+            <div className={styles.containeroptions}>
+
+                <OptionLink label='Registros' path='/registros' dados={dadosUsuario} icon='file' />
+                <OptionLink label='Meu Perfil' path='/perfil' dados={dadosUsuario} icon='user' />
+                <OptionLink label='Histórico' path='/historico' dados={dadosUsuario} icon='square-poll-vertical' />
+            
             </div>
+
+            <button className={styles.logoutbutton} onClick={() => navigation('/')}>
+                <FontAwesomeIcon icon='right-to-bracket' transform='rotate-180'/>
+                <span style={{fontSize : 14}}>Sair</span>
+            </button>
 
         </div>
     )
 }
 
-function OptionLink ({icon, label, path, dadosUsuario}) {
+function OptionLink ({icon, label, path, dados}) {
 
     const navigation = useNavigate()
 
     const onHandleClick = () => {
-        navigation(path, dadosUsuario)
+        navigation(path, dados)
     }
 
     return (

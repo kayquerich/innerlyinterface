@@ -1,34 +1,38 @@
 .buttonsubmitone {
     height: 50px;
-    width: 200px;
-    background-color: #F4C7FF;
-    border-radius: 10px;
+    width: 150px;
+    background-color: #40a999;
+    border-radius: 5px;
     cursor: pointer;
+    color: white;
+    font-size: medium;
     transition: .5s;
 }
 
 .buttonsubmitone:hover {
-    background-color: #ffb4f2;
+    background-color: #40a999;
 }
 
 .buttonsubmittwo {
     height: 40px;
-    width: 200px;
-    background-color: #F4C7FF;
-    border-radius: 10px;
+    width: 150px;
+    background-color: #40a999;
+    border-radius: 5px;
     cursor: pointer;
+    color: white;
+    font-size: medium;
     transition: .5s;
 }
 
 .buttonsubmittwo:hover {
-    background-color: #ffb4f2;
+    background-color: #40a999;
 }
 
 .buttonbacklogin {
     height: 40px;
     width: 170px;
-    background-color: #F4C7FF;
-    border-radius: 10px;
+    background-color: #40a999;
+    border-radius: 5px;
     color: #374151;
     cursor: pointer;
     transition: .5s;
@@ -38,14 +42,14 @@
 }
 
 .buttonbacklogin:hover {
-    background-color: #ffb4f2;
+    background-color: #40a999;
 }
 
 .buttonedit {
     height: 30px;
     width: 120px;
-    background-color: #C5DBFF;
-    border-radius: 7px;
+    background-color: #40a999;
+    border-radius: 5px;
     cursor: pointer;
     transition: .5s;
 }
@@ -73,7 +77,7 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    background-color: #d134b6;
+    background-color: #1b5f56;
     color: white;
     font-size: 1.7em;
     cursor: pointer;
@@ -91,20 +95,4 @@
     color: white;
     font-size: xx-large;
     cursor: pointer;
-}
-
-@media screen and (width < 410px) {
-    .buttonedit {
-        height: 40px;
-        width: 70px;
-        border-radius: 7px;
-    }
-
-}
-
-@media screen and (width < 411px) {
-    .contaddres {
-        bottom: 10px;
-        right: 10px;
-    }
 }

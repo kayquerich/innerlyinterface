@@ -11,8 +11,9 @@
     height: 220px;
     width: 370px;
     background-color: #C5DBFF;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
+    position: relative;
 }
 
 .header {
@@ -34,25 +35,11 @@
     display: flex;
     justify-content: end;
     align-items: end;
-    padding: 9px 20px 0px 0px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
 
 .emoji {
     height: 40px;
-}
-
-@media screen and (width < 1000px) {
-    .containerregistros {
-        justify-content: center;
-    }
-}
-
-@media screen and (width < 390px) {
-    .registro {
-        width: 90%;
-    }
-
-    .description {
-        height: 50%;
-    }
 }

@@ -24,12 +24,12 @@
 }
 
 .title {
-    color: #fd8aea;
-    font-size: 2.5em;
+    color: #268577;
+    font-size: 2em;
 }
 
 .subtitle {
-    color: #fd8aea;
+    color: #3e8d81;
     font-weight: 350;
 }
 
@@ -61,7 +61,7 @@
 .imagelogin {
     height: 100%;
     width: 50%;
-    background-color: #F4C7FF;
+    background-color: #40a999;
     background-image: url('../assets/images/login-image.png');
     background-size: contain;
     background-position: center;
@@ -75,34 +75,4 @@
     width: 100%;
     height: 150px;
     display: none;
-}
-
-@media screen and (width < 800px) {
-    .imagelogin {
-        display: none;
-    }
-    .pages {
-        display: flex;
-        flex-direction: column;
-    }
-    .wavelogin {
-        display: block;
-    }
-}
-
-@media screen and (width < 1000px) {
-
-    .internalpages {
-        flex-direction: column;
-    }
-
-    .internalcontainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .souprd {
-        justify-content: center;
-    }
 }
