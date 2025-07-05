@@ -11,7 +11,7 @@
     justify-content: center;
     border-radius: 5px 0px 0px 5px;
     font-size: larger;
-    color: #807e7e;
+    color: #374151;
 }
 
 .iconinputc {
@@ -23,7 +23,7 @@
     justify-content: center;
     border-radius: 5px 0px 0px 5px;
     font-size: larger;
-    color: #807e7e;
+    color: #374151;
 }
 
 .input {
@@ -73,7 +73,7 @@
     justify-content: center;
     border-radius: 0px 5px 5px 0px;
     cursor: pointer;
-    color: #807e7e;
+    color: #374151;
 }
 
 .showpassc {
@@ -85,7 +85,7 @@
     justify-content: center;
     border-radius: 0px 5px 5px 0px;
     cursor: pointer;
-    color: #807e7e;
+    color: #374151;
 }
 
 .inputform {
@@ -118,7 +118,7 @@
     border-radius: 5px;
     outline: unset;
     padding-inline: 25px;
-    color: #807e7e;
+    color: #374151;
 }
 
 .containerdates {
