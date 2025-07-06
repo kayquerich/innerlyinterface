@@ -1,71 +1,45 @@
-import styles from '../styles/global.module.css'
-import styleInput from '../styles/input.module.css'
-import { Title, Subtitle } from '../components/Text'
+import styles from '../styles/formulario.module.css'
+import { Title, Subtitle, Link, Warning } from '../components/Text'
 import { Input } from '../components/Input'
 import { ButtonSubmit } from '../components/Button'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import onda from '../assets/onda-cut.png'
 import { Page } from '../components/Container'
-import 'nprogress/nprogress.css'
-import nProgress from 'nprogress'
+import { ImageLogin } from '../components/Imagens'
 
 export default function Login () {
 
     const navigation = useNavigate() 
 
-    const [dadosUsuario, setDadosUsuario] = useState({})
+    const [dados, setDados] = useState({})
+    const [isProfissional, setProfissional] = useState(false)
 
     const onHandleChange = (e) => {
-        setDadosUsuario({...dadosUsuario, [e.target.name] : e.target.value})
+        setDados({...dados, [e.target.name] : e.target.value})
     }
 
     const onHandleClick = () => {
-        navigation('registros')
+        if (!isProfissional){
+            navigation('registros')
+        } else {
+            navigation('profissional/home')
+        }
     }
-
-    /*const onHandleClick = async () => {
-
-        nProgress.start()
-
-        await fetch('https://innerlyapi.onrender.com/usuarios/login', {
-            method : 'POST',
-            headers : {'Content-Type': 'application/json'},
-            body : JSON.stringify(dadosUsuario),
-        }).then(async (data) => {
-
-            let dados = await data.json()
-            
-            if (dados.token) {
-                navigation('registros', {state : {
-                    token : dados.token
-                }})
-            } else {
-                setIcorrect(true)
-                setTimeout(() => {
-                    setIcorrect(false)
-                }, 2000)
-            }
-
-        }).catch((error) => {
-            alert('erro no login')
-        })
-
-        nProgress.done()
-
-    }*/
 
     const [isIncorrect, setIcorrect] = useState(false)
 
     return (
         <Page>
-            <div className={styles.content} style={{flexDirection : 'row', justifyContent : 'space-between'}}>
-                <div className={styles.imagelogin}>
-                    
-                </div>
-                <div className={styleInput.inputform}>
-                    <Title text='Innerly'/>
-                    <Subtitle text='Registro de emoções e bem estar'/>
+            <div style={{flexDirection : 'row', justifyContent : 'space-between', display : 'flex', height : '100%', width : '100%'}}>
+
+                <ImageLogin/>
+
+                <div className={styles.loginform}>
+
+                    <Title>Innerly</Title>
+
+                    <Subtitle>Registro de emoções e bem-estar</Subtitle>
+
                     <Input
                         id='email'
                         name='email'
@@ -85,16 +59,13 @@ export default function Login () {
                         icon='lock'
                     />
 
-                    {isIncorrect ? (
-                        <div className={styleInput.warning}>email ou senha incorretos*</div>
-                    ) : <></>}
+                    <Warning boolean={isIncorrect}/>
 
                     <ButtonSubmit text='acessar' handleClick={onHandleClick}/>
-                    <p onClick={() => navigation('/cadastro')} className={styles.link}>Não tem uma conta? Cadastre-se!</p>
+                    <Link path={'/cadastro'} >Não tem uma conta? Cadastre-se</Link>
                     
                 </div>
 
-                <img src={onda} alt="imagem de onda" className={styles.wavelogin} />
             </div>
         </Page>
     )

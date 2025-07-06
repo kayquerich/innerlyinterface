@@ -1,12 +1,13 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { InternalPage as Page } from "../components/Container"
-import styles from '../styles/global.module.css'
 import { AnotationInput, EmotionInput } from "../components/Input"
 import { ButtonSubmit } from "../components/Button";
+import { Separator, Subtitle, Title } from "../components/Text";
 
 export default function Detalhes () {
 
     const location = useLocation()
+
     const {registro, dadosUsuario} = location.state
 
     const navigation = useNavigate()
@@ -17,20 +18,22 @@ export default function Detalhes () {
 
     return (
         <Page dadosUsuario={dadosUsuario}>
-            <h1 className={styles.title}>Detalhes - {registro.title}</h1>
-            <div className={styles.mediumsep}></div>
 
-            <h2 className={styles.subtitle}>Como está se sentido?</h2>
-            <div className={styles.smallsep}></div>
+            <Title>Detalhes - {registro.title}</Title>
+            <Separator margin={30}/>
+
+            <Subtitle>Como está se sentindo?</Subtitle>  
+            <Separator margin={10}/>     
             <EmotionInput valuehumor={registro ? registro.valuehumor : -1}/>
-            <div className={styles.mediumsep}></div>
+            <Separator margin={20}/>
 
-            <h2 className={styles.subtitle} >Anotação</h2>
-            <div className={styles.smallsep}></div>
+            <Subtitle>Anotação</Subtitle>
+            <Separator margin={10}/>
             <AnotationInput value={registro.description}/>
-            <div className={styles.mediumsep}></div>
+            <Separator margin={30}/>
 
             <ButtonSubmit text='enviar' handleClick={onHandleClick}/>
+
         </Page>
     )
 }

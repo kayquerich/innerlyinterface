@@ -1,0 +1,14 @@
+.title {
+    color: #268577;
+    font-size: 2em;
+}
+
+.subtitle {
+    color: #3e8d81;
+    font-weight: 350;
+}
+
+.link {
+    color: #374151;
+    cursor: pointer;
+}

@@ -1,0 +1,18 @@
+.pages {
+    flex: 1;
+    height: 100vh;
+    width: 100%;
+}
+
+.internalpages {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.internalcontainer {
+    height: 100%;
+    width: 100%;
+    padding: 2%;
+}

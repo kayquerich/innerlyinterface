@@ -88,28 +88,6 @@
     color: #374151;
 }
 
-.inputform {
-    display : flex; 
-    flex-direction : column; 
-    justify-content : center;
-    align-items : center;
-    width : 50%;
-    gap: 1em;
-}
-
-.cadastroform {
-    display : flex; 
-    flex-direction : column; 
-    justify-content : center;
-    align-items : center;
-    width : 400px;
-    gap: 1em;
-    background-color: #F9FAFB;
-    box-shadow: 0px 2px 5px -1px black;
-    padding: 1em;
-    border-radius: 5px;
-}
-
 .selectdate {
     width: 110px;
     height: 40px;
@@ -165,10 +143,6 @@
     background-color: #C5DBFF;
     outline: unset;
     border-radius: 5px;
-}
-
-.warning {
-    color: red;
 }
 
 .editinput {

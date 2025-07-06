@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { ButtonSubmit} from "../components/Button";
 import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, DateInput, EmotionInput } from '../components/Input';
-import global from '../styles/global.module.css'
+import { Subtitle, Title, Separator } from "../components/Text";
 
 export default function Adicionar () {
 
@@ -26,23 +26,23 @@ export default function Adicionar () {
     return (
         <Page dadosUsuario={data}>
 
-            <h1 className={global.title}>Adicionar registro</h1>
-            <div className={global.mediumsep}></div>
+            <Title>Adicionar registro</Title>
+            <Separator margin={30}/>
 
-            <h2 className={global.subtitle}>Como está se sentindo?</h2>
-            <div className={global.smallsep}></div>
+            <Subtitle>Como está se sentindo?</Subtitle>
+            <Separator margin={10}/>
             <EmotionInput handleChange={onEmotionChange}/>
-            <div className={global.mediumsep}></div>
+            <Separator margin={20}/>
 
-            <h2 className={global.subtitle}>Data do registro</h2>
-            <div className={global.smallsep}></div>
+            <Subtitle>Data do registro</Subtitle>
+            <Separator margin={10}/>
             <DateInput/>
-            <div className={global.mediumsep}></div>
+            <Separator margin={20}/>
 
-            <h2 className={global.subtitle}>Anotações</h2>
-            <div className={global.smallsep}></div>
+            <Subtitle>Anotações</Subtitle>
+            <Separator margin={10}/>
             <AnotationInput/>
-            <div className={global.mediumsep} ></div>
+            <Separator margin={30}/>
 
             <ButtonSubmit text='enviar' handleClick={onHandleSubmit}/>
             

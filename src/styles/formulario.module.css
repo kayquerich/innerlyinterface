@@ -18,13 +18,18 @@
     padding: 1.2%;
 }
 
-.title {
-    font-weight: 400;
-}
-
 .containerinput {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.loginform {
+    display : flex; 
+    flex-direction : column; 
+    justify-content : center;
+    align-items : center;
+    width : 50%;
+    gap: 1em;
 }

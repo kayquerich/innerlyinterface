@@ -2,8 +2,9 @@ import styles from '../styles/sidebar.module.css'
 import logo from '../assets/images/logo-site.png'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Line } from './Text'
 
-export function SideBar ({dadosUsuario}) {
+export function SideBar ({dados}) {
 
     const navigation = useNavigate()
 
@@ -24,9 +25,9 @@ export function SideBar ({dadosUsuario}) {
 
             <div className={styles.containeroptions}>
 
-                <OptionLink label='Registros' path='/registros' dados={dadosUsuario} icon='file' />
-                <OptionLink label='Meu Perfil' path='/perfil' dados={dadosUsuario} icon='user' />
-                <OptionLink label='Histórico' path='/historico' dados={dadosUsuario} icon='square-poll-vertical' />
+                <OptionLink label='Registros' path='/registros' dados={dados} icon='file' />
+                <OptionLink label='Meu Perfil' path='/perfil' dados={dados} icon='user' />
+                <OptionLink label='Histórico' path='/historico' dados={dados} icon='square-poll-vertical' />
             
             </div>
 

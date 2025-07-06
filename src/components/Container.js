@@ -1,5 +1,5 @@
 import { SideBar } from "./SideBar"
-import styles from '../styles/global.module.css'
+import styles from '../styles/container.module.css'
 
 export function Page ({children}) {
     return (
