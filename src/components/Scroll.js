@@ -7,10 +7,13 @@ export function ScrollRight ({ref, distance, visibility, direction}) {
     const [ intervalId, setIntervalId ] = useState()
 
     const scroll = () => {
-        const id = setInterval(() => {
-            ref.current.scrollBy({ left : distance, behavior : 'smooth'})
-        }, 1)
-        setIntervalId(id)
+
+        if (ref) {
+            const id = setInterval(() => {
+                ref.current.scrollBy({ left : distance, behavior : 'smooth'})
+            }, 1)
+            setIntervalId(id)
+        }
     }
 
     const stopScroll = () => {
