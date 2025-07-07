@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/innerlyinterface/static/css/main.462d4db5.css",
-    "main.js": "/innerlyinterface/static/js/main.1cbfcd20.js",
+    "main.css": "/innerlyinterface/static/css/main.0a753b7f.css",
+    "main.js": "/innerlyinterface/static/js/main.039cf614.js",
     "static/js/453.edde93b5.chunk.js": "/innerlyinterface/static/js/453.edde93b5.chunk.js",
     "static/media/logo-site.png": "/innerlyinterface/static/media/logo-site.649312f4b50a224cc92a.png",
     "static/media/login-image.png": "/innerlyinterface/static/media/login-image.fe66103fff26df3d9094.png",
@@ -13,12 +13,12 @@
     "static/media/mais-ou-menos.png": "/innerlyinterface/static/media/mais-ou-menos.a1e274cbc2719ee8b620.png",
     "static/media/perfil-static-icon.png": "/innerlyinterface/static/media/perfil-static-icon.a18d5ef15d311676dccd.png",
     "index.html": "/innerlyinterface/index.html",
-    "main.462d4db5.css.map": "/innerlyinterface/static/css/main.462d4db5.css.map",
-    "main.1cbfcd20.js.map": "/innerlyinterface/static/js/main.1cbfcd20.js.map",
+    "main.0a753b7f.css.map": "/innerlyinterface/static/css/main.0a753b7f.css.map",
+    "main.039cf614.js.map": "/innerlyinterface/static/js/main.039cf614.js.map",
     "453.edde93b5.chunk.js.map": "/innerlyinterface/static/js/453.edde93b5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.462d4db5.css",
-    "static/js/main.1cbfcd20.js"
+    "static/css/main.0a753b7f.css",
+    "static/js/main.039cf614.js"
   ]
 }
