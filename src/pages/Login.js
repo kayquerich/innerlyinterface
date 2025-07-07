@@ -7,22 +7,28 @@ import { useNavigate } from 'react-router-dom'
 import { Page } from '../components/Container'
 import { ImageLogin } from '../components/Imagens'
 
+import { model_profissional, model_usuario } from '../assets/dados'
+
 export default function Login () {
 
     const navigation = useNavigate() 
 
     const [dados, setDados] = useState({})
-    const [isProfissional, setProfissional] = useState(false)
 
     const onHandleChange = (e) => {
         setDados({...dados, [e.target.name] : e.target.value})
     }
 
     const onHandleClick = () => {
-        if (!isProfissional){
-            navigation('registros')
+        if (dados.email === model_usuario.email){
+            navigation('registros', { state : model_usuario })
+        } else if (dados.email === model_profissional.email){
+            navigation('profissional/home', { state : model_profissional })
         } else {
-            navigation('profissional/home')
+            setIcorrect(true)
+            setInterval(() => {
+                setIcorrect(false)
+            }, 3000)
         }
     }
 

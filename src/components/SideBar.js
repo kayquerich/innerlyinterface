@@ -2,7 +2,6 @@ import styles from '../styles/sidebar.module.css'
 import logo from '../assets/images/logo-site.png'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Line } from './Text'
 
 export function SideBar ({dados}) {
 
@@ -25,9 +24,19 @@ export function SideBar ({dados}) {
 
             <div className={styles.containeroptions}>
 
-                <OptionLink label='Registros' path='/registros' dados={dados} icon='file' />
-                <OptionLink label='Meu Perfil' path='/perfil' dados={dados} icon='user' />
-                <OptionLink label='Histórico' path='/historico' dados={dados} icon='square-poll-vertical' />
+                {'concelho' in dados ? (
+                    <>
+                        <OptionLink label='Registros' path='/profissional/home' dados={dados} icon='file' />
+                        <OptionLink label='Meu Perfil' path='/profissional/perfil' dados={dados} icon='user' />
+                        <OptionLink label='Solicitações' path='/profissional/solicitacoes' dados={dados} icon='user-group'/>    
+                    </>
+                ) : (
+                    <>
+                        <OptionLink label='Registros' path='/registros' dados={dados} icon='file' />
+                        <OptionLink label='Meu Perfil' path='/perfil' dados={dados} icon='user' />
+                        <OptionLink label='Histórico' path='/historico' dados={dados} icon='square-poll-vertical'/>    
+                    </>
+                )}
             
             </div>
 
@@ -45,7 +54,7 @@ function OptionLink ({icon, label, path, dados}) {
     const navigation = useNavigate()
 
     const onHandleClick = () => {
-        navigation(path, dados)
+        navigation(path, { state : dados })
     }
 
     return (

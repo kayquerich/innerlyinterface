@@ -10,12 +10,12 @@ export function ButtonSubmit ({handleClick, text, typeStyle, style}) {
     )
 }
 
-export function GoToAddRegistro ({dadosUsuario}) {
+export function GoToAddRegistro ({dados}) {
 
     const navigation = useNavigate()
 
     const onHandleClick = () => {
-        navigation('/registros/adicionar', dadosUsuario)
+        navigation('/registros/adicionar', { state : dados })
     }
 
     return (

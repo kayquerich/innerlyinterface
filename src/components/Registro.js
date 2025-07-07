@@ -1,27 +1,38 @@
 import styles from '../styles/registros.module.css'
 import { listaEmojis } from '../assets/dados'
 import { useNavigate } from 'react-router-dom'
+import { Line } from './Text'
 
-export function Registro ({registro, dadosUsuario}){
+export function Registro ({registro, dados}){
 
     const navigation = useNavigate()
 
-    return (
-        <div className={styles.registro} onClick={() => navigation('/registros/detalhes', {state : {registro : registro, dadosUsuario : dadosUsuario}})}>
+    const goToPage = (usuario) => {
+        if (usuario && 'concelho' in usuario) {
+            navigation('/profissional/registro/detalhes', { state : {
+                registro : registro,
+                dados : usuario
+            } })
+        } else {
+            navigation('/registros/detalhes', { state : {
+                registro : registro,
+                usuario : usuario
+            } })
+        }
+    }
 
-            <header className={styles.header}>
-                <p>{registro.title}</p>
-            </header>
-            <div className={styles.description}>
-                <p style={{textAlign : 'justify'}}>{registro.description.substring(0,190) + '...'}</p>
-            </div>
-            <footer className={styles.footer}>
-                <img 
-                    src={listaEmojis[registro.valuehumor]} 
-                    alt={'emoji' + listaEmojis[registro.valuehumor]} 
-                    className={styles.emoji}
-                />
-            </footer>
+    return (
+        <div className={styles.registro} onClick={() => goToPage(dados)}>
+
+            <p>{registro.title}</p>
+            <Line color='black' />
+            <p>{registro.description.substring(0,150) + '...'}</p>
+
+            <img 
+                src={listaEmojis[registro.valuehumor]} 
+                alt="imagem de um emoji equivalente a emoção"   
+            />
+
 
         </div>
     )

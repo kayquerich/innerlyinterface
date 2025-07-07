@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { ButtonSubmit} from "../components/Button";
 import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, DateInput, EmotionInput } from '../components/Input';
@@ -8,23 +8,20 @@ export default function Adicionar () {
 
     const navigation = useNavigate()
 
-    const data = {
-        nome : 'Kayque Richarlyson',
-        email : 'kayque@email.com',
-        senha : 'senha123',
-        contato : '(87) 9 9101-0743' 
-    }
+    const location = useLocation()
+    
+    const dados = location.state
 
     const onEmotionChange = (e) => {
         console.log(e)
     }
 
     const onHandleSubmit = () => {
-        navigation('/registros', data)
+        navigation('/registros', { state : dados})
     }
 
     return (
-        <Page dadosUsuario={data}>
+        <Page dadosUsuario={dados}>
 
             <Title>Adicionar registro</Title>
             <Separator margin={30}/>

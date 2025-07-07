@@ -22,9 +22,9 @@ export function CadastroTitle () {
     )
 }
 
-export function Line () {
+export function Line ({color}) {
     return (
-        <hr style={{ border: '1px solid #ccc', margin: '10px 0', width : '100%' }} />
+        <hr style={{ border: `1px solid ${color ? color : '#ccc'}`, margin: '10px 0', width : '100%' }} />
     )
 }
 

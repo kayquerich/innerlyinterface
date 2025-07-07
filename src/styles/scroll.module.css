@@ -1,0 +1,26 @@
+.right_scroll_button {
+    position: sticky;
+    right: 0;
+    height: 90%;
+    min-width: 50px;
+    color: white;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+}
+
+.left_scroll_button {
+    position: sticky;
+    z-index: 10;
+    left: 0;
+    height: 90%;
+    min-width: 50px;
+    color: white;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+}

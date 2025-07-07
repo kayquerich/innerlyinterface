@@ -8,6 +8,9 @@ import Adicionar from './pages/Adicionar';
 import Detalhes from './pages/Detalhes';
 import Historico from './pages/Historico';
 import Home from './pages/profissional/Home';
+import PerfilProfissional from './pages/profissional/Perfil';
+import Solicitacoes from './pages/profissional/Solicitacoes';
+import FileRegistro from './pages/profissional/Detalhes';
 
 function App() {
     return (
@@ -21,6 +24,9 @@ function App() {
                 <Route path='/registros/detalhes' element={<Detalhes/>}/>
                 <Route path='/historico' element={<Historico/>}/>
                 <Route path='/profissional/home' element={<Home/>}/>
+                <Route path='/profissional/perfil' element={<PerfilProfissional/>}/>
+                <Route path='/profissional/solicitacoes' element={<Solicitacoes/>}/>
+                <Route path='/profissional/registro/detalhes' element={<FileRegistro/>}/>
             </Routes>
         </HashRouter>
     );  

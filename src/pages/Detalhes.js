@@ -8,16 +8,16 @@ export default function Detalhes () {
 
     const location = useLocation()
 
-    const {registro, dadosUsuario} = location.state
+    const {registro, usuario} = location.state
 
     const navigation = useNavigate()
 
     const onHandleClick = () => {
-        navigation('/registros')
+        navigation('/registros', { state : usuario })
     }
 
     return (
-        <Page dadosUsuario={dadosUsuario}>
+        <Page dadosUsuario={usuario}>
 
             <Title>Detalhes - {registro.title}</Title>
             <Separator margin={30}/>

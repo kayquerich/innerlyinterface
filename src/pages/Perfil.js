@@ -1,5 +1,4 @@
 import { InternalPage as Container } from "../components/Container"
-import { fakeData } from "../assets/dados"
 import { Subtitle } from "../components/Text"
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 import { ProfissionalCard as Card } from "../components/Card"
@@ -7,15 +6,19 @@ import { UserEditPage as Modal } from "../components/Modal"
 import profileImage from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/perfil.module.css'
 import { useState } from "react"
+import { useLocation } from "react-router-dom"
 
 export default function Perfil () {
 
     const [isOpen, setOpen] = useState(false)
 
+    const location = useLocation()
+    const dados = location.state
+
     return (
         <>
-            {isOpen ? (<Modal dadosUsuario={fakeData} close={() => setOpen(false)}/>) : <></>}
-            <Container dadosUsuario={fakeData}>
+            {isOpen ? (<Modal dadosUsuario={dados} close={() => setOpen(false)}/>) : <></>}
+            <Container dadosUsuario={dados}>
 
                 <Subtitle text='Meu Perfil' />
 
@@ -24,9 +27,9 @@ export default function Perfil () {
                         <img src={profileImage} alt="imagem estática de perfil"/>
                     </div>
                     <div className={styles.headerinfos}>
-                        <p className={styles.name} >{fakeData.nome}</p>
-                        <p>{fakeData.username}</p>
-                        <p>{fakeData.nascimento}</p>
+                        <p className={styles.name} >{dados.nome}</p>
+                        <p>{dados.username}</p>
+                        <p>{dados.nascimento}</p>
                     </div>
                 </div>
 
@@ -38,15 +41,15 @@ export default function Perfil () {
                     <div className={styles.internal} >
 
                         <div className={styles.column}>
-                            <Informacao label='Nome' value={fakeData.nome} />
-                            <Informacao label='Username' value={fakeData.username} />
+                            <Informacao label='Nome' value={dados.nome} />
+                            <Informacao label='Username' value={dados.username} />
                         </div>
                         <div className={styles.column}>
-                            <Informacao label='Email' value={fakeData.email}/>
-                            <Informacao label='Contato' value={fakeData.contato}/>
+                            <Informacao label='Email' value={dados.email}/>
+                            <Informacao label='Contato' value={dados.contato}/>
                         </div>
                         <div className={styles.column}>
-                            <Informacao label='Data de Nascimento' value={fakeData.nascimento}/>
+                            <Informacao label='Data de Nascimento' value={dados.nascimento}/>
                         </div>
 
                     </div>

@@ -13,7 +13,7 @@ export function InternalPage ({children, dadosUsuario}) {
 
     return (
         <div className={styles.internalpages}>
-            <SideBar dadosUsuario={dadosUsuario}/>
+            <SideBar dados={dadosUsuario}/>
             <div className={styles.internalcontainer}>
                 {children}
             </div>
