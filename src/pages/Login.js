@@ -6,8 +6,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Page } from '../components/Container'
 import { ImageLogin } from '../components/Imagens'
-
-import { model_profissional, model_usuario } from '../assets/dados'
+import { login } from '../services/Autenticacao'
 
 export default function Login () {
 
@@ -19,20 +18,33 @@ export default function Login () {
         setDados({...dados, [e.target.name] : e.target.value})
     }
 
-    const onHandleClick = () => {
-        if (dados.email === model_usuario.email){
-            navigation('registros', { state : model_usuario })
-        } else if (dados.email === model_profissional.email){
-            navigation('profissional/home', { state : model_profissional })
+    const invalid_credencials = (response) => {
+        setIcorrect(true)
+        setMessage(response.message)
+        setInterval(() => {
+            setIcorrect(false)
+        }, 3000)
+    }
+
+    const onHandleClick = async () => {
+        const response = await login(dados)
+
+        if (response.token) {
+
+            if (!response.isprouser) {
+                navigation('/registros', { state : response })
+            } else {
+                navigation('/profissional/home', { state : response })
+            }
+            
         } else {
-            setIcorrect(true)
-            setInterval(() => {
-                setIcorrect(false)
-            }, 3000)
+            console.log(response)
+            invalid_credencials(response)
         }
     }
 
     const [isIncorrect, setIcorrect] = useState(false)
+    const [errorMessage, setMessage] = useState()
 
     return (
         <Page>
@@ -65,7 +77,7 @@ export default function Login () {
                         icon='lock'
                     />
 
-                    <Warning boolean={isIncorrect}/>
+                    <Warning boolean={isIncorrect}>{errorMessage}</Warning>
 
                     <ButtonSubmit text='acessar' handleClick={onHandleClick}/>
                     <Link path={'/cadastro'} >Não tem uma conta? Cadastre-se</Link>

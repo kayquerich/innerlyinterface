@@ -3,21 +3,41 @@ import { ButtonSubmit} from "../components/Button";
 import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, DateInput, EmotionInput } from '../components/Input';
 import { Subtitle, Title, Separator } from "../components/Text";
+import { useState } from "react";
+import { createRegistro } from "../services/Usuarios";
 
 export default function Adicionar () {
 
     const navigation = useNavigate()
 
     const location = useLocation()
-    
     const dados = location.state
 
+    const [registro, setRegistro] = useState()
+
     const onEmotionChange = (e) => {
-        console.log(e)
+        setRegistro({...registro, 'value_humor' : e + 1})
     }
 
-    const onHandleSubmit = () => {
-        navigation('/registros', { state : dados})
+    const onDateChange = (e) => {
+        setRegistro({...registro, 'data' : e})
+    }
+
+    const onAnotationChange = (e) => {
+        setRegistro({...registro, 'anotacao' : e.target.value})
+    } 
+
+    const onHandleSubmit = async () => {
+
+        const response = await createRegistro(registro, dados.token)
+
+        if (response && response.criado) {
+            alert('Registro adicionado!')
+            navigation(-1, { state : { parse_usuario : dados } })
+        } else {
+            alert('Erro na criação do registro')
+        }
+
     }
 
     return (
@@ -33,12 +53,12 @@ export default function Adicionar () {
 
             <Subtitle>Data do registro</Subtitle>
             <Separator margin={10}/>
-            <DateInput/>
+            <DateInput handleChange={onDateChange} current={true}/>
             <Separator margin={20}/>
 
             <Subtitle>Anotações</Subtitle>
             <Separator margin={10}/>
-            <AnotationInput/>
+            <AnotationInput handleChange={onAnotationChange}/>
             <Separator margin={30}/>
 
             <ButtonSubmit text='enviar' handleClick={onHandleSubmit}/>

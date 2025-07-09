@@ -12,3 +12,8 @@
     color: #374151;
     cursor: pointer;
 }
+
+.subtitle_dark {
+    font-weight: 600;
+    color: #06574b;
+}

@@ -14,18 +14,24 @@
     font-weight: 400;
 }
 
-.emotion_container {
-    margin-left: 20px;
+.emotion_space {
     display: flex;
     gap: 10px;
     align-items: center;
+    margin-left: 15px;
 }
 
 .emotion_icon {
-    height: 50px;
+    height: 40px;
 }
 
 .emotion_name {
     font-size: x-large;
-    color: #268577;
+    font-weight: bolder;
+}
+
+.container_anotation {
+    height: 200px;
+    width: 100%;
+    background-color: #C5DBFF;
 }

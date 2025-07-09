@@ -67,6 +67,7 @@ export function FormularioCadastro ({onHandleSubmit}) {
                         change={setProfissional} 
                         boolean={isProfissional} 
                         dados={dados}
+                        clear_data={setDados}
                     />
 
                 </div>
@@ -93,8 +94,8 @@ export function FormularioCadastro ({onHandleSubmit}) {
                         />
                         
                         <Input
-                            id='nome'
-                            name='nome'
+                            id='username'
+                            name='username'
                             type='text'
                             placeholder='Nome'
                             icon='user-tag'
@@ -140,7 +141,7 @@ export function FormularioCadastro ({onHandleSubmit}) {
                             handleChange={onHandleChange}
                         />
                         <Input
-                            id='regiap'
+                            id='regiao'
                             name='regiao'
                             type='text'
                             placeholder='Região onde é registrado'
@@ -165,6 +166,7 @@ export function FormularioCadastro ({onHandleSubmit}) {
                         change={setProfissional} 
                         boolean={isProfissional} 
                         dados={dados}
+                        clear_data={setDados}
                     />
 
                 </div>
@@ -174,11 +176,11 @@ export function FormularioCadastro ({onHandleSubmit}) {
 
 }
 
-function Footer ({submit, change, boolean, dados}) {
+function Footer ({submit, change, boolean, dados, clear_data}) {
     return (
         <div style={{display : 'flex', flexDirection : 'column', gap : 10, alignItems : 'center', marginTop : 20}}>
             <ButtonSubmit text='cadastrar' handleClick={() => submit(dados)}/>
-            <ChangePageLink action={change} boolean={boolean}
+            <ChangePageLink action={change} boolean={boolean} clear_data={clear_data}
                 texts={[
                     'Sou profissional da saúde mental, clique aqui!', 
                     'Sou usuario comum, clique aqui!'

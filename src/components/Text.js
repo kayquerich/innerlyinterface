@@ -14,6 +14,12 @@ export function Subtitle({children}) {
     )
 }
 
+export function SubtitleDark({children}) {
+    return (
+        <h2 className={styles.subtitle_dark}>{children}</h2>
+    )
+}
+
 export function CadastroTitle () {
     return (
         <header style={{marginBottom : '1.5em'}}>
@@ -37,18 +43,19 @@ export function Link ({path, children}) {
     )
 }
 
-export function Warning ({boolean}) {
+export function Warning ({boolean, children}) {
     return (
-        <>{boolean ? (<p style={{color : 'red'}} >Email ou senha incorretos!</p>) : <></>}</>
+        <>{boolean ? (<p style={{color : 'red'}} >{children}</p>) : <></>}</>
     )
 }
 
-export function ChangePageLink ({texts, boolean, action}) {
+export function ChangePageLink ({texts, boolean, action, clear_data}) {
 
     const [text, setText] = useState(texts[0])
 
     const onHandleClick = () => {
         action(!boolean)
+        clear_data({})
     }
 
     return (

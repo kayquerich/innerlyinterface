@@ -2,10 +2,20 @@ import styles from '../styles/sidebar.module.css'
 import logo from '../assets/images/logo-site.png'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { logout } from '../services/Autenticacao'
 
 export function SideBar ({dados}) {
 
     const navigation = useNavigate()
+
+    const logoutAction = async () => {
+        if (dados.token) {
+            const foi = await logout(dados.token)
+            if (foi) {
+                navigation('/')
+            }
+        }
+    }
 
     return (
         <div className={styles.container}>
@@ -24,7 +34,7 @@ export function SideBar ({dados}) {
 
             <div className={styles.containeroptions}>
 
-                {'concelho' in dados ? (
+                {dados && 'concelho' in dados ? (
                     <>
                         <OptionLink label='Registros' path='/profissional/home' dados={dados} icon='file' />
                         <OptionLink label='Meu Perfil' path='/profissional/perfil' dados={dados} icon='user' />
@@ -40,7 +50,7 @@ export function SideBar ({dados}) {
             
             </div>
 
-            <button className={styles.logoutbutton} onClick={() => navigation('/')}>
+            <button className={styles.logoutbutton} onClick={logoutAction}>
                 <FontAwesomeIcon icon='right-to-bracket' transform='rotate-180'/>
                 <span style={{fontSize : 14}}>Sair</span>
             </button>

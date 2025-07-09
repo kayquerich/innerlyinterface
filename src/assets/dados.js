@@ -14,6 +14,14 @@ export const listaNomesEmojis = [
     'Muito bem'
 ]
 
+export const lista_cores_emotion = [
+    '#d90000',
+    '#d94800',
+    '#d9c300',
+    '#aed900',
+    '#04d900',
+]
+
 export const model_usuario = {
     nome : 'Kayque Richarlyson',
     username : 'kayque#1984',
