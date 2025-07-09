@@ -182,12 +182,12 @@ function SelectForDate ({options, execute, label}) {
 export function EmotionInput ({handleChange, valuehumor}) {
 
     const [chose, setChose] = useState(valuehumor !== -1 ? true : false)
-    const [value, setValue] = useState("" + (valuehumor + 1))
+    const [value, setValue] = useState("" + (valuehumor))
 
     const onHandleClick = (e) => {
         setChose(true)
         setValue(e.currentTarget.id)
-        handleChange(parseInt(e.currentTarget.id) -1)
+        handleChange(parseInt(e.currentTarget.id) - 1)
     }
 
 

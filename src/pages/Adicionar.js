@@ -8,6 +8,9 @@ import { createRegistro } from "../services/Usuarios";
 
 export default function Adicionar () {
 
+    const saved = sessionStorage.getItem('registros')
+    const saved_registros = saved ? JSON.parse(saved) : []
+
     const navigation = useNavigate()
 
     const location = useLocation()
@@ -16,7 +19,7 @@ export default function Adicionar () {
     const [registro, setRegistro] = useState()
 
     const onEmotionChange = (e) => {
-        setRegistro({...registro, 'value_humor' : e + 1})
+        setRegistro({...registro, 'value_humor' : e})
     }
 
     const onDateChange = (e) => {
@@ -33,6 +36,8 @@ export default function Adicionar () {
 
         if (response && response.criado) {
             alert('Registro adicionado!')
+            saved_registros.push(response.registro)
+            sessionStorage.setItem('registros', JSON.stringify(saved_registros))
             navigation(-1, { state : { parse_usuario : dados } })
         } else {
             alert('Erro na criação do registro')

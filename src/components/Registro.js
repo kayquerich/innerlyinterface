@@ -26,10 +26,10 @@ export function Registro ({registro, dados}){
 
             <p>{registro.title}</p>
             <Line color='black' />
-            <p>{registro.description.substring(0,150) + '...'}</p>
+            <p>{registro.anotacao.substring(0,150) + '...'}</p>
 
             <img 
-                src={listaEmojis[registro.valuehumor]} 
+                src={listaEmojis[registro.value_humor]} 
                 alt="imagem de um emoji equivalente a emoção"   
             />
 

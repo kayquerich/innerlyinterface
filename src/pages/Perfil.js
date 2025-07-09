@@ -20,7 +20,7 @@ export default function Perfil () {
             {isOpen ? (<Modal dadosUsuario={dados} close={() => setOpen(false)}/>) : <></>}
             <Container dadosUsuario={dados}>
 
-                <Subtitle text='Meu Perfil' />
+                <Subtitle>Meu perfil</Subtitle>
 
                 <div className={styles.header} style={{marginBlock : 10}}>
                     <div>

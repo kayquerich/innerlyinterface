@@ -13,11 +13,12 @@ export default function UserRegistros () {
     const data_login = location.state
 
     const [usuario, setUsuario] = useState()
-    const [registros, setRegistros] = useState()
+    const [registros, setRegistros] = useState([])
 
+    // eslint-disable-next-line
     useEffect(() => {
 
-        const fetchUsuario = async () => {
+        const fetch_dados = async () => {
 
             let temporary_user = null
 
@@ -44,25 +45,36 @@ export default function UserRegistros () {
 
             if (!saved) {
                 const query_registros = await getRegistrosByUser(temporary_user.id, temporary_user.token)
-                setRegistros(query_registros)
+                setRegistros(query_registros.reverse())
                 sessionStorage.setItem('registros', JSON.stringify(query_registros));
             } else {
                 setRegistros(JSON.parse(saved))
             }
+
         }
 
-        fetchUsuario()
+        console.log('aaaaaaaaaaaaa')
 
-    }, [])
+        fetch_dados()
+
+    }, [data_login])
 
     return (
         <Page dadosUsuario={usuario}>
 
-            {console.log(registros)}
-
             <Title>Meus Registros</Title>
 
             <div className={styles.containerregistros}>
+
+                {registros.length < 1 ? (
+                    <div style={{width : '100%', display : 'flex', alignItems : 'center', justifyContent : 'center', paddingTop : '17%'}}>
+                        <h1 style={{color : 'gray', opacity : '50%'}}>Começe a escrever suas emoções por aqui!</h1>
+                    </div>
+                ) : (<></>)}
+
+                {registros.map((registro, index) => (
+                    <Registro registro={registro} dados={usuario} key={index} />
+                ))}
                 
             </div>
 

@@ -95,6 +95,33 @@ export const getRegistrosByUser = async (id, token) => {
 
 }
 
+export const updateRegistro = async (registro, token) => {
+    
+    try {
+
+        const response = await fetch('http://localhost:8000/registros/update', {
+            method : 'PUT',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            },
+            body : JSON.stringify(registro)
+        })
+
+        if (response.ok) {
+            return await response.json()
+        } else {
+            alert('Não foi possivel realizar a mudança no registro')
+        }
+        
+
+    } catch (error) {
+        console.log(error)
+        error_case()
+    }
+
+}
+
 function error_case () {
     alert('O servidor não está respondendo, tente novamente mais tarde')
 }
