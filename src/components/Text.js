@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import styles from '../styles/text.module.css'
-import { useState } from 'react'
 
 export function Title ({children}) {
     return (
@@ -50,8 +49,6 @@ export function Warning ({boolean, children}) {
 }
 
 export function ChangePageLink ({texts, boolean, action, clear_data}) {
-
-    const [text, setText] = useState(texts[0])
 
     const onHandleClick = () => {
         action(!boolean)

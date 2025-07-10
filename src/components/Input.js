@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import styles from '../styles/input.module.css'
 import { listaEmojis, listaNomesEmojis } from '../assets/dados'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
-export function Input ({id, name, type, placeholder, icon, handleChange, styleType, value}) {
+export function Input ({id, name, type, placeholder, icon, handleChange, styleType, value, custom_styles}) {
 
     const setStyle = () => {
         if (styleType === 'login') {
@@ -70,6 +70,7 @@ export function Input ({id, name, type, placeholder, icon, handleChange, styleTy
                 placeholder={placeholder} 
                 onChange={handleChange}
                 className={setStyle()}
+                style={custom_styles}
             />
             {styleType === 'senha' || styleType === 'senhac' ? (
                 <div className={defineTypeShow()} onClick={showPass}><Icon icon={eye}/></div>
@@ -228,4 +229,154 @@ export function AnotationInput ({handleChange, value}) {
             <textarea onChange={handleChange} placeholder='Me conte como está se sentindo...' className={styles.anotationinput} >{value}</textarea>
         </>
     )
+}
+
+export function GenderInput ({handleChange}) {
+
+    const options = [
+        {
+            id : 'male',
+            value : 'masculino',
+            label : 'Masculino'
+        }, 
+        {
+            id : 'female',
+            value : 'feminino',
+            label : 'Feminino'
+        }, 
+        {  
+            id : 'other',
+            value : 'outro',
+            label : 'Outro'
+        }
+    ]
+
+    const [option, setOption] = useState()
+
+    const onHandleSelect = (e) => {
+
+        if (e.target.name === 'opcao') {
+            setOption(e.target.value)
+        }
+
+        handleChange(e.target.value)
+    }
+
+    return (
+        <div className={styles.radio_external}>
+
+            <p>Gênero</p>
+
+            <div className={styles.container_radio}>
+
+                {options.map((option, key) => (
+                    <div className={styles.radio} key={key}>
+                        <label htmlFor={option.id}>{option.label}</label>
+                        <input
+                            id={option.id}
+                            type='radio'
+                            name='opcao'
+                            value={option.value}
+                            onChange={onHandleSelect}
+                        />
+                    </div>
+                ))}
+
+            </div>
+
+            {option === 'outro' ? (
+                <input 
+                    type="text" 
+                    placeholder='Seu gênero...'
+                    className={styles.input_comum}
+                    onChange={onHandleSelect}
+                />
+            ) : (<></>)}
+
+        </div>
+    )
+
+}
+
+export function Picker({handleChange, options, custom_styles, icon, placeholder, options_width}) {
+
+    const pickerRef = useRef(null)
+
+    useEffect(() => {
+
+        function handleClickOutside(event) {
+            if (pickerRef.current && !pickerRef.current.contains(event.target)) {
+                setOpen(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+
+    }, [])
+
+    const [isOpen, setOpen] = useState(false)
+    const [text, setText] = useState('')
+
+    const onTextChange = (e) => {
+        setText(e.target.value)
+    } 
+
+    const onHandleSelect = (option) => {
+
+        if (handleChange) {
+            handleChange(option.value)
+        }
+
+        setText(option.label)
+        setOpen(false)
+    }
+
+    return (
+
+        <div style={{display : 'flex', flexDirection : 'column', position : 'relative'}} ref={pickerRef}>
+
+            <div className={icon ? styles.containerinput : 'void'}>
+
+                {icon ? (
+                    <div className={styles.iconinputl}>
+                        <Icon icon={icon} />
+                    </div>
+                ) : (<></>)}
+
+                <input
+                    onFocus={() => setOpen(true)}
+                    className={styles.inputlogin}
+                    style={custom_styles}
+                    placeholder={placeholder}
+                    value={text}
+                    onChange={onTextChange}
+                />
+
+            </div>
+
+            <div className={styles.container_options}>
+
+                {isOpen && options? (
+                    options.filter(option => option.label.toLowerCase().includes(text.toLowerCase())).map((option, index) => (
+
+                        <div
+                            onClick={() => onHandleSelect(option)}
+                            key={index}
+                            className={styles.picker_option}
+                            style={!custom_styles? {width : '350px'} : {width : options_width}}
+                        >
+                            {option.label}
+                        </div>
+
+                    ))
+                ) : (<></>)}
+
+            </div>
+
+        </div>
+    )
+
 }

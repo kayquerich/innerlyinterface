@@ -1,5 +1,6 @@
 .containerinput {
     display: flex;
+    align-items: center;
 }
 
 .iconinputl {
@@ -154,4 +155,55 @@
     padding-inline: 10px;
     border-radius: 7px;
     outline: unset;
+}
+
+.container_radio {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.radio_external {
+    display: flex;
+    flex-direction: column;
+}
+
+.input_comum {
+    height: 40px;
+    width: 350px;
+    background-color: #C5DBFF;
+    border: none;
+    border-radius: 5px;
+    outline: unset;
+    padding-inline: 10px;
+    margin-block: 5px;
+}
+
+.radio {
+    height: 35px;
+    width: 32%;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.picker_option {
+    height: 30px;
+    background-color: #C5DBFF;
+    font-size: smaller;
+    padding-inline: 10px;
+    border-bottom: 1px solid gray;
+    display: flex;
+    align-items: center;
+}
+
+.container_options {
+    position: absolute;
+    top: 50px;
+    border-top: 1px solid gray;
+    z-index: 999999999;
 }

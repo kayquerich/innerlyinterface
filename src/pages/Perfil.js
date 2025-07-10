@@ -28,8 +28,8 @@ export default function Perfil () {
                     </div>
                     <div className={styles.headerinfos}>
                         <p className={styles.name} >{dados.nome}</p>
-                        <p>{dados.username}</p>
-                        <p>{dados.nascimento}</p>
+                        <p style={{color : 'gray'}}>{dados.username}</p>
+                        <p style={{color : '#374151'}} >{dados.biografia}</p>
                     </div>
                 </div>
 
@@ -50,6 +50,7 @@ export default function Perfil () {
                         </div>
                         <div className={styles.column}>
                             <Informacao label='Data de Nascimento' value={dados.nascimento}/>
+                            <Informacao label='Gênero' value={dados.genero}/>
                         </div>
 
                     </div>

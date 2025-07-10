@@ -1,9 +1,9 @@
 import styles from '../styles/formulario.module.css'
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { Input, DateInput } from './Input'
+import { Input, DateInput, GenderInput, Picker } from './Input'
 import { ButtonSubmit } from './Button'
-import { ChangePageLink, Line, Link, TitleForm, SubtitleForm } from './Text'
+import { ChangePageLink, Line, Link, TitleForm, SubtitleForm, Separator } from './Text'
+import { concelhos, ufs } from '../assets/dados'
 
 export function FormularioCadastro ({onHandleSubmit}) {
 
@@ -16,6 +16,18 @@ export function FormularioCadastro ({onHandleSubmit}) {
 
     const onDateChange = (e) => {
         setDados({...dados, 'nascimento' : e})
+    }
+
+    const onGenderChange = (e) => {
+        setDados({...dados, 'genero' : e})
+    }
+
+    const onCountyChange = (e) => {
+        setDados({...dados, 'concelho' : e})
+    }
+
+    const onCountryChange = (e) => {
+        setDados({...dados, 'regiao' : e})
     }
 
     if (!isProfissional) {
@@ -50,6 +62,7 @@ export function FormularioCadastro ({onHandleSubmit}) {
                             handleChange={onHandleChange}
                             icon='envelope'
                         />
+                        <GenderInput handleChange={onGenderChange}/>
                         <DateInput text='Data de nascimento' handleChange={onDateChange}/>
                         <Input
                             id='senha'
@@ -112,6 +125,7 @@ export function FormularioCadastro ({onHandleSubmit}) {
                             styleType='login'
                             handleChange={onHandleChange}
                         />
+                        <GenderInput handleChange={onGenderChange}/>
                         <DateInput text='Data de Nascimento' handleChange={onDateChange}/>
                         <Input
                             id='senha'
@@ -124,40 +138,47 @@ export function FormularioCadastro ({onHandleSubmit}) {
                         />
                     </div>
 
+                    <Separator margin={10}/>
+
                 </div>
-                <div className={styles.internalcontainer} style={{height : '85%'}}>
+                <div className={styles.internalcontainer} style={{maxHeight : '380px'}}>
 
                     <SubtitleForm>Informações profissionais</SubtitleForm>
                     <Line/>
 
                     <div className={styles.containerinput}>
-                        <Input
-                            id='concelho'
-                            name='concelho'
-                            type='text'
-                            placeholder='Concelho onde é registrado'
+                        <Picker
+                            custom_styles={{height : '50px', width : '300px'}}
                             icon='notes-medical'
-                            styleType='login'
-                            handleChange={onHandleChange}
+                            options={concelhos}
+                            handleChange={onCountyChange}
+                            placeholder='Concelho onde é registrado...'
+                            options_width='350px'
                         />
-                        <Input
-                            id='regiao'
-                            name='regiao'
-                            type='text'
-                            placeholder='Região onde é registrado'
-                            icon='house-medical-flag'
-                            styleType='login'
-                            handleChange={onHandleChange}
-                        />
-                        <Input
-                            id='registro'
-                            name='registro'
-                            type='text'
-                            placeholder='Numero de registro'
-                            icon='file-medical'
-                            styleType='login'
-                            handleChange={onHandleChange}
-                        />
+                        
+                        <div style={{display : 'flex', gap : '10px'}}>
+ 
+                            <Picker
+                                custom_styles={{height : '50px', width : '60px'}}
+                                options={ufs}
+                                placeholder='UF'
+                                icon='house-medical-flag'
+                                options_width='110px'
+                                handleChange={onCountryChange}
+                            />
+
+                            <Input
+                                id='registro'
+                                name='registro'
+                                type='text'
+                                placeholder='Numero de registro'
+                                styleType='login'
+                                handleChange={onHandleChange}
+                                custom_styles={{width : '230px', borderRadius : '5px'}}
+                            />
+
+                        </div>
+                        
 
                     </div>
 
