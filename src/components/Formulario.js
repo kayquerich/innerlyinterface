@@ -1,6 +1,6 @@
 import styles from '../styles/formulario.module.css'
 import { useState } from "react"
-import { Input, DateInput, GenderInput, Picker } from './Input'
+import { Input, DateInput, Picker, RadioInput } from './Input'
 import { ButtonSubmit } from './Button'
 import { ChangePageLink, Line, Link, TitleForm, SubtitleForm, Separator } from './Text'
 import { concelhos, ufs } from '../assets/dados'
@@ -62,7 +62,11 @@ export function FormularioCadastro ({onHandleSubmit}) {
                             handleChange={onHandleChange}
                             icon='envelope'
                         />
-                        <GenderInput handleChange={onGenderChange}/>
+                        <RadioInput 
+                            title='Gênero'
+                            handleChange={onGenderChange}
+                            options={['masculino', 'feminino', 'outro']}
+                        />
                         <DateInput text='Data de nascimento' handleChange={onDateChange}/>
                         <Input
                             id='senha'
@@ -125,7 +129,11 @@ export function FormularioCadastro ({onHandleSubmit}) {
                             styleType='login'
                             handleChange={onHandleChange}
                         />
-                        <GenderInput handleChange={onGenderChange}/>
+                        <RadioInput 
+                            title='Gênero'
+                            handleChange={onGenderChange}
+                            options={['masculino', 'feminino', 'outro']}
+                        />
                         <DateInput text='Data de Nascimento' handleChange={onDateChange}/>
                         <Input
                             id='senha'

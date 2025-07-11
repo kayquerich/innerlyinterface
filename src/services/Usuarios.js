@@ -46,6 +46,34 @@ export const getUsuario = async (token) => {
 
 } 
 
+export const updateUsuario = async (dados, token) => {
+
+    try {
+
+        const response = await fetch('http://localhost:8000/usuarios/update', {
+            method : 'PUT',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            },
+            body : JSON.stringify(dados)
+        })
+
+        if (response.ok) {
+
+            const usuario = await getUsuario(token)
+            sessionStorage.setItem('usuario', JSON.stringify({...usuario, 'token' : token}))
+
+            return true
+        } else {
+            return false
+        }
+
+    } catch (error) {
+        error_case()
+    }
+}
+
 export const createRegistro = async (dados, token) => {
 
     try {

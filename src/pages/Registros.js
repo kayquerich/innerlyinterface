@@ -53,8 +53,6 @@ export default function UserRegistros () {
 
         }
 
-        console.log('aaaaaaaaaaaaa')
-
         fetch_dados()
 
     }, [data_login])

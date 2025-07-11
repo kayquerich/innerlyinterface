@@ -231,72 +231,69 @@ export function AnotationInput ({handleChange, value}) {
     )
 }
 
-export function GenderInput ({handleChange}) {
+export function RadioInput ({handleChange, checked_value, options, title, initial_value}) {
 
-    const options = [
-        {
-            id : 'male',
-            value : 'masculino',
-            label : 'Masculino'
-        }, 
-        {
-            id : 'female',
-            value : 'feminino',
-            label : 'Feminino'
-        }, 
-        {  
-            id : 'other',
-            value : 'outro',
-            label : 'Outro'
+    const toTitle = (str) => {
+        if (!str) return ''
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    const [select, setSelect] = useState(checked_value)
+    const [value, setValue] = useState(initial_value)
+
+    const verifyGender = () => {
+        if (select === 'masculino' || select === 'feminino') {
+            return select
+        } else if (select) {
+            return 'outro'
+        } else if (!select) {
+            return ''
         }
-    ]
+    }
 
-    const [option, setOption] = useState()
-
-    const onHandleSelect = (e) => {
-
-        if (e.target.name === 'opcao') {
-            setOption(e.target.value)
-        }
-
+    const onHandleChange = (e) => {
+        setSelect(e.target.id)
+        setValue(e.target.value === 'outro' ? '' : e.target.value)
         handleChange(e.target.value)
     }
 
     return (
-        <div className={styles.radio_external}>
+        <div>
 
-            <p>Gênero</p>
+            <p style={{marginBottom : 5}}>{title}</p>
 
-            <div className={styles.container_radio}>
-
-                {options.map((option, key) => (
-                    <div className={styles.radio} key={key}>
-                        <label htmlFor={option.id}>{option.label}</label>
-                        <input
-                            id={option.id}
-                            type='radio'
-                            name='opcao'
-                            value={option.value}
-                            onChange={onHandleSelect}
+            <div className={styles.radio_external}>
+                {options.map((option, index) => (
+                    <div className={styles.radio_container} key={index}>
+                        <input 
+                            id={option}
+                            type="radio" 
+                            name="radio" 
+                            className={styles.radio}
+                            checked={option === verifyGender(checked_value)}
+                            onChange={onHandleChange}
+                            value={option}
                         />
+                        <label htmlFor={option}>{toTitle(option)}</label>
                     </div>
                 ))}
-
             </div>
 
-            {option === 'outro' ? (
+            {verifyGender() === 'outro' ? (
                 <input 
-                    type="text" 
-                    placeholder='Seu gênero...'
-                    className={styles.input_comum}
-                    onChange={onHandleSelect}
+                    id='outro'
+                    type="text"
+                    placeholder='Personalise seu gênero...'
+                    onChange={onHandleChange}
+                    value={value}
+                    className={styles.radio_personalize}
                 />
             ) : (<></>)}
 
         </div>
     )
 
-}
+} 
 
 export function Picker({handleChange, options, custom_styles, icon, placeholder, options_width}) {
 

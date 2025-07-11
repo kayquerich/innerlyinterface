@@ -6,14 +6,12 @@ import { UserEditPage as Modal } from "../components/Modal"
 import profileImage from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/perfil.module.css'
 import { useState } from "react"
-import { useLocation } from "react-router-dom"
 
 export default function Perfil () {
 
     const [isOpen, setOpen] = useState(false)
 
-    const location = useLocation()
-    const dados = location.state
+    const dados = JSON.parse(sessionStorage.getItem('usuario'))
 
     return (
         <>
