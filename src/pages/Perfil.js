@@ -1,7 +1,6 @@
 import { InternalPage as Container } from "../components/Container"
 import { Subtitle } from "../components/Text"
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
-import { ProfissionalCard as Card } from "../components/Card"
 import { UserEditPage as Modal } from "../components/Modal"
 import profileImage from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/perfil.module.css'
@@ -58,18 +57,6 @@ export default function Perfil () {
                         <Icon icon='pen'/>
                     </button>
 
-                </div>
-
-                <div className={styles.containerpro}>
-
-                    <h3 className={styles.title}>Profissionais Relacionados</h3>
-                    <hr style={{ border: '1px solid #ccc', margin: '10px 0' }} />
-
-                    <div className={styles.profissionais}>
-                        <Card autorizacao={true} nome='Psicologo'/>
-                        <Card autorizacao={true} nome='Psicologo'/>
-                        <Card autorizacao={false} nome='Psicologo'/>
-                    </div>
                 </div>
 
             </Container>

@@ -1,86 +1,47 @@
-import { useState, useRef } from "react"
+import { useContext } from "react"
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 import styles from '../styles/scroll.module.css'
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu"
+import "react-horizontal-scrolling-menu/dist/styles.css";
 
-export function ScrollRight ({ref, distance, visibility, direction}) {
-
-    const [ intervalId, setIntervalId ] = useState()
-
-    const scroll = () => {
-
-        if (ref) {
-            const id = setInterval(() => {
-                ref.current.scrollBy({ left : distance, behavior : 'smooth'})
-            }, 1)
-            setIntervalId(id)
-        }
-    }
-
-    const stopScroll = () => {
-        clearInterval(intervalId);
-        setIntervalId(null);
-    }
+export function Arrow ({direction, handleClick}) {
 
     return (
-        <>
-            {visibility ? (
-                <div 
-                    onMouseDown={scroll}
-                    onMouseUp={stopScroll}
-                    onMouseLeave={stopScroll}
-                    onTouchStart={scroll}
-                    onTouchEnd={stopScroll}
-                    className={direction === 'right' ? styles.right_scroll_button : styles.left_scroll_button}
-                >
-                    <Icon icon={`chevron-${direction}`}/>
-                </div>
-            ) : (<></>)}
-        </>
+        <div 
+            className={direction === 'right' ? styles.right_scroll_button : styles.left_scroll_button}
+            onClick={handleClick}
+        >
+            <Icon icon={`chevron-${direction}`}/>
+        </div>
     )
 } 
 
-export function ScrollView ({style_name, children}) {
-
-    const scrollRef = useRef(null)
-    const [scrolled, setScrolled] = useState(false)
-    const [ fullScroll, setFullScroll ] = useState(true)
-
-    const handleScroll = () => {
-        if (scrollRef.current && scrollRef.current.scrollLeft > 20) {
-            setScrolled(true)
-        } else {
-            setScrolled(false)
-        }
-
-        if (scrollRef.current) {
-            const { scrollLeft, clientWidth, scrollWidth } = scrollRef.current 
-            if ( scrollLeft + clientWidth >= scrollWidth ) {
-                setFullScroll(false)
-            } else {
-                setFullScroll(true)
-            }
-        }
-    }
+function LeftArrow() {
+    const { scrollPrev, isFirstItemVisible } = useContext(VisibilityContext);
+    
+    if (isFirstItemVisible) return null;
 
     return (
-        <div className={style_name} ref={scrollRef} onScroll={handleScroll}>
+        <Arrow direction='left' handleClick={() => scrollPrev()}/>
+    );
+}
 
-            <ScrollRight
-                    direction='left'
-                    ref={scrollRef}
-                    distance={-10}
-                    visibility={scrolled}
-            />
+function RightArrow() {
+    const { scrollNext, isLastItemVisible } = useContext(VisibilityContext);
+    
+    if (isLastItemVisible) return null;
 
-            {children}
+    return (
+        <Arrow direction='right' handleClick={() => scrollNext()}/>
+    );
+}
 
-            <ScrollRight 
-                    direction='right' 
-                    distance={10} 
-                    ref={scrollRef} 
-                    visibility={fullScroll}
-            />
-
+export function ScrollView ({children}) {
+    return (
+        <div className={styles.container}>
+            <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} scrollContainerClassName={styles.scroll}>
+                {children}
+            </ScrollMenu>
         </div>
     )
 }

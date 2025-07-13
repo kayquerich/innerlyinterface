@@ -1,0 +1,37 @@
+.container {
+    height: 50px;
+    width: 100%;
+    display: flex;
+}
+
+.search {
+    height: 50px;
+    width: 85%;
+    border-radius: 0px 3px 3px 0px;
+    outline: unset;
+    padding: 15px;
+    font-size: 16px;
+    background-color: #C5DBFF;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    font-size: x-large;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #C5DBFF;
+    border-radius: 3px 0px 0px 3px;
+}
+
+.button {
+    height: 50px;
+    width: 150px;
+    background-color: #6161d7;
+    color: white;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-inline: 10px;
+}

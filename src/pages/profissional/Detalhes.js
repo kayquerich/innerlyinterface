@@ -2,8 +2,7 @@ import styles from '../../styles/styles-profissional/details.module.css'
 import { useLocation } from "react-router-dom"
 import { InternalPage as Page } from "../../components/Container"
 import { Title, Subtitle, Separator, SubtitleDark } from "../../components/Text"
-import { UserDetails } from "../../components/Card"
-import { lista_cores_emotion, listaNomesEmojis, model_usuario } from "../../assets/dados"
+import { lista_cores_emotion, listaNomesEmojis } from "../../assets/dados"
 import { listaEmojis } from '../../assets/dados'
 
 export default function FileRegistro () {
@@ -19,7 +18,7 @@ export default function FileRegistro () {
 
             <Subtitle>Acompanhado</Subtitle>
             <Separator margin={10}/>
-            <UserDetails dados={model_usuario}/> {/* os dados partirão de uma consulta aos usuario com base no id do registro*/}
+            
             <Separator margin={20}/>
 
             <SubtitleDark>Detalhes - {registro.title}</SubtitleDark>

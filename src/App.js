@@ -11,6 +11,7 @@ import Home from './pages/profissional/Home';
 import PerfilProfissional from './pages/profissional/Perfil';
 import Solicitacoes from './pages/profissional/Solicitacoes';
 import FileRegistro from './pages/profissional/Detalhes';
+import Profissionais from './pages/Profissionais';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/registros/adicionar' element={<Adicionar/>}/>
                 <Route path='/registros/detalhes' element={<Detalhes/>}/>
                 <Route path='/historico' element={<Historico/>}/>
+                <Route path='/profissionais' element={<Profissionais/>}/>
                 <Route path='/profissional/home' element={<Home/>}/>
                 <Route path='/profissional/perfil' element={<PerfilProfissional/>}/>
                 <Route path='/profissional/solicitacoes' element={<Solicitacoes/>}/>

@@ -37,14 +37,15 @@ export function SideBar ({dados}) {
                 {dados && 'concelho' in dados ? (
                     <>
                         <OptionLink label='Registros' path='/profissional/home' dados={dados} icon='file' />
-                        <OptionLink label='Meu Perfil' path='/profissional/perfil' dados={dados} icon='user' />
+                        <OptionLink label='Meu Perfil' path='/profissional/perfil' dados={dados} icon='user-doctor' />
                         <OptionLink label='Solicitações' path='/profissional/solicitacoes' dados={dados} icon='user-group'/>    
                     </>
                 ) : (
                     <>
                         <OptionLink label='Registros' path='/registros' dados={dados} icon='file' />
                         <OptionLink label='Meu Perfil' path='/perfil' dados={dados} icon='user' />
-                        <OptionLink label='Histórico' path='/historico' dados={dados} icon='square-poll-vertical'/>    
+                        <OptionLink label='Histórico' path='/historico' dados={dados} icon='square-poll-vertical'/> 
+                        <OptionLink label='Profissionais' path='/profissionais' icon='user-doctor' />   
                     </>
                 )}
             

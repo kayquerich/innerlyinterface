@@ -37,6 +37,7 @@ export const logout = async (token) => {
         if (response.ok) {
             sessionStorage.removeItem('usuario')
             sessionStorage.removeItem('registros')
+            sessionStorage.clear()
             return true
         } else {
             return false

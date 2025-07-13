@@ -4,8 +4,6 @@ import { Subtitle } from "../../components/Text"
 import styles from '../../styles/styles-profissional/home.module.css'
 import { Registro } from "../../components/Registro"
 import { fakeRegistros } from "../../assets/registrosfake"
-import { UserCard } from "../../components/Card"
-import { usercard_dto } from "../../assets/dados"
 import { ScrollView } from "../../components/Scroll"
 
 export default function Home () {
@@ -32,13 +30,6 @@ export default function Home () {
             </ScrollView>
 
             <Subtitle>Pessoas acompanhadas</Subtitle>
-            <ScrollView style_name={styles.container_usuarios}>
-                <UserCard dados={usercard_dto}/>
-                <UserCard dados={usercard_dto}/>
-                <UserCard dados={usercard_dto}/>
-                <UserCard dados={usercard_dto}/>
-                <UserCard dados={usercard_dto}/>
-            </ScrollView>
 
         </Page>
     )

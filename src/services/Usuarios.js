@@ -150,6 +150,30 @@ export const updateRegistro = async (registro, token) => {
 
 }
 
+export const listarAcompanhamentos = async (token) => {
+
+    try {
+
+        const response = await fetch('http://localhost:8000/acompanhamentos/listar', {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            }
+        })
+
+        if (response.ok) {
+            return await response.json()
+        } else {
+            return []
+        }
+
+    } catch (error) {
+        error_case()
+    }
+
+}
+
 function error_case () {
     alert('O servidor não está respondendo, tente novamente mais tarde')
 }

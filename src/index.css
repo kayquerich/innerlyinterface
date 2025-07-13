@@ -45,3 +45,11 @@ html, body, #root {
 #nprogress .spinner {
   display: none;
 }
+
+.react-horizontal-scrolling-menu--scroll-container {
+  scrollbar-width: none;
+}
+
+.react-horizontal-scrolling-menu--inner-wrapper::-webkit-scrollbar {
+  display: none;
+}

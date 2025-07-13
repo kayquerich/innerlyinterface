@@ -15,6 +15,7 @@
     "nprogress": "^0.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-horizontal-scrolling-menu": "^8.2.0",
     "react-router-dom": "^7.6.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.10.1",
