@@ -8,18 +8,20 @@ import { listarAcompanhamentos } from "../services/Usuarios"
 
 export default function Profissionais () {
 
-    const usuario = JSON.parse(sessionStorage.getItem('usuario'))
-    const saved = sessionStorage.getItem('acompanhamentos')
-    const saved_follows = saved ? JSON.parse(saved) : [] 
-
     const [follows, setFollows] = useState([])
+    const [usuario, setUsuario] = useState()
 
     useEffect(() => {
 
+        const saved = sessionStorage.getItem('acompanhamentos')
+        const saved_follows = saved ? JSON.parse(saved) : [] 
+        const saved_user = JSON.parse(sessionStorage.getItem('usuario'))
+        setUsuario(saved_user)
+        
         const fetchAcompanhamentos = async () => {
             if (!saved_follows.length) {
 
-                const query_follows = await listarAcompanhamentos(usuario.token)
+                const query_follows = await listarAcompanhamentos(saved_user.token)
                 setFollows(query_follows)
                 sessionStorage.setItem('acompanhamentos', JSON.stringify(query_follows))
 
@@ -30,7 +32,7 @@ export default function Profissionais () {
 
         fetchAcompanhamentos()
 
-    })
+    }, [])
 
     return (
         <Page dadosUsuario={usuario}>
@@ -44,6 +46,11 @@ export default function Profissionais () {
                 {follows.map((follow, key) => (
                     <CardAcompanhamento dados={follow} key={key}/>
                 ))}
+            </div>
+
+            <Subtitle>Profissionais proximos a você</Subtitle>
+            <div style={{display : 'flex', alignItems : 'center', justifyContent : 'center'}}>
+                <h1 style={{color : 'gray', opacity : '70%', paddingTop : '7%'}} >em desenvolvimento</h1>
             </div>
 
         </Page>

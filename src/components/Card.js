@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import perfilicon from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/card.module.css'
 import { Separator } from './Text'
@@ -11,8 +12,16 @@ function ActiveTag ({boolean}) {
 }
 
 export function CardAcompanhamento ({dados}) {
+
+    const navigation = useNavigate()
+
+    const HandleClick = () => {
+        navigation('/acompanhamento', { state : dados.codigo_acompanhamento })
+    }
+
     return (
-        <div className={styles.card_follow} >
+        <div className={styles.card_follow} onClick={HandleClick} >
+
             <header className={styles.follow_header} >
                 <img src={perfilicon} alt="imagem estatica de perfil" className={styles.follow_image} />
 
@@ -29,6 +38,7 @@ export function CardAcompanhamento ({dados}) {
             </div>
 
             <ActiveTag boolean={dados.is_ativo} />
+
         </div>
     )
 }
