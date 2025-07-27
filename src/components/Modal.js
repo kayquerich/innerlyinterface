@@ -2,7 +2,7 @@ import styles from '../styles/modal.module.css'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { RadioInput, Input } from './Input'
 import { useState } from 'react'
-import { updateUsuario } from '../services/Usuarios'
+import { encerrarAcompanhamento, updateUsuario, listarAcompanhamentos } from '../services/Usuarios'
 
 export function UserEditPage ({close}) {
 
@@ -86,4 +86,53 @@ export function UserEditPage ({close}) {
             </button>
         </div>
     )
+}
+
+export function ConfirmClose ({close, id, token, execute}) {
+
+    const handleClick = async () => {
+        const is_closed = await encerrarAcompanhamento(id, token)
+
+        if (is_closed) {
+            const query_follows = await listarAcompanhamentos(token)
+            sessionStorage.setItem('acompanhamentos', JSON.stringify(query_follows))
+        }
+
+        execute()
+        close()
+    }
+
+    return (
+        <div className={styles.page} >
+            <div style={container} >
+                <h3 className={styles.title} >Confirme que deseja encerrar o acompanhamento</h3>
+                <hr style={{ border: '1px solid #ccc', margin: '10px 0' }}/>
+                <div>
+                    <p style={{ textAlign : 'justify' }} >
+                        Deseja realmente encerrar o acompanhamento, após isso o profissional será removido da sua lista de acompanhantes e caso queira ser acompanhado pelo mesmo, terá que solicitar novamente.
+                    </p>
+                </div>
+                <footer style={footer} >
+                    <button onClick={close && close} className={styles.back} >Voltar</button>
+                    <button className={styles.encerrar} onClick={handleClick} >Encerrar mesmo assim</button>
+                </footer>
+            </div>
+        </div>
+    )
+}
+
+const container = {
+    height : 200,
+    width : '80%',
+    backgroundColor : 'white',
+    padding : 20,
+    position : 'relative'
+}
+
+const footer = {
+    position : 'absolute',
+    bottom : 20,
+    right : 20,
+    display : 'flex',
+    gap : 15
 }

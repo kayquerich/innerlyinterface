@@ -174,6 +174,30 @@ export const listarAcompanhamentos = async (token) => {
 
 }
 
+export const encerrarAcompanhamento = async (id, token) => {
+
+    try {
+
+        const response = await fetch('http://localhost:8000/acompanhamentos/encerrar', {
+            method : 'PUT',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            },
+            body : JSON.stringify({
+                id : id
+            })
+        })
+
+        if (response.ok) return true;
+        return false;
+
+    } catch (error) {
+        error_case()
+    }
+
+}
+
 function error_case () {
     alert('O servidor não está respondendo, tente novamente mais tarde')
 }

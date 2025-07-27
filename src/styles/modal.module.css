@@ -68,3 +68,29 @@
     border-radius: 5px;
     margin-top: 5px;
 }
+
+.back {
+    height: 40px;
+    width: 90px;
+    font-size: 14px;
+    color: white;
+    background-color: #383897;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.back:hover {
+    background-color: #4b4ba1;
+}
+
+.encerrar {
+    height: 40px;
+    width: 200px;
+    font-size: 14px;
+    color: white;
+    background-color: #a90000;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .5s;
+}

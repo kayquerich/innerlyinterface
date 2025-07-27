@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import perfilicon from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/card.module.css'
-import { Separator } from './Text'
 
 function ActiveTag ({boolean}) {
     return (
@@ -16,7 +15,7 @@ export function CardAcompanhamento ({dados}) {
     const navigation = useNavigate()
 
     const HandleClick = () => {
-        navigation('/acompanhamento', { state : dados.codigo_acompanhamento })
+        navigation('/acompanhamento', { state : dados })
     }
 
     return (
@@ -32,9 +31,7 @@ export function CardAcompanhamento ({dados}) {
             </header>
 
             <div className={styles.follow_body}>
-                <p style={{ textAlign : 'justify' }}>Biografia : {dados.biografia}</p>
-                <Separator margin={10} />
-                <p>Inicio do acompanhamento : {dados.data_inicio}</p>
+                <p>Data de inicio : {dados.data_inicio}</p>
             </div>
 
             <ActiveTag boolean={dados.is_ativo} />

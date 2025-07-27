@@ -9,12 +9,12 @@ export function Page ({children}) {
     )
 }
 
-export function InternalPage ({children, dadosUsuario}) {
+export function InternalPage ({children, dadosUsuario, style}) {
 
     return (
         <div className={styles.internalpages}>
             <SideBar dados={dadosUsuario}/>
-            <div className={styles.internalcontainer}>
+            <div className={styles.internalcontainer} style={style && style} >
                 {children}
             </div>
         </div>

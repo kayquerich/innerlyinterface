@@ -19,6 +19,7 @@ export default function Profissionais () {
         setUsuario(saved_user)
         
         const fetchAcompanhamentos = async () => {
+            
             if (!saved_follows.length) {
 
                 const query_follows = await listarAcompanhamentos(saved_user.token)
@@ -44,7 +45,7 @@ export default function Profissionais () {
                 
             <div className={styles.container}>
                 {follows.map((follow, key) => (
-                    <CardAcompanhamento dados={follow} key={key}/>
+                    follow.is_ativo && <CardAcompanhamento dados={follow} key={key}/>
                 ))}
             </div>
 
