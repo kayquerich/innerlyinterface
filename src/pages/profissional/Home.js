@@ -1,36 +1,40 @@
 import { useLocation } from "react-router-dom"
 import { InternalPage as Page } from "../../components/Container"
-import { Subtitle } from "../../components/Text"
-import styles from '../../styles/styles-profissional/home.module.css'
-import { Registro } from "../../components/Registro"
-import { fakeRegistros } from "../../assets/registrosfake"
-import { ScrollView } from "../../components/Scroll"
+import { useEffect, useState } from "react"
+import { getProfissional } from "../../services/Profissionais"
 
 export default function Home () {
 
     const location = useLocation()
-    const dados = location.state
+    const data_login = location.state
+    const [profissional, setProfissional] = useState({})
+    const [registros, setRegistros] = useState([])
+
+    useEffect(() => {
+        const fetchDados = async () => {
+
+            let temporary_data = null
+            const saved_profissional = sessionStorage.getItem('profissional')
+
+            if (saved_profissional) {
+                temporary_data = JSON.parse(saved_profissional)
+                setProfissional(temporary_data)
+            } else if (data_login && data_login.token) {
+
+                const result = await getProfissional(data_login.token);
+                temporary_data = { ...result, token: data_login.token };
+                setProfissional(temporary_data);
+                sessionStorage.setItem('profissional', JSON.stringify(temporary_data));
+
+            }
+
+        }
+        fetchDados()
+    }, [data_login])
 
     return (
-        <Page dadosUsuario={dados}>
-
-            <Subtitle>Registros recentes</Subtitle>
-            <ScrollView style_name={styles.container_registros}>
-
-                <Registro registro={fakeRegistros[0]} dados={dados}/>
-                <Registro registro={fakeRegistros[1]} dados={dados}/>
-                <Registro registro={fakeRegistros[2]} dados={dados}/>
-                <Registro registro={fakeRegistros[3]} dados={dados}/>
-                <Registro registro={fakeRegistros[4]} dados={dados}/>
-                <Registro registro={fakeRegistros[5]} dados={dados}/>
-                <Registro registro={fakeRegistros[0]} dados={dados}/>
-                <Registro registro={fakeRegistros[1]} dados={dados}/>
-                <Registro registro={fakeRegistros[2]} dados={dados}/>
-                
-            </ScrollView>
-
-            <Subtitle>Pessoas acompanhadas</Subtitle>
-
+        <Page dadosUsuario={profissional}>
+            
         </Page>
     )
 }

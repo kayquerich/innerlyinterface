@@ -6,6 +6,7 @@ import styles from '../styles/solicitacao.module.css'
 import profilePic from '../assets/images/perfil-static-icon.png'
 import { buscarAcompanhamento, buscarSolicitacao } from "../services/Usuarios";
 import { FinalizarSolicitacao } from "../components/Modal";
+import { dateString, isEmpty, setColorBoolean, setColorString } from "../services/Gadgets";
 
 export default function Solicitacao () {
     
@@ -65,36 +66,44 @@ export default function Solicitacao () {
 
             <Line />
 
-            {(Object.keys(apiFollow).length > 0) && (
+            {(!isEmpty(apiFollow)) && (
                 <div>
                     <h3>Já existe um acompanhamento entre vocês</h3>
-                    <div>
-                        <p>{apiFollow.is_ativo === true ? 'ativo' : 'não ativo'}</p>
+                    <p>iniciado em {dateString(apiFollow.data_inicio)}</p>
+
+                    <div className={styles.estado} style={setColorBoolean(apiFollow.is_ativo)}>
+                        <p style={setColorBoolean(apiFollow.is_ativo)}> 
+                            {apiFollow.is_ativo === true ? 'ativo' : 'não ativo'}
+                        </p>
                     </div>
-                    <p>iniciado em: {apiFollow.data_inicio}</p>
+
                 </div>
             )}
 
-            {(Object.keys(apiSolicitacao).length > 0 && temAlgumaCoisa(apiFollow)) && (
-                <div>
+            {(!isEmpty(apiSolicitacao) && isEmpty(apiFollow)) && (
+                <div style={{ display : 'flex', flexDirection : 'column', gap : 5 }} >
+                    
                     <h3>Você já fez uma solicitação</h3>
                     <p>{apiSolicitacao.descricao}</p>
                     <p>{apiSolicitacao.menssagem}</p>
-                    <div>
+                    <p>feita no dia {dateString(apiSolicitacao.data)}</p>
+
+                    <div className={styles.estado} style={setColorString(apiSolicitacao.estado)} >
                         <p>{apiSolicitacao.estado}</p>
                     </div>
-                    <p>feita no dia: {apiSolicitacao.data}</p>
+                    
                 </div>
             )}
 
             <footer className={styles.footer} >
-                { (!temAlgumaCoisa(apiFollow) || apiFollow.is_ativo === false) &&
+                {console.log(apiFollow)}
+                { (!isEmpty(apiFollow) && apiFollow.is_ativo === false) &&
                     <button className={styles.solicitar} onClick={intercaoModal} >
                         Solicitar reativação
                     </button>
                 }
                 {
-                    (temAlgumaCoisa(apiSolicitacao)) && 
+                    (isEmpty(apiSolicitacao) && isEmpty(apiFollow)) && 
                     <button className={styles.solicitar} onClick={intercaoModal} >
                         Solicitar Acompanhamento
                     </button>
@@ -106,8 +115,4 @@ export default function Solicitacao () {
         </Page>
         </>
     )
-}
-
-function temAlgumaCoisa (objeto) {
-    return Object.keys(objeto).length === 0
 }

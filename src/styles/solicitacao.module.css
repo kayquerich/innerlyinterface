@@ -80,3 +80,18 @@
     cursor: pointer;
     transition: .5s;
 }
+
+.estado {
+    height: 40px;
+    width: 250px;
+    border: 2px solid;
+    margin-block: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.estado p {
+    font-weight: bold;
+    font-size: 18px;
+}

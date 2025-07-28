@@ -57,6 +57,21 @@ export const concelhos = [
     { value : 'CRP', label : 'Concelho Regional de Psicologia' }
 ]
 
+export const meses = [
+    "Janeiro",  
+    "Fevereiro",
+    "Março",     
+    "Abril",     
+    "Maio",      
+    "Junho",     
+    "Julho",     
+    "Agosto",    
+    "Setembro",  
+    "Outubro",   
+    "Novembro",  
+    "Dezembro"   
+];
+
 export const model_usuario = {
     nome : 'Kayque Richarlyson',
     username : 'kayque#1984',

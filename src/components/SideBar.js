@@ -34,7 +34,7 @@ export function SideBar ({dados}) {
 
             <div className={styles.containeroptions}>
 
-                {dados && 'concelho' in dados ? (
+                {dados && 'credencial' in dados ? (
                     <>
                         <OptionLink label='Registros' path='/profissional/home' dados={dados} icon='file' />
                         <OptionLink label='Meu Perfil' path='/profissional/perfil' dados={dados} icon='user-doctor' />

@@ -17,7 +17,32 @@ export const cadastroProfissional = async (dados) => {
         }
 
     } catch (error) {
-        alert('Não foi possivel realizar o cadastro, tente novamente')
+        error_case()
     }
 
+}
+
+export const getProfissional = async (token) => {
+
+    try {
+
+        const response = await fetch('http://localhost:8000/profissionais/profissional', {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            }
+        })
+
+        if (response.ok) return await response.json();
+        return {}
+
+    } catch (error) {
+        error_case()
+    }
+
+}
+
+function error_case () {
+    alert('Não foi possivel realizar o cadastro, tente novamente')
 }
