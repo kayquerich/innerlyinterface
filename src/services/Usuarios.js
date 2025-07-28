@@ -198,6 +198,97 @@ export const encerrarAcompanhamento = async (id, token) => {
 
 }
 
+export const listarProfissionais = async (token, string) => {
+
+    try {
+
+        const response = await fetch(`http://localhost:8000/profissionais/listar/${string}`, {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            },
+        })
+
+        if (response.ok) {
+            const data = await response.json()
+            return data
+        } else {
+            return []
+        }
+
+    } catch (error) {
+        return []
+    }
+
+}
+
+export const solicitarAcompanhamento = async (token, codigo, message) => {
+
+    try {
+
+        const response = await fetch('http://localhost:8000/acompanhamentos/solicitacao/solicitar', {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            },
+            body : JSON.stringify({
+                codigo_acompanhamento : codigo,
+                menssagem : message
+            })
+        })
+
+        if (response.ok) return await response.json();
+
+    } catch (error) {
+        error_case()
+    }
+
+}
+
+export const buscarAcompanhamento = async (token, codigo) => {
+
+    try {
+
+        const response = await fetch(`http://localhost:8000/acompanhamentos/codigo/${codigo}`, {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            }
+        })
+
+        if (response.ok) return await response.json();
+        return {}
+
+    } catch (error) {
+        error_case()
+    }
+
+}
+
+export const buscarSolicitacao = async (token, codigo) => {
+
+    try {
+
+        const response = await fetch(`http://localhost:8000/acompanhamentos/solicitacao/${codigo}`, {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            }
+        })
+
+        if (response.ok) return await response.json();
+        return {}
+
+    } catch (error) {
+        error_case()
+    }
+
+} 
+
 function error_case () {
     alert('O servidor não está respondendo, tente novamente mais tarde')
 }

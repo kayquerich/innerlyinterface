@@ -2,7 +2,7 @@ import styles from '../styles/modal.module.css'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { RadioInput, Input } from './Input'
 import { useState } from 'react'
-import { encerrarAcompanhamento, updateUsuario, listarAcompanhamentos } from '../services/Usuarios'
+import { encerrarAcompanhamento, updateUsuario, listarAcompanhamentos, solicitarAcompanhamento } from '../services/Usuarios'
 
 export function UserEditPage ({close}) {
 
@@ -135,4 +135,48 @@ const footer = {
     right : 20,
     display : 'flex',
     gap : 15
+}
+
+export function FinalizarSolicitacao ({close, token, execute, dados}) {
+
+    const [message, setMessage] = useState('')
+
+    const finalizar = async () => {
+        const response = await solicitarAcompanhamento(token, dados.codigo_acompanhamento, (message || 'gostaria que acomapanhasse meus registros!'))
+        execute(response.solicitacao)
+        close()
+    }
+
+    return (
+        <div className={styles.page} >
+            <div style={formulario} >
+                <h3 className={styles.title} >Finalizar solicitação</h3>
+                <hr style={{ border: '1px solid #ccc', margin: '10px 0' }}/>
+
+                <p>Você está enviando uma solicitação de acomapanhamento para {dados.nome} deixe aqui uma mensagem pra que ele entenda o motivo da solicitação</p>
+
+                <textarea 
+                    placeholder='escreva uma mensagem aqui...' 
+                    onChange={(e) => setMessage(e.target.value)}
+                    className={styles.textarea}    
+                    required
+                >
+
+                </textarea>
+
+                <footer style={footer} >
+                    <button onClick={close && close} className={styles.back} >Voltar</button>
+                    <button onClick={finalizar} className={styles.finally} >Finalizar Solicitação</button>
+                </footer>
+            </div>
+        </div>
+    )
+}
+
+const formulario = {
+    width : 500,
+    height : '80%',
+    backgroundColor : 'white', 
+    padding : 20,
+    position : 'relative'
 }

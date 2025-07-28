@@ -94,3 +94,24 @@
     cursor: pointer;
     transition: .5s;
 }
+
+.textarea {
+    height: 60px;
+    width: 100%;
+    border: 1px solid blue;
+    border-radius: 5px;
+    resize: none;
+    margin-block: 15px;
+    padding: 10px;
+}
+
+.finally {
+    height: 40px;
+    width: 200px;
+    font-size: 14px;
+    color: white;
+    background-color: green;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .5s;
+}

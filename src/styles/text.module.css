@@ -6,6 +6,7 @@
 .subtitle {
     color: #268577;
     font-weight: 350;
+    display: flex;
 }
 
 .link {

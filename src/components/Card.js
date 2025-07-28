@@ -39,3 +39,23 @@ export function CardAcompanhamento ({dados}) {
         </div>
     )
 }
+
+export function ProfessionalOption ({dados}) {
+
+    const navigation = useNavigate()
+
+    const HandleClick = () => {
+        navigation('/solicitacao', { state : dados })
+    }
+
+    return (
+        <div className={styles.profissional_tag} onClick={HandleClick} >
+            <img src={perfilicon} alt="imagem estática de perfil" />
+            <div style={{ height : '100%', paddingBlock : 10, marginLeft : 15 }} >
+                <p className={styles.user_name} >{dados.nome}</p>
+                <p className={styles.follow_info} >Codigo: {dados.codigo_acompanhamento}</p>
+                <p>{dados.biografia.substring(0, 52) + '...'}</p>
+            </div>
+        </div>
+    )
+}

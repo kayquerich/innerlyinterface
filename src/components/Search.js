@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import styles from '../styles/search.module.css'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
-export function SearchBar ({action, placeholder, options, icon}) {
+export function SearchBar ({action, placeholder}) {
+
+    const [string, setString] = useState('')
 
     return (
         <div className={styles.container}>
@@ -11,10 +14,11 @@ export function SearchBar ({action, placeholder, options, icon}) {
             <input
                 type='text'
                 className={styles.search}
-                placeholder='Busque profissionais da area da saude mental...'
+                placeholder={placeholder}
+                onChange={(e) => setString(e.target.value)}
             />
 
-            <button className={styles.button}>
+            <button className={styles.button} onClick={() => action(string)} >
                 Pesquisar
             </button>
         </div>

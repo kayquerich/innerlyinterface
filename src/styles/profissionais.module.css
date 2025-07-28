@@ -1,5 +1,28 @@
 .container {
     display: flex;
-    gap: 50px;
-    margin-block: 15px;
+    gap: 20px;
+    margin-block: 20px;
+    flex-wrap: wrap;
+}
+
+.container_saved {
+    height: 100%;
+    width: 68%;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+    border-color: gray;
+}
+
+.container_search {
+    height: 100%;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_search p {
+    margin-block: 10px;
 }

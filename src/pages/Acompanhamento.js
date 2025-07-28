@@ -44,15 +44,16 @@ export default function Acompanhamento () {
                     <p>{acompanhamento.biografia}</p>
                     <p>Inicio: {acompanhamento.data_inicio}</p>
                 </div>
+                <div className={styles.container_status} style={
+                    acompanhamento.is_ativo ? { borderColor : 'green' } : { borderColor : 'red' }
+                } >
+                    {acompanhamento.is_ativo ? (
+                        <p style={status_on} >Acompanhamento ativo</p>
+                    ) : (
+                        <p style={status_off} >Acompanhamento encerrado</p>
+                    )}
+                </div>
             </header>
-
-            <div className={styles.container_status} >
-                {acompanhamento.is_ativo ? (
-                    <p style={status_on} >Acompanhamento ativo</p>
-                ) : (
-                    <p style={status_off} >Acompanhamento encerrado</p>
-                )}
-            </div>
 
             <div className={styles.footer} >
                 <button className={styles.encerrar} onClick={handleClick} >
@@ -71,11 +72,11 @@ export default function Acompanhamento () {
 const status_on = {
     color : 'green',
     fontWeight : 'bold',
-    fontSize : 18
+    fontSize : 14
 }
 
 const status_off = {
     color : 'red',
     fontWeight : 'bold',
-    fontSize : 18
+    fontSize : 14
 }
