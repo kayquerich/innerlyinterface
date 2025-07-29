@@ -37,8 +37,7 @@ export function SideBar ({dados}) {
                 {dados && 'credencial' in dados ? (
                     <>
                         <OptionLink label='Registros' path='/profissional/home' dados={dados} icon='file' />
-                        <OptionLink label='Meu Perfil' path='/profissional/perfil' dados={dados} icon='user-doctor' />
-                        <OptionLink label='Solicitações' path='/profissional/solicitacoes' dados={dados} icon='user-group'/>    
+                        <OptionLink label='Meu Perfil' path='/profissional/perfil' dados={dados} icon='user-doctor' /> 
                     </>
                 ) : (
                     <>

@@ -6,7 +6,7 @@ export default function PerfilProfissional () {
     const dados = location.state
 
     return (
-        <Page dadosUsuario={dados}>
+        <Page dados={dados}>
             
         </Page>
     )

@@ -1,3 +1,7 @@
+:root {
+    --text-green : #268577
+}
+
 * {
     margin: 0;
     padding: 0;

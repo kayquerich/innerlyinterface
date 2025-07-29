@@ -58,7 +58,7 @@ export default function UserRegistros () {
     }, [data_login])
 
     return (
-        <Page dadosUsuario={usuario}>
+        <Page dados={usuario}>
 
             <Title>Meus Registros</Title>
 

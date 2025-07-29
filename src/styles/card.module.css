@@ -89,3 +89,47 @@
 .profissional_tag div p {
     margin: 0;
 }
+
+.notification {
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 2px 3px -1px black;
+    margin-block: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding-inline: 10px;
+}
+
+.notification img {
+    height: 80%;
+    margin-right: 10px;
+}
+
+.usuario_tag {
+    width: 80%;
+    box-shadow: 0px 2px 3px -1px black;
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    margin-block: 12px;
+}
+
+.usuario_tag img {
+    height: 60px;
+    width: 60px;
+}
+
+.naosei {
+    display: flex;
+    width: 100%;
+    gap: 10%;
+}
+
+.text_user_card {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    height: 100%;
+    width: 100%;
+}

@@ -59,3 +59,47 @@ export function ProfessionalOption ({dados}) {
         </div>
     )
 }
+
+export function Notification ({dados}) {
+
+    const navigation = useNavigate()
+
+    const handleClick = () => {
+        navigation('/profissional/solicitacao', { state : dados })
+    }
+
+    return (
+        <div className={styles.notification} onClick={handleClick} >
+            <img src={perfilicon} alt="imagem estática de perfil" />
+            <div>
+                <p>{dados.dados_usuario.nome} te enviou uma solicitação, veja mais...</p>
+            </div>
+        </div>
+    )
+}
+
+export function UsuarioCard ({dados}) {
+    return (
+        <div className={styles.usuario_tag} >
+            <img src={perfilicon} alt="imagem estática de perfil" />
+            <div className={styles.text_user_card} >
+                <p className={styles.user_name} >{dados.nome}</p>
+                <p>{dados.biografia}</p>
+                <div className={styles.naosei} >
+                    <div>
+                        <p style={{ color : 'gray' }} >Contato</p>
+                        <p>{dados.contato}</p>
+                    </div>
+                    <div>
+                        <p style={{ color : 'gray' }} >Gênero</p>
+                        <p>{dados.genero}</p>
+                    </div>
+                    <div>
+                        <p style={{ color : 'gray' }} >Data de nascimento</p>
+                        <p>{dados.nascimento}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

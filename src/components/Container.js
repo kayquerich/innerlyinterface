@@ -9,11 +9,11 @@ export function Page ({children}) {
     )
 }
 
-export function InternalPage ({children, dadosUsuario, style}) {
+export function InternalPage ({children, dados, style}) {
 
     return (
         <div className={styles.internalpages}>
-            <SideBar dados={dadosUsuario}/>
+            <SideBar dados={dados}/>
             <div className={styles.internalcontainer} style={style && style} >
                 {children}
             </div>

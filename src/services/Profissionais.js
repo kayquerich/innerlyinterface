@@ -43,6 +43,67 @@ export const getProfissional = async (token) => {
 
 }
 
+export const listarAcompanhamentos = async (token) => {
+    try {
+
+        const response = await fetch('http://localhost:8000/acompanhamentos/listar', {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            }
+        })
+
+        if (response.ok) return await response.json();
+        return []
+
+    } catch (error) {
+        error_case()
+    }
+}
+
+export const listarSolicitacoes = async (token) => {
+    try {
+
+        const response = await fetch('http://localhost:8000/acompanhamentos/solicitacao/listar', {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            }
+        })
+
+        if (response.ok) return await response.json();
+        return []
+
+    } catch (error) {
+        error_case()
+    }
+}
+
+export const responderSolicitacao = async (token, id, resposta) => {
+    try {
+
+        const response = await fetch('http://localhost:8000/acompanhamentos/solicitacao/responder', {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}` 
+            },
+            body : JSON.stringify({
+                'id' : id,
+                'resposta' : resposta
+            })
+        })
+
+        if (response.ok) return await response.json();
+        return {}
+
+    } catch (error) {
+        error_case()
+    }
+}
+
 function error_case () {
     alert('Não foi possivel realizar o cadastro, tente novamente')
 }

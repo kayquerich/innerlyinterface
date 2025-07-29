@@ -11,7 +11,7 @@ export default function FileRegistro () {
     const { registro, dados } = location.state 
     
     return (
-        <Page dadosUsuario={dados}>
+        <Page dados={dados}>
 
             <Title>Detalhes</Title>
             <Separator margin={20}/>

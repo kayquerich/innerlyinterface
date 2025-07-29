@@ -41,7 +41,7 @@ export default function Detalhes () {
     }
 
     return (
-        <Page dadosUsuario={usuario}>
+        <Page dados={usuario}>
 
             <Title>{registro.title}</Title>
             <Separator margin={30}/>

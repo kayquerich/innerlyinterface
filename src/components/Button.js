@@ -34,3 +34,11 @@ export function CloseButton ({handleClick}) {
         </button>
     )
 }
+
+export function Clickable ({action, children, color}) {
+    return (
+        <button onClick={action} style={{ backgroundColor : color }} className={styles.clickable} >
+            {children}
+        </button>
+    )
+}

@@ -32,7 +32,7 @@ export default function Acompanhamento () {
         <>
         {showModal && <ConfirmClose close={() => setShowModal(false)} token={usuario.token} id={acompanhamento.id} execute={atualizarStatus}/>}
 
-        <Page dadosUsuario={usuario} style={{ position : 'relative' }}>
+        <Page dados={usuario} style={{ position : 'relative' }}>
 
             <Subtitle>Acompanhamento</Subtitle>
 

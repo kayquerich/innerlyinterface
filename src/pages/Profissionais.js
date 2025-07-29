@@ -46,7 +46,7 @@ export default function Profissionais () {
     }
 
     return (
-        <Page dadosUsuario={usuario} style={{display : 'flex'}} >
+        <Page dados={usuario} style={{display : 'flex'}} >
 
             <div className={styles.container_saved} >
                 <Subtitle>Profissionais que te acompanham</Subtitle>

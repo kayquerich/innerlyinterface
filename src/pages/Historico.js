@@ -7,7 +7,7 @@ export default function Historico () {
     const dados = location.state
 
     return (
-        <Page dadosUsuario={dados}>
+        <Page dados={dados}>
             <h1>Histórico</h1>
         </Page>
     )

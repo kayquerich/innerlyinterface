@@ -46,7 +46,7 @@ export default function Adicionar () {
     }
 
     return (
-        <Page dadosUsuario={dados}>
+        <Page dados={dados}>
 
             <Title>Adicionar registro</Title>
             <Separator margin={30}/>

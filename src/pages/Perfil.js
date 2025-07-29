@@ -1,4 +1,4 @@
-import { InternalPage as Container } from "../components/Container"
+import { InternalPage as Page } from "../components/Container"
 import { Subtitle } from "../components/Text"
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 import { UserEditPage as Modal } from "../components/Modal"
@@ -15,7 +15,7 @@ export default function Perfil () {
     return (
         <>
             {isOpen ? (<Modal dadosUsuario={dados} close={() => setOpen(false)}/>) : <></>}
-            <Container dadosUsuario={dados}>
+            <Page dados={dados}>
 
                 <Subtitle>Meu perfil</Subtitle>
 
@@ -59,7 +59,7 @@ export default function Perfil () {
 
                 </div>
 
-            </Container>
+            </Page>
         </>
     )
 }

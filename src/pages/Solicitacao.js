@@ -50,7 +50,7 @@ export default function Solicitacao () {
             token={usuario.token}
             execute={preencherSolicitacao}
         />)}
-        <Page dadosUsuario={usuario} >
+        <Page dados={usuario} >
 
             <Subtitle>Solicitar acompanhamento</Subtitle>
             <header className={styles.header} >

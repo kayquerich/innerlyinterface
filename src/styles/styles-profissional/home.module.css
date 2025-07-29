@@ -1,52 +1,18 @@
-.container_registros {
-    display: flex;
-    gap: 15px;
-    height: 260px;
-    align-items: center;
-    overflow-x: auto;
-    max-width: 76vw;
-    margin-bottom: 20px;
-    scrollbar-width: none;
-    scrollbar-color: #34816c #f0f0f0;
-    position: relative;
+.container {
+    width: 68%;
+    height: 100%;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+    border-color: black;
+    margin-right: 2%;
 }
 
-.container_usuarios {
-    display: flex;
-    gap: 15px;
-    height: 140px;
-    align-items: center;
-    overflow-x: auto;
-    max-width: 76vw;
-    margin-bottom: 20px;
-    scrollbar-width: none;
-    scrollbar-color: #34816c #f0f0f0;
-    padding-inline: 10px;
+.notifications {
+    width: 30%;
+    height: 100%;
 }
 
-.right_sroll_button {
-    position: sticky;
-    right: 0;
-    height: 90%;
-    min-width: 50px;
-    color: white;
-    font-size: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: blue;
-}
-
-.left_sroll_button {
-    position: sticky;
-    z-index: 1;
-    left: 0;
-    height: 90%;
-    min-width: 50px;
-    color: white;
-    font-size: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: blue;
+.notifications h3 {
+    color: var(--text-green);
+    font-weight: 400;
 }

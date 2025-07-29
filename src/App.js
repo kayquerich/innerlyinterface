@@ -9,11 +9,11 @@ import Detalhes from './pages/Detalhes';
 import Historico from './pages/Historico';
 import Home from './pages/profissional/Home';
 import PerfilProfissional from './pages/profissional/Perfil';
-import Solicitacoes from './pages/profissional/Solicitacoes';
 import FileRegistro from './pages/profissional/Detalhes';
 import Profissionais from './pages/Profissionais';
 import Acompanhamento from './pages/Acompanhamento';
 import Solicitacao from './pages/Solicitacao';
+import Responder from './pages/profissional/Responder';
 
 function App() {
     return (
@@ -30,9 +30,9 @@ function App() {
                 <Route path='/acompanhamento' element={<Acompanhamento/>}/>
                 <Route path='/profissional/home' element={<Home/>}/>
                 <Route path='/profissional/perfil' element={<PerfilProfissional/>}/>
-                <Route path='/profissional/solicitacoes' element={<Solicitacoes/>}/>
                 <Route path='/profissional/registro/detalhes' element={<FileRegistro/>}/>
                 <Route path='/solicitacao' element={<Solicitacao/>}/>
+                <Route path='/profissional/solicitacao' element={<Responder/>}/>
             </Routes>
         </HashRouter>
     );  

@@ -3,6 +3,9 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { RadioInput, Input } from './Input'
 import { useState } from 'react'
 import { encerrarAcompanhamento, updateUsuario, listarAcompanhamentos, solicitarAcompanhamento } from '../services/Usuarios'
+import { Clickable } from './Button'
+import { responderSolicitacao } from '../services/Profissionais'
+import { useNavigate } from 'react-router-dom'
 
 export function UserEditPage ({close}) {
 
@@ -179,4 +182,41 @@ const formulario = {
     backgroundColor : 'white', 
     padding : 20,
     position : 'relative'
+}
+
+export function RecusarSolicitacao ({token, id, close}) {
+
+    const solicitacoes = JSON.parse(sessionStorage.getItem('solicitacoes'))
+
+    const navigation = useNavigate()
+
+    const recusarSolicitacao = async () => {
+
+        await responderSolicitacao(token, id, 'recusada')
+
+        const dados = solicitacoes.filter(item => item.id !== id)
+        sessionStorage.setItem('solicitacoes', JSON.stringify(dados))
+
+        alert('Solicitação recusada')
+        navigation('/profissional/home')
+        
+    }
+
+    return (
+        <div className={styles.page} >
+            <div style={container} >
+                <h3 className={styles.title} >Recusar solicitação</h3>
+                <hr style={{ border: '1px solid #ccc', margin: '10px 0' }}/>
+                <p>tem certeza que quer recusar a solitação?</p>
+                <footer style={footer} >
+                    <Clickable color='#383897' action={close && close} >
+                        Voltar
+                    </Clickable>
+                    <Clickable color='#a90000' action={recusarSolicitacao}>
+                        Recusar
+                    </Clickable>
+                </footer>
+            </div>
+        </div>
+    )
 }
