@@ -23,3 +23,18 @@
     gap: 10px;
     margin-top: 20px;
 }
+
+.void {
+    height: 99%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.void p {
+    font-size: 25px;
+    font-weight: 500;
+    color: gray;
+    opacity: 70%;
+}

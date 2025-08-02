@@ -10,8 +10,8 @@ export function SideBar ({dados}) {
 
     const logoutAction = async () => {
         if (dados.token) {
-            const foi = await logout(dados.token)
-            if (foi) {
+            const response = await logout(dados.token)
+            if (response) {
                 navigation('/')
             }
         }
@@ -37,6 +37,7 @@ export function SideBar ({dados}) {
                 {dados && 'credencial' in dados ? (
                     <>
                         <OptionLink label='Registros' path='/profissional/home' dados={dados} icon='file' />
+                        <OptionLink label='Clientes' path='/profissional/clientes' dados={dados} icon='users-line' />
                         <OptionLink label='Meu Perfil' path='/profissional/perfil' dados={dados} icon='user-doctor' /> 
                     </>
                 ) : (

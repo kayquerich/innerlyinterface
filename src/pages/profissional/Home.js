@@ -77,7 +77,7 @@ export default function Home () {
                 <Subtitle>Registros recentes</Subtitle>
 
                 {registrosSemana.length === 0 && (
-                    <div>
+                    <div className={styles.void} >
                         <p>Não há registros recentes</p>
                     </div>
                 )}

@@ -14,6 +14,7 @@ import Profissionais from './pages/Profissionais';
 import Acompanhamento from './pages/Acompanhamento';
 import Solicitacao from './pages/Solicitacao';
 import Responder from './pages/profissional/Responder';
+import Clientes from './pages/profissional/Clientes';
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                 <Route path='/profissional/registro/detalhes' element={<FileRegistro/>}/>
                 <Route path='/solicitacao' element={<Solicitacao/>}/>
                 <Route path='/profissional/solicitacao' element={<Responder/>}/>
+                <Route path='/profissional/clientes' element={<Clientes/>}/>
             </Routes>
         </HashRouter>
     );  
