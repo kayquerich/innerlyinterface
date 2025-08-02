@@ -104,6 +104,25 @@ export const responderSolicitacao = async (token, id, resposta) => {
     }
 }
 
+export const listarRegistrosByFollow = async (token) => {
+    try {
+
+        const response = await fetch('http://localhost:8000/registros/profissional/listar', {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            }
+        })
+
+        if (response.ok) return await response.json();
+        return []
+
+    } catch (error) {
+        error_case()
+    }
+}
+
 function error_case () {
     alert('Não foi possivel realizar o cadastro, tente novamente')
 }

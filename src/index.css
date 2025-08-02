@@ -1,5 +1,8 @@
 :root {
-    --text-green : #268577
+    --text-green : #268577;
+    --dark-green : #1b5f56;
+    --white-blue : #c5dbff;
+    --light-blue : #98c0ff;
 }
 
 * {

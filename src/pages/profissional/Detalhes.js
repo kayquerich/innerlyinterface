@@ -1,45 +1,49 @@
 import styles from '../../styles/styles-profissional/details.module.css'
 import { useLocation } from "react-router-dom"
 import { InternalPage as Page } from "../../components/Container"
-import { Title, Subtitle, Separator, SubtitleDark } from "../../components/Text"
-import { lista_cores_emotion, listaNomesEmojis } from "../../assets/dados"
-import { listaEmojis } from '../../assets/dados'
+import { Subtitle, Separator, Line, TitleThree} from "../../components/Text"
+import { VoltarPagina } from '../../components/Button'
+import { UsuarioCard } from '../../components/Card'
+import { setEmotionStr } from '../../services/Gadgets'
 
 export default function FileRegistro () {
     
     const location = useLocation()
     const { registro, dados } = location.state 
+    const profissional = JSON.parse(sessionStorage.getItem('profissional'))
     
     return (
-        <Page dados={dados}>
+        <Page dados={profissional}>
 
-            <Title>Detalhes</Title>
-            <Separator margin={20}/>
+            <div className={styles.header} >
+                <VoltarPagina/>
+                <Subtitle>Detalhes do Registro</Subtitle>
+            </div>
+            <Separator margin={20} />
 
-            <Subtitle>Acompanhado</Subtitle>
-            <Separator margin={10}/>
-            
-            <Separator margin={20}/>
-
-            <SubtitleDark>Detalhes - {registro.title}</SubtitleDark>
+            <TitleThree>Usuario</TitleThree>
+            <UsuarioCard dados={registro.dados_usuario} />
+            <Line/>
 
             <Separator margin={20} />
-            <SubtitleDark>A pessoa acompanhada descreveu estar se sentindo</SubtitleDark>
-            <Separator margin={10}/>
-            <div className={styles.emotion_space}> 
-                <img 
-                    src={listaEmojis[registro.valuehumor]} 
-                    alt="emoji referente a emoção do usuario" 
-                    className={styles.emotion_icon}
-                />
-                <p className={styles.emotion_name} style={{color : lista_cores_emotion[registro.valuehumor]}}>{listaNomesEmojis[registro.valuehumor]}</p>
+
+            <TitleThree>{registro.title}</TitleThree>
+            
+            <div 
+                title='A plataforma ofereçe no momento do cadastro de registro um campo onde o usuario pode dizer com está se sentindo no momento através da seleção de um "nivel de humor" sendo 1 o menor - "Muito mal" e 5 o maior - "Muito bem"' 
+                style={{ marginBlock : 10 }}
+            >
+                <p>O usuario descreveu está se sentindo - {setEmotionStr(registro.value_humor)}</p>
             </div>
-            <Separator margin={10}/>
 
-            <SubtitleDark>Anotações</SubtitleDark>  
-            <Separator margin={10}/>
-            <div className={styles.container_anotation}>
+            <TitleThree>Anotação realizada</TitleThree>
 
+            <div className={styles.container_notes} >
+                <div className={styles.triangulo} ></div>
+                <div className={styles.note} >
+                    <p>{registro.anotacao}</p>
+                    <div className={styles.dobra} ></div>
+                </div>
             </div>
 
         </Page>

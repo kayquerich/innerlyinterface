@@ -19,6 +19,10 @@ export function SubtitleDark({children}) {
     )
 }
 
+export function TitleThree ({children}) {
+    return <h3 className={styles.subtitle} style={{ fontWeight : 400, marginBlock : 10 }} >{children}</h3>
+}
+
 export function CadastroTitle () {
     return (
         <header style={{marginBottom : '1.5em'}}>

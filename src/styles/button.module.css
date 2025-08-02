@@ -110,3 +110,11 @@
 .clickable:hover {
     opacity: 70%;
 }
+
+.voltar {
+    background-color: transparent;
+    font-size: 22px;
+    color: var(--dark-green);
+    margin-bottom: -5px;
+    cursor: pointer;
+}

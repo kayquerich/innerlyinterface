@@ -6,27 +6,34 @@ import { UsuarioCard } from "../../components/Card"
 import { dateString } from "../../services/Gadgets"
 import styles from '../../styles/styles-profissional/response.module.css'
 import { Clickable } from "../../components/Button"
-import { listarAcompanhamentos, responderSolicitacao } from "../../services/Profissionais"
+import { listarAcompanhamentos, listarRegistrosByFollow, responderSolicitacao } from "../../services/Profissionais"
 import { RecusarSolicitacao } from "../../components/Modal"
 
 export default function Responder () {
 
-    const [profissional, setProfissional] = useState(JSON.parse(sessionStorage.getItem('profissional')))
+    const profissional = JSON.parse(sessionStorage.getItem('profissional'))
     const location = useLocation()
     const solicitacao = location.state
     const navigation = useNavigate()
 
     const sendResponse = async (response) => {
+
         const result = await responderSolicitacao(profissional.token, solicitacao.id, response)
+
         if (result) {
+
             const novos_acompanhamentos = await listarAcompanhamentos(profissional.token)
             sessionStorage.setItem('acompanhamentos', JSON.stringify(novos_acompanhamentos))
+
+            const novos_registros = await listarRegistrosByFollow(profissional.token)
+            sessionStorage.setItem('registros', JSON.stringify(novos_registros))
 
             let notify_list = JSON.parse(sessionStorage.getItem('solicitacoes'))
             notify_list = notify_list.filter(item => item.id !== solicitacao.id)
             sessionStorage.setItem('solicitacoes', JSON.stringify(notify_list))
 
             navigation('/profissional/home')
+
         }
     }
 

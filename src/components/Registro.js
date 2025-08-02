@@ -7,22 +7,22 @@ export function Registro ({registro, dados}){
 
     const navigation = useNavigate()
 
-    const goToPage = (usuario) => {
-        if (usuario && 'concelho' in usuario) {
+    const goToPage = () => {
+        if (dados && 'credencial' in dados) {
             navigation('/profissional/registro/detalhes', { state : {
                 registro : registro,
-                dados : usuario
+                dados : dados
             } })
         } else {
             navigation('/registros/detalhes', { state : {
                 registro : registro,
-                usuario : usuario
+                usuario : dados
             } })
         }
     }
 
     return (
-        <div className={styles.registro} onClick={() => goToPage(dados)}>
+        <div className={styles.registro} onClick={goToPage}>
 
             <p>{registro.title}</p>
             <Line color='black' />

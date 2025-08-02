@@ -1,20 +1,20 @@
 import { useLocation } from "react-router-dom"
 import { InternalPage as Page } from "../../components/Container"
 import { useEffect, useState } from "react"
-import { getProfissional, listarAcompanhamentos, listarSolicitacoes } from "../../services/Profissionais"
+import { getProfissional, listarAcompanhamentos, listarRegistrosByFollow, listarSolicitacoes } from "../../services/Profissionais"
 import { Subtitle } from "../../components/Text"
 import styles from '../../styles/styles-profissional/home.module.css'
-import { SearchBar } from "../../components/Search"
 import { Notification } from "../../components/Card"
+import { Registro } from "../../components/Registro"
+import { filtarRegistros } from "../../services/Gadgets"
 
 export default function Home () {
 
     const location = useLocation()
     const data_login = location.state
     const [profissional, setProfissional] = useState({})
-    const [registros, setRegistros] = useState([])
-    const [follows, setFollows] = useState([])
     const [solicitacoes, setSolicitacoes] = useState([])
+    const [registrosSemana, setRegistrosSemana] = useState([])
 
     useEffect(() => {
         const fetchDados = async () => {
@@ -34,22 +34,17 @@ export default function Home () {
 
             }
 
-            let temp_follow_list = null
             const follow_list = sessionStorage.getItem('acompanhamentos')
 
-            if (follow_list) {
-                temp_follow_list = JSON.parse(follow_list)
-                setFollows(temp_follow_list)
-            } else {
+            if (!follow_list) {
                 const result = await listarAcompanhamentos(data_login.token)
-                setFollows(result)
                 sessionStorage.setItem('acompanhamentos', JSON.stringify(result))
             }
 
             let temp_solict_list = null
             const saved_solicitacoes = sessionStorage.getItem('solicitacoes')
 
-            if (follow_list) {
+            if (saved_solicitacoes) {
                 temp_solict_list = JSON.parse(saved_solicitacoes)
                 setSolicitacoes(temp_solict_list)
             } else {
@@ -58,23 +53,50 @@ export default function Home () {
                 sessionStorage.setItem('solicitacoes', JSON.stringify(result))
             }
 
+            let temp_register_list = null
+            const saved_registros = sessionStorage.getItem('registros')
+
+            if (saved_registros) {
+
+                temp_register_list = JSON.parse(saved_registros)
+                setRegistrosSemana(filtarRegistros(temp_register_list))
+
+            } else {
+                const result = await listarRegistrosByFollow(data_login.token)
+                sessionStorage.setItem('registros', JSON.stringify(result))
+                setRegistrosSemana(filtarRegistros(result))
+            }
+
         }
         fetchDados()
     }, [data_login])
 
     return (
         <Page dados={profissional} style={{ display : 'flex' }}>
-            {console.log(solicitacoes)}
-            {console.log(follows)}
             <div className={styles.container} >
                 <Subtitle>Registros recentes</Subtitle>
+
+                {registrosSemana.length === 0 && (
+                    <div>
+                        <p>Não há registros recentes</p>
+                    </div>
+                )}
+
+                <div className={styles.container_registros} >
+                    {registrosSemana.map((item, index) => (
+                        <Registro dados={profissional} key={index} registro={item} />
+                    ))}
+                </div>
+            
             </div>
+
             <div className={styles.notifications} >
                 <h3>Solicitações de acompanhamento</h3>
                 {solicitacoes && solicitacoes.map((item, key) => (
                     <Notification dados={item} key={key} />
                 ))}
             </div>
+
         </Page>
     )
 }

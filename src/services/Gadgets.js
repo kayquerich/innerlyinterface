@@ -1,4 +1,4 @@
-import { meses } from "../assets/dados"
+import { meses, listaNomesEmojis } from "../assets/dados"
 
 export function dateString (data) {
     const [ano, mes, dia] = data.split('-')
@@ -23,4 +23,30 @@ export function setColorString (string) {
     } else {
         return { color : 'red', borderColor : 'red' }
     }
+}
+
+export function filtarRegistros (lista) {
+    
+    const hoje = new Date()
+    const diaSemana = hoje.getDay()
+
+    const primeiroDia = new Date(hoje)
+    primeiroDia.setDate(hoje.getDate() - (diaSemana === 0 ? 6 : diaSemana - 1))
+    primeiroDia.setHours(0,0,0,0)
+
+    const ultimoDia = new Date(primeiroDia)
+    ultimoDia.setDate(primeiroDia.getDate() + 6)
+    ultimoDia.setHours(23,59,59,999) 
+
+    const daSemana = lista.filter(objeto => {
+        const data = new Date(objeto.data_registro);
+        return data >= primeiroDia && data <= ultimoDia;
+    });
+
+    return daSemana;
+
+}
+
+export function setEmotionStr (value) {
+    return listaNomesEmojis[value]
 }

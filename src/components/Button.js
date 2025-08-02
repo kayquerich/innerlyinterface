@@ -42,3 +42,14 @@ export function Clickable ({action, children, color}) {
         </button>
     )
 }
+
+export function VoltarPagina () {
+
+    const navigation = useNavigate()
+
+    return (
+        <button className={styles.voltar} onClick={() => navigation(-1)} >
+            <FontAwesomeIcon icon='chevron-left'/>
+        </button>
+    )
+}
