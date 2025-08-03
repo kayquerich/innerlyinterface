@@ -377,3 +377,17 @@ export function Picker({handleChange, options, custom_styles, icon, placeholder,
     )
 
 }
+
+export function TextInput ({name, placeholder, value, onChange}) {
+    return (
+        <textarea 
+            name={name} 
+            id={name}
+            placeholder={placeholder}
+            onChange={onChange}
+            className={styles.textinput}
+        >
+            {value}
+        </textarea>
+    )
+}

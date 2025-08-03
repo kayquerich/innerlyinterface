@@ -123,6 +123,35 @@ export const listarRegistrosByFollow = async (token) => {
     }
 }
 
+export const updateProfissional = async (token, dados) => {
+    
+    try {
+
+        const response = await fetch('http://localhost:8000/profissionais/update', {
+            method : 'PUT',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            },
+            body : JSON.stringify(dados)
+        })
+
+        if (response.ok) {
+        
+            const profissional = await getProfissional(token)
+            sessionStorage.setItem('profissional', JSON.stringify({...profissional, 'token' : token}))
+
+            return true
+
+        }
+
+        return false
+
+    } catch (error) {
+        error_case()
+    }
+}
+
 function error_case () {
     alert('Não foi possivel realizar o cadastro, tente novamente')
 }

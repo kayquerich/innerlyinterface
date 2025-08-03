@@ -114,4 +114,18 @@
     border-radius: 3px;
     cursor: pointer;
     transition: .5s;
+} 
+
+.content_area {
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    gap: 20px;
 }

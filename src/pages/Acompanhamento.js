@@ -1,82 +1,76 @@
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import { InternalPage as Page } from "../components/Container"
 import { Subtitle } from "../components/Text"
-import { ConfirmClose } from "../components/Modal"
-import profilePic from '../assets/images/perfil-static-icon.png'
+import { ModalModular } from "../components/Modal"
 import styles from '../styles/acompanhamento.module.css'
 import { useState } from "react"
+import { Clickable, VoltarPagina } from "../components/Button"
+import { FollowCard } from "../components/Card"
+import { encerrarAcompanhamento, listarAcompanhamentos } from "../services/Usuarios"
 
 export default function Acompanhamento () {
     
     const location = useLocation()
 
     const usuario = JSON.parse(sessionStorage.getItem('usuario'))
-    const [acompanhamento, setAcompanhamento] = useState(location.state)
-
-    const navigation = useNavigate()
-
-    const handleBack = () => {
-        navigation('/profissionais')
-    }
+    const [follow, setFollow] = useState(location.state)
 
     const [showModal, setShowModal] = useState(false)
-    const handleClick = () => {
-        setShowModal(true)
-    }
 
     const atualizarStatus = () => {
-        setAcompanhamento({...acompanhamento, is_ativo : false})
+        setFollow({...follow, is_ativo : false})
+    }
+
+    const handleClick = async () => {
+        const is_closed = await encerrarAcompanhamento(follow.id, usuario.token)
+
+        if (is_closed) {
+            const query_follows = await listarAcompanhamentos(usuario.token)
+            sessionStorage.setItem('acompanhamentos', JSON.stringify(query_follows))
+        }
+
+        atualizarStatus()
+        setShowModal(false)
     }
 
     return (
         <>
-        {showModal && <ConfirmClose close={() => setShowModal(false)} token={usuario.token} id={acompanhamento.id} execute={atualizarStatus}/>}
 
-        <Page dados={usuario} style={{ position : 'relative' }}>
+            {showModal && (
+                <ModalModular close={() => setShowModal(false)} 
+                    title='Deseja Realmente Encerrar o Acompanhamento ?'
+                >
 
-            <Subtitle>Acompanhamento</Subtitle>
+                    <p className={styles.linha_texto} >Deseja realmente encerrar o acompanhamento? Após isso o profissional será removido da sua lista de acompanhantes e caso queira ser acompanhado pelo mesmo, terá que solicitar novamente.</p>
 
-            <header className={styles.header} >
-                <img src={profilePic} alt="imagem estática de perfil" />
-                <div className={styles.header_text} >
-                    <h1>{acompanhamento.nome_profissional}</h1>
-                    <p className={styles.codigo}>Codigo relação: {acompanhamento.codigo_acompanhamento}</p>
-                    <p>{acompanhamento.biografia}</p>
-                    <p>Inicio: {acompanhamento.data_inicio}</p>
-                </div>
-                <div className={styles.container_status} style={
-                    acompanhamento.is_ativo ? { borderColor : 'green' } : { borderColor : 'red' }
-                } >
-                    {acompanhamento.is_ativo ? (
-                        <p style={status_on} >Acompanhamento ativo</p>
-                    ) : (
-                        <p style={status_off} >Acompanhamento encerrado</p>
+                    <div className={styles.button_space} >
+                        <Clickable color='var(--button-red)' action={handleClick} >
+                            Encerrar mesmo assim
+                        </Clickable>
+                    </div>
+
+                </ModalModular>
+            )}
+
+            <Page dados={usuario} style={{ position : 'relative' }}>
+
+                <header style={{ display : 'flex', gap : 20 }} >
+                    <VoltarPagina/>
+                    <Subtitle>Acompanhamento</Subtitle>
+                </header>
+
+                <FollowCard dados={follow} />
+
+                <div className={styles.footer} >
+                    {follow.is_ativo && (
+                        <Clickable action={() => setShowModal(true)} color='var(--button-red)' >
+                            Encerrar Acompanhamento
+                        </Clickable>
                     )}
                 </div>
-            </header>
 
-            <div className={styles.footer} >
-                <button className={styles.encerrar} onClick={handleClick} >
-                    Encerrar acompanhamento
-                </button>
-                <button className={styles.back} onClick={handleBack} >
-                    Voltar
-                </button>
-            </div>
+            </Page>
 
-        </Page>
         </>
     )
-}
-
-const status_on = {
-    color : 'green',
-    fontWeight : 'bold',
-    fontSize : 14
-}
-
-const status_off = {
-    color : 'red',
-    fontWeight : 'bold',
-    fontSize : 14
 }

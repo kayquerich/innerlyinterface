@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, EmotionInput } from "../components/Input"
-import { ButtonSubmit } from "../components/Button";
-import { Separator, Subtitle, Title } from "../components/Text";
+import { Clickable, VoltarPagina } from "../components/Button";
+import { Separator, Subtitle } from "../components/Text";
 import { useState } from "react";
 import { updateRegistro } from "../services/Usuarios";
 
@@ -32,18 +32,26 @@ export default function Detalhes () {
 
     }
 
+    const [mexeu, setMexeu] = useState(false)
+
     const onEmotionChange = (e) => {
         set_update_data({...update_data, 'value_humor' : e})
+        setMexeu(true)
     }
 
     const alterAnotation = (e) => {
         set_update_data({...update_data, 'anotacao' : e.target.value})
+        setMexeu(true)
     }
 
     return (
         <Page dados={usuario}>
 
-            <Title>{registro.title}</Title>
+            <header style={{ display : 'flex', gap : 20 }} >
+                <VoltarPagina/>
+                <Subtitle>{registro.title}</Subtitle>
+            </header>
+
             <Separator margin={30}/>
 
             <Subtitle>Como está se sentindo?</Subtitle>  
@@ -56,7 +64,11 @@ export default function Detalhes () {
             <AnotationInput value={update_data.anotacao} handleChange={alterAnotation}/>
             <Separator margin={30}/>
 
-            <ButtonSubmit text='enviar' handleClick={onHandleClick}/>
+            {mexeu && (
+                <Clickable action={onHandleClick} color='var(--blue-green)' >
+                    Alterar
+                </Clickable>
+            )}
 
         </Page>
     )

@@ -53,3 +53,11 @@ export function VoltarPagina () {
         </button>
     )
 }
+
+export function CloseModal ({execute}) {
+    return (
+        <button className={styles.close_modal} onClick={execute} >
+            <FontAwesomeIcon icon='chevron-left'/>
+        </button>
+    )
+}

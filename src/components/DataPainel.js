@@ -3,7 +3,7 @@ import styles from '../styles/painel.module.css'
 import { Clickable } from "./Button";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 
-export function DataPainel ({dados}) {
+export function DataPainel ({dados, execute}) {
     return (
         <div className={styles.container} >
             {console.log(dados)}
@@ -11,7 +11,7 @@ export function DataPainel ({dados}) {
 
                 <PainelTitle>Informações Pessoais</PainelTitle>
 
-                <Clickable color={'var(--title-blue)'} >
+                <Clickable color={'var(--title-blue)'} action={execute}>
                     <div style={{ display : 'flex', gap : 10 }} >
                         <Icon icon='pen' color='white' />
                         <p>Editar</p>

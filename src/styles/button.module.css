@@ -118,3 +118,11 @@
     margin-bottom: -5px;
     cursor: pointer;
 }
+
+.close_modal {
+    background-color: transparent;
+    font-size: 18px;
+    color: var(--title-blue);
+    margin-bottom: -3px;
+    cursor: pointer;
+}

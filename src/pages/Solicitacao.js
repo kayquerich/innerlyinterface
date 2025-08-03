@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { InternalPage as Page } from "../components/Container";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Line, Subtitle } from "../components/Text";
 import styles from '../styles/solicitacao.module.css'
-import profilePic from '../assets/images/perfil-static-icon.png'
-import { buscarAcompanhamento, buscarSolicitacao } from "../services/Usuarios";
-import { FinalizarSolicitacao } from "../components/Modal";
+import { buscarAcompanhamento, buscarSolicitacao, solicitarAcompanhamento } from "../services/Usuarios";
+import { ModalModular } from "../components/Modal";
 import { dateString, isEmpty, setColorBoolean, setColorString } from "../services/Gadgets";
+import { ProfessionalFollow } from "../components/Card";
+import { Clickable, VoltarPagina } from "../components/Button";
+import { TextInput } from "../components/Input";
 
 export default function Solicitacao () {
     
@@ -14,10 +16,9 @@ export default function Solicitacao () {
     const location = useLocation()
     const dados = location.state
 
-    const navigation = useNavigate()
-
     const [apiFollow, setFollow] = useState({})
     const [apiSolicitacao, setSolicitacao] = useState({})
+
     useEffect(() => {
 
         const fetchAcompanhamento = async () => {
@@ -31,88 +32,110 @@ export default function Solicitacao () {
         fetchAcompanhamento()
         fetchSolicitacao()
 
-    }, [])
+    }, [dados, usuario])
 
     const [showModal, setShowModal] = useState(false)
-    const intercaoModal = async () => {
-        setShowModal(!showModal)
-    }
+    const [menssagem, setMenssagem] = useState('Gostaria que acompanhasse meus registros!')
 
-    const preencherSolicitacao = (res) => {
-        setSolicitacao(res)
+    const preencherSolicitacao = (response) => {
+        setSolicitacao(response)
     }       
+
+    const enviarSolicitacao = async () => {
+        const response = await solicitarAcompanhamento(
+            usuario.token, 
+            dados.codigo_acompanhamento, 
+            menssagem
+        )
+        preencherSolicitacao(response.solicitacao)
+        setShowModal(false)
+    }
 
     return (
         <>
-        {showModal && (<FinalizarSolicitacao 
-            close={intercaoModal} 
-            dados={dados} 
-            token={usuario.token}
-            execute={preencherSolicitacao}
-        />)}
-        <Page dados={usuario} >
+            {showModal && (
+                <ModalModular close={() => setShowModal(false)} title='Finalizar Solicitação' >
 
-            <Subtitle>Solicitar acompanhamento</Subtitle>
-            <header className={styles.header} >
-                <img src={profilePic} alt="imagem estática de perfil" />
-                <div className={styles.header_text} >
-                    <h1>{dados.nome}</h1>
-                    <p className={styles.codigo}>Codigo relação: {dados.codigo_acompanhamento}</p>
-                    <p>{dados.biografia}</p>
-                </div>
-            </header>
+                    <p className={styles.paragrafo} >Você está enviando uma solicitação de acomapanhamento para {dados.nome} deixe aqui uma mensagem pra que ele entenda o motivo da solicitação</p>
 
-            <p>Ao solicitar acomapnhamento de um profissional uma notificação será enviada para o mesmo, quando ele aceitar o profissional poderá ver seus registros, todas as infomações sobre o acompanhamento estarão na seção de profissionais, e você pode encerrar o acompanhamento quando bem entender</p>
+                    <TextInput
+                        name='menssagem'
+                        placeholder='Deixe aqui o motivo da solicitação...'
+                        value={menssagem}
+                        onChange={(e) => setMenssagem(e.target.value)}
+                    />
 
-            <Line />
+                    <footer className={styles.button_area} >
+                        <Clickable color='green' action={enviarSolicitacao}>
+                            Enviar Solicitação
+                        </Clickable>
+                    </footer>
 
-            {(!isEmpty(apiFollow)) && (
-                <div>
-                    <h3>Já existe um acompanhamento entre vocês</h3>
-                    <p>iniciado em {dateString(apiFollow.data_inicio)}</p>
+                </ModalModular>
+            )}
+        
+            <Page dados={usuario} >
 
-                    <div className={styles.estado} style={setColorBoolean(apiFollow.is_ativo)}>
-                        <p style={setColorBoolean(apiFollow.is_ativo)}> 
+                <header style={{ display : 'flex', gap : 20}} >
+                    <VoltarPagina/>
+                    <Subtitle>Solicitar acompanhamento</Subtitle>
+                </header>
+                
+                <ProfessionalFollow dados={dados} />
+
+                <p>Ao solicitar acomapnhamento de um profissional uma notificação será enviada para o mesmo, quando ele aceitar o profissional poderá ver seus registros, todas as infomações sobre o acompanhamento estarão na seção de profissionais, e você pode encerrar o acompanhamento quando bem entender</p>
+
+                <Line />
+
+                {(!isEmpty(apiFollow)) && (
+                    <div>
+                        
+                        <h3>Já existe um acompanhamento entre vocês</h3>
+                        <p>iniciado em {dateString(apiFollow.data_inicio)}</p>
+
+                        <div 
+                            className={styles.estado} 
+                            style={setColorBoolean(apiFollow.is_ativo)}
+                        >
                             {apiFollow.is_ativo === true ? 'ativo' : 'não ativo'}
-                        </p>
+                        </div>
+
                     </div>
+                )}
 
-                </div>
-            )}
+                {(!isEmpty(apiSolicitacao) && (isEmpty(apiFollow) || !apiFollow.is_ativo)) && (
+                    <div style={{ display : 'flex', flexDirection : 'column', gap : 5 }} >
+                        
+                        <h3>Você já fez uma solicitação</h3>
+                        <p>{apiSolicitacao.descricao}</p>
+                        <p>{apiSolicitacao.menssagem}</p>
+                        <p>feita no dia {dateString(apiSolicitacao.data)}</p>
 
-            {(!isEmpty(apiSolicitacao) && isEmpty(apiFollow)) && (
-                <div style={{ display : 'flex', flexDirection : 'column', gap : 5 }} >
-                    
-                    <h3>Você já fez uma solicitação</h3>
-                    <p>{apiSolicitacao.descricao}</p>
-                    <p>{apiSolicitacao.menssagem}</p>
-                    <p>feita no dia {dateString(apiSolicitacao.data)}</p>
-
-                    <div className={styles.estado} style={setColorString(apiSolicitacao.estado)} >
-                        <p>{apiSolicitacao.estado}</p>
+                        <div className={styles.estado} style={setColorString(apiSolicitacao.estado)} >
+                            <p>{apiSolicitacao.estado}</p>
+                        </div>
+                        
                     </div>
-                    
-                </div>
-            )}
+                )}
 
-            <footer className={styles.footer} >
-                {console.log(apiFollow)}
-                { (!isEmpty(apiFollow) && apiFollow.is_ativo === false) &&
-                    <button className={styles.solicitar} onClick={intercaoModal} >
-                        Solicitar reativação
-                    </button>
-                }
-                {
-                    (isEmpty(apiSolicitacao) && isEmpty(apiFollow)) && 
-                    <button className={styles.solicitar} onClick={intercaoModal} >
-                        Solicitar Acompanhamento
-                    </button>
+                <footer className={styles.footer} >
+                    { (!isEmpty(apiFollow) && apiFollow.is_ativo === false) && (
+                        isEmpty(apiSolicitacao) && (
+                            <Clickable color='green' action={() => setShowModal(true)} >
+                                Solicitar Reativação
+                            </Clickable>
+                        ))
+                    }
+                    {
+                        (isEmpty(apiSolicitacao) && isEmpty(apiFollow)) && (
+                            <Clickable color='green' action={() => setShowModal(true)} >
+                                Solicitar Acompanhamento
+                            </Clickable>
+                        )
+                    }
+                </footer>
 
-                }
-                <button className={styles.back} onClick={() => navigation('/profissionais')} >Voltar</button>
-            </footer>
-
-        </Page>
+            </Page>
         </>
     )
 }

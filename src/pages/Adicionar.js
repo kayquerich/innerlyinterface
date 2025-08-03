@@ -1,8 +1,8 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { ButtonSubmit} from "../components/Button";
+import { Clickable, VoltarPagina} from "../components/Button";
 import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, DateInput, EmotionInput } from '../components/Input';
-import { Subtitle, Title, Separator } from "../components/Text";
+import { Subtitle, Separator } from "../components/Text";
 import { useState } from "react";
 import { createRegistro } from "../services/Usuarios";
 
@@ -47,8 +47,11 @@ export default function Adicionar () {
 
     return (
         <Page dados={dados}>
-
-            <Title>Adicionar registro</Title>
+            
+            <header style={{ display : 'flex', gap : 20 }} >
+                <VoltarPagina/>
+                <Subtitle>Adicionar registro</Subtitle>
+            </header>
             <Separator margin={30}/>
 
             <Subtitle>Como está se sentindo?</Subtitle>
@@ -66,8 +69,10 @@ export default function Adicionar () {
             <AnotationInput handleChange={onAnotationChange}/>
             <Separator margin={30}/>
 
-            <ButtonSubmit text='enviar' handleClick={onHandleSubmit}/>
-            
+            <Clickable action={onHandleSubmit} color='var(--blue-green)' >
+                Adicionar
+            </Clickable>
+        
         </Page>
     )
 }

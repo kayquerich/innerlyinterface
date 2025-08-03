@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import perfilicon from '../assets/images/perfil-static-icon.png'
+import picture from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/card.module.css'
+import { PainelTitle } from './Text'
+import { dateString, setColorBoolean } from '../services/Gadgets'
 
 function ActiveTag ({boolean}) {
     return (
@@ -10,7 +12,7 @@ function ActiveTag ({boolean}) {
     )
 }
 
-export function CardAcompanhamento ({dados}) {
+export function FollowPreview ({dados}) {
 
     const navigation = useNavigate()
 
@@ -22,7 +24,7 @@ export function CardAcompanhamento ({dados}) {
         <div className={styles.card_follow} onClick={HandleClick} >
 
             <header className={styles.follow_header} >
-                <img src={perfilicon} alt="imagem estatica de perfil" className={styles.follow_image} />
+                <img src={picture} alt="imagem estatica de perfil" className={styles.follow_image} />
 
                 <div>
                     <p className={styles.user_name} >{dados.nome_profissional}</p>
@@ -50,7 +52,7 @@ export function ProfessionalOption ({dados}) {
 
     return (
         <div className={styles.profissional_tag} onClick={HandleClick} >
-            <img src={perfilicon} alt="imagem estática de perfil" />
+            <img src={picture} alt="imagem estática de perfil" />
             <div style={{ height : '100%', paddingBlock : 10, marginLeft : 15 }} >
                 <p className={styles.user_name} >{dados.nome}</p>
                 <p className={styles.follow_info} >Codigo: {dados.codigo_acompanhamento}</p>
@@ -70,7 +72,7 @@ export function Notification ({dados}) {
 
     return (
         <div className={styles.notification} onClick={handleClick} >
-            <img src={perfilicon} alt="imagem estática de perfil" />
+            <img src={picture} alt="imagem estática de perfil" />
             <div>
                 <p>{dados.dados_usuario.nome} te enviou uma solicitação, veja mais...</p>
             </div>
@@ -81,7 +83,7 @@ export function Notification ({dados}) {
 export function UsuarioCard ({dados}) {
     return (
         <div className={styles.usuario_tag} >
-            <img src={perfilicon} alt="imagem estática de perfil" />
+            <img src={picture} alt="imagem estática de perfil" />
             <div className={styles.text_user_card} >
                 <p className={styles.user_name} >{dados.nome}</p>
                 <p>{dados.biografia}</p>
@@ -99,6 +101,44 @@ export function UsuarioCard ({dados}) {
                         <p>{dados.nascimento}</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    )
+}
+
+export function FollowCard ({dados}) {
+    return (
+        <div className={styles.follow} >
+            <img src={picture} alt="imagem estática de perfil" />
+            
+            <div className={styles.follow_text} >
+                <PainelTitle>{dados.nome_profissional}</PainelTitle>
+                <p className={styles.opacity} >Código de acompanhamento : {dados.codigo_acompanhamento}</p>
+                <p>{dados.biografia}</p>
+                <div>
+                    <p className={styles.opacity} >Data de inicio</p>
+                    <p>{dateString(dados.data_inicio)}</p>
+                </div>
+            </div>
+
+            <div className={styles.status} style={setColorBoolean(dados.is_ativo)} >
+                {dados.is_ativo ? "Acompanhamento Ativo" : "Acompanhamento Encerrado"}
+            </div>
+
+        </div>
+    )
+}
+
+export function ProfessionalFollow ({dados}) {
+    return (
+        <div className={styles.follow} >
+            <img src={picture} alt="imagem estática de perfil" />
+            <div className={styles.follow_text} >
+                <PainelTitle>{dados.nome}</PainelTitle>
+                <p>{dados.biografia}</p>
+                <p>Contato: {dados.contato}</p>
+                <p className={styles.opacity} >Código de acompanhamento</p>
+                <p>{dados.codigo_acompanhamento}</p>
             </div>
         </div>
     )

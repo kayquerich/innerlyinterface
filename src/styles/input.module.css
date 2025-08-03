@@ -222,3 +222,20 @@
     border-top: 1px solid gray;
     z-index: 999999999;
 }
+
+.textinput {
+    padding: 10px;
+    outline: unset;
+    border: 1px solid gray;
+    resize: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    width: 600px;
+}
+
+@media screen and (width < 680px) {
+    .textinput {
+        width: 350px;
+        height: 120px;
+    }
+}

@@ -18,5 +18,14 @@ export function ProfissionalHeader ({dados}) {
 }
 
 export function UserHeader ({dados}) {
-
+    return (
+        <div className={styles.container} >
+            <img src={picture} alt="imagem estática de perfil" />
+            <div className={styles.header_text} >
+                <p className={styles.name} >{dados.nome}</p>
+                <p className={styles.opacity} >{dados.username}</p>
+                <p>{dados.biografia}</p>
+            </div>
+        </div>
+    )
 }

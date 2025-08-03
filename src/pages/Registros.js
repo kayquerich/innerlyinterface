@@ -2,7 +2,7 @@ import { InternalPage as Page } from "../components/Container"
 import styles from '../styles/registros.module.css'
 import { Registro } from "../components/Registro"
 import { GoToAddRegistro as Add } from "../components/Button"
-import { Title } from "../components/Text"
+import { Subtitle } from "../components/Text"
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getRegistrosByUser, getUsuario } from "../services/Usuarios"
@@ -60,7 +60,7 @@ export default function UserRegistros () {
     return (
         <Page dados={usuario}>
 
-            <Title>Meus Registros</Title>
+            <Subtitle>Meus Registros</Subtitle>
 
             <div className={styles.containerregistros}>
 

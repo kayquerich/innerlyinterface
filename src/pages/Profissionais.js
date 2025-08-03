@@ -1,7 +1,7 @@
 import { InternalPage as Page } from "../components/Container"
 import { SearchBar } from "../components/Search"
 import { Subtitle } from '../components/Text'
-import { CardAcompanhamento, ProfessionalOption } from "../components/Card"
+import { FollowPreview, ProfessionalOption } from "../components/Card"
 import styles from '../styles/profissionais.module.css'
 import { useEffect, useState } from "react"
 import { listarAcompanhamentos, listarProfissionais } from "../services/Usuarios"
@@ -49,7 +49,7 @@ export default function Profissionais () {
                 <Subtitle>Profissionais que te acompanham</Subtitle>
                 <div className={styles.container}>
                     {follows.map((follow, key) => (
-                        follow.is_ativo && <CardAcompanhamento dados={follow} key={key}/>
+                        follow.is_ativo && <FollowPreview dados={follow} key={key}/>
                     ))}
                 </div>
             </div>

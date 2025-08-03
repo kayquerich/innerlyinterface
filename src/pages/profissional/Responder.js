@@ -5,9 +5,9 @@ import { Separator, Subtitle } from "../../components/Text"
 import { UsuarioCard } from "../../components/Card"
 import { dateString } from "../../services/Gadgets"
 import styles from '../../styles/styles-profissional/response.module.css'
-import { Clickable } from "../../components/Button"
+import { Clickable, VoltarPagina } from "../../components/Button"
 import { listarAcompanhamentos, listarRegistrosByFollow, responderSolicitacao } from "../../services/Profissionais"
-import { RecusarSolicitacao } from "../../components/Modal"
+import { ModalModular } from "../../components/Modal"
 
 export default function Responder () {
 
@@ -39,46 +39,73 @@ export default function Responder () {
 
     const [showModal, setShow] = useState(false)
 
+    const solicitacoes = JSON.parse(sessionStorage.getItem('solicitacoes'))
+    const sendRefuse = async () => {
+
+        await responderSolicitacao(profissional.token, solicitacao.id, 'recusada')
+    
+        const dados = solicitacoes.filter(item => item.id !== solicitacao.id)
+        sessionStorage.setItem('solicitacoes', JSON.stringify(dados))
+
+        alert('Solicitação recusada')
+        navigation('/profissional/home')
+
+    }
+
     return (
         <>
-        {showModal && <RecusarSolicitacao close={() => setShow(false)} token={profissional.token} id={solicitacao.id} />}
-        <Page dados={profissional} style={{ positon : 'relative' }}> 
-            
-            <Subtitle>Responder solicitação</Subtitle>
-            
-            <div style={{ width : '50%', marginBlock : 10 }} >
-                <p>Você recebeu uma solicitação de acompanhamento, ao aceitar poderá vizualizar os registros que o usuario solicitante postar na plataforma!</p>
-            </div>
-            
-            <UsuarioCard dados={solicitacao.dados_usuario} />
-            
-            <p>{solicitacao.descricao}</p>
 
-            <Separator margin={10} />
-            <p>Data da solicitação</p>
-            <p>{dateString(solicitacao.data)}</p>
-            <Separator margin={10} />
+            {showModal && (
+                <ModalModular 
+                    title='Recusar solicitação' 
+                    close={() => setShow(false)} 
+                >
+                    <p>Deseja realmente recusar a solicitação?</p>
+                    <footer className={styles.button_area} >
+                        <Clickable color='var(--button-red)' action={sendRefuse} >
+                            Recusar
+                        </Clickable>
+                    </footer>
+                </ModalModular>
+            )}
 
-            <div className={styles.container_message}>
-                <div className={styles.triangulo} ></div>
-                <div className={styles.message} >{solicitacao.menssagem}</div>
-            </div>
+            <Page dados={profissional} style={{ positon : 'relative' }}> 
 
-            <footer className={styles.container_buttons} >
+                <header style={{ display : 'flex', gap : 20 }}>
+                    <VoltarPagina/>
+                    <Subtitle>Responder solicitação</Subtitle>
+                </header>
+                
+                <div style={{ width : '50%', marginBlock : 10 }} >
+                    <p>Você recebeu uma solicitação de acompanhamento, ao aceitar poderá vizualizar os registros que o usuario solicitante postar na plataforma!</p>
+                </div>
+                
+                <UsuarioCard dados={solicitacao.dados_usuario} />
+                
+                <p>{solicitacao.descricao}</p>
 
-                <Clickable color='green' action={() => sendResponse('aceita')}>
-                    Aceitar
-                </Clickable>
-                <Clickable color='#383897' action={() => navigation('/profissional/home')}>
-                    Voltar
-                </Clickable>
-                <Clickable color='#a90000' action={() => setShow(true)} >
-                    Recusar
-                </Clickable>
+                <Separator margin={10} />
+                <p>Data da solicitação</p>
+                <p>{dateString(solicitacao.data)}</p>
+                <Separator margin={10} />
 
-            </footer>
+                <div className={styles.container_message}>
+                    <div className={styles.triangulo} ></div>
+                    <div className={styles.message} >{solicitacao.menssagem}</div>
+                </div>
 
-        </Page>
+                <footer className={styles.container_buttons} >
+
+                    <Clickable color='green' action={() => sendResponse('aceita')}>
+                        Aceitar
+                    </Clickable>
+                    <Clickable color='var(--button-red)' action={() => setShow(true)} >
+                        Recusar
+                    </Clickable>
+
+                </footer>
+
+            </Page>
         </>
     )
 }

@@ -9,7 +9,7 @@ import { setEmotionStr } from '../../services/Gadgets'
 export default function FileRegistro () {
     
     const location = useLocation()
-    const { registro, dados } = location.state 
+    const { registro } = location.state 
     const profissional = JSON.parse(sessionStorage.getItem('profissional'))
     
     return (
@@ -19,6 +19,7 @@ export default function FileRegistro () {
                 <VoltarPagina/>
                 <Subtitle>Detalhes do Registro</Subtitle>
             </div>
+            
             <Separator margin={20} />
 
             <TitleThree>Usuario</TitleThree>

@@ -107,3 +107,14 @@
     color: white;
     border-radius: 3px;
 }
+
+.formulario_edicao {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulario_edicao footer {
+    display: flex;
+    justify-content: end;
+}
