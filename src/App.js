@@ -1,12 +1,11 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import './assets/icons'
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro'
 import UserRegistros from './pages/Registros';
-import './assets/icons'
 import Perfil from './pages/Perfil';
 import Adicionar from './pages/Adicionar';
 import Detalhes from './pages/Detalhes';
-import Historico from './pages/Historico';
 import Home from './pages/profissional/Home';
 import PerfilProfissional from './pages/profissional/Perfil';
 import FileRegistro from './pages/profissional/Detalhes';
@@ -26,7 +25,6 @@ function App() {
                 <Route path='/perfil' element={<Perfil/>}/>
                 <Route path='/registros/adicionar' element={<Adicionar/>}/>
                 <Route path='/registros/detalhes' element={<Detalhes/>}/>
-                <Route path='/historico' element={<Historico/>}/>
                 <Route path='/profissionais' element={<Profissionais/>}/>
                 <Route path='/acompanhamento' element={<Acompanhamento/>}/>
                 <Route path='/profissional/home' element={<Home/>}/>
