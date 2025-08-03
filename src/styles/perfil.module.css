@@ -93,3 +93,17 @@
     gap: 20px;
     align-items: center;
 }
+
+.painel_especialidades {
+    margin-block: 20px;
+    width: 100%;
+    box-shadow: 0px 2px 3px -1px black;
+    padding: 15px;
+}
+
+.especialidade {
+    background-color: var(--title-blue);
+    padding: 5px;
+    color: white;
+    border-radius: 3px;
+}

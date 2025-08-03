@@ -10,7 +10,7 @@ import { dateString, isEmpty, setColorBoolean, setColorString } from "../service
 
 export default function Solicitacao () {
     
-    const [usuario, setUsuario] = useState(JSON.parse(sessionStorage.getItem('usuario')))
+    const usuario =  JSON.parse(sessionStorage.getItem('usuario'))
     const location = useLocation()
     const dados = location.state
 

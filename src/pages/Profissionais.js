@@ -1,11 +1,10 @@
 import { InternalPage as Page } from "../components/Container"
 import { SearchBar } from "../components/Search"
-import { Separator, Subtitle } from '../components/Text'
+import { Subtitle } from '../components/Text'
 import { CardAcompanhamento, ProfessionalOption } from "../components/Card"
 import styles from '../styles/profissionais.module.css'
 import { useEffect, useState } from "react"
 import { listarAcompanhamentos, listarProfissionais } from "../services/Usuarios"
-import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
 
 export default function Profissionais () {
 
@@ -37,11 +36,9 @@ export default function Profissionais () {
     }, [])
 
     const [profissionais, setProfissionais] = useState([])
-    const [showQuery, setShowQuery] = useState(false)
+
     const handleSearch = async (string) => {
         const result = await listarProfissionais(usuario.token, string)
-        console.log(result)
-        setShowQuery(true)
         setProfissionais(result)
     }
 
@@ -69,18 +66,4 @@ export default function Profissionais () {
         </Page>
     )
 
-}
-
-function Back ({action}) {
-    return (
-        <button onClick={action} className={styles.back}>
-            <Icon icon="chevron-left" color="#268577" />
-        </button>
-    )
-}
-
-function NotFoundScreen () {
-    return (
-        <div className={styles.search_void} ><h1>Nenhum profissional encontrado</h1></div>
-    )
 }

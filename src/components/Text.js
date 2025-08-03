@@ -81,3 +81,7 @@ export function Separator({margin}) {
         <div style={{marginBlock : margin}}></div>
     )
 }
+
+export function PainelTitle ({children}) {
+    return <h3 className={styles.painel_title} >{children}</h3>
+}

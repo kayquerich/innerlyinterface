@@ -18,3 +18,7 @@
     font-weight: 600;
     color: #06574b;
 }
+
+.painel_title {
+    color: var(--title-blue);
+}

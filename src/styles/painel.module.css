@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    box-shadow: 0px 2px 3px -1px black;
+    padding: 15px;
+}
+
+.container header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.informacoes {
+    display: flex;
+    gap: 10%;
+}
+
+.coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.label {
+    color: gray;
+}
