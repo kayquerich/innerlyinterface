@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/innerlyinterface/static/css/main.58c93c6b.css",
+    "main.css": "/innerlyinterface/static/css/main.cb6aeaad.css",
     "main.js": "/innerlyinterface/static/js/main.329cd20a.js",
     "static/js/453.edde93b5.chunk.js": "/innerlyinterface/static/js/453.edde93b5.chunk.js",
     "static/media/logo-site.png": "/innerlyinterface/static/media/logo-site.649312f4b50a224cc92a.png",
@@ -14,12 +14,12 @@
     "static/media/onda-cut.png": "/innerlyinterface/static/media/onda-cut.3c02bac93caeb590cde8.png",
     "static/media/perfil-static-icon.png": "/innerlyinterface/static/media/perfil-static-icon.a18d5ef15d311676dccd.png",
     "index.html": "/innerlyinterface/index.html",
-    "main.58c93c6b.css.map": "/innerlyinterface/static/css/main.58c93c6b.css.map",
+    "main.cb6aeaad.css.map": "/innerlyinterface/static/css/main.cb6aeaad.css.map",
     "main.329cd20a.js.map": "/innerlyinterface/static/js/main.329cd20a.js.map",
     "453.edde93b5.chunk.js.map": "/innerlyinterface/static/js/453.edde93b5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.58c93c6b.css",
+    "static/css/main.cb6aeaad.css",
     "static/js/main.329cd20a.js"
   ]
 }
