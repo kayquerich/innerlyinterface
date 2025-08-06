@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.container_formulario {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_imagem {
+    width: 50%;
+    height: 100%;
+    background-color: var(--blue-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_imagem img {
+    height: auto;
+    display: block;
+    width: 80%;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin-block: 20px;
+    gap: 10px;
+}
+
+.responsive_image {
+    display: none;
+    min-width: 300px;
+}
+
+@media screen and (width < 780px) {
+    .container_imagem {
+        display: none;
+    }
+    .container_formulario {
+        width: 100%;
+    }
+    .container {
+        position: relative;
+    }
+    .responsive_image {
+        position: absolute;
+        bottom: -10px;
+        left: 0px;
+        display: block;
+        width: 60%;
+    }
+    .responsive_image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}

@@ -1,12 +1,13 @@
-import styles from '../styles/formulario.module.css'
-import { Title, Subtitle, Link, Warning } from '../components/Text'
+import styles from '../styles/login.module.css'
+import { Title, Subtitle, Link, Warning, Separator } from '../components/Text'
 import { Input } from '../components/Input'
-import { ButtonSubmit } from '../components/Button'
+import { Clickable } from '../components/Button'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Page } from '../components/Container'
-import { ImageLogin } from '../components/Imagens'
 import { login } from '../services/Autenticacao'
+import imagem from '../assets/images/login-image.png'
+import responsive_image from '../assets/images/image-login-responsive.png'
 
 export default function Login () {
 
@@ -48,43 +49,51 @@ export default function Login () {
 
     return (
         <Page>
-            <div style={{flexDirection : 'row', justifyContent : 'space-between', display : 'flex', height : '100%', width : '100%'}}>
-
-                <ImageLogin/>
-
-                <div className={styles.loginform}>
-
-                    <Title>Innerly</Title>
-
-                    <Subtitle>Registro de emoções e bem-estar</Subtitle>
-
-                    <Input
-                        id='email'
-                        name='email'
-                        placeholder='Email'
-                        type='email'
-                        handleChange={onHandleChange}
-                        styleType='login'
-                        icon='envelope'
-                    />
-                    <Input
-                        id='senha'
-                        name='senha'
-                        placeholder='Senha'
-                        type='password'
-                        handleChange={onHandleChange}
-                        styleType='senha'
-                        icon='lock'
-                    />
-
-                    <Warning boolean={isIncorrect}>{errorMessage}</Warning>
-
-                    <ButtonSubmit text='acessar' handleClick={onHandleClick}/>
-                    <Link path={'/cadastro'} >Não tem uma conta? Cadastre-se</Link>
-                    
+            <div className={styles.container} >
+                <div className={styles.container_imagem} >
+                    <img src={imagem} alt="imagem da tela de login" />
                 </div>
+                <div className={styles.container_formulario} >
+                    
+                    <Title>Innerly</Title>
+                    <Subtitle>Registro de emoções e bem estar!</Subtitle>
 
-            </div>
+                    <div className={styles.formulario} >
+
+                        <Input
+                            name='email'
+                            id='email'
+                            icon='envelope'
+                            styleType='login'
+                            placeholder='Seu email...'
+                            handleChange={onHandleChange}
+                        />
+
+                        <Input
+                            name='senha'
+                            id='senha'
+                            icon='lock'
+                            styleType='senha'
+                            placeholder='Informe sua senha...'
+                            handleChange={onHandleChange}
+                        />
+
+                        <Warning boolean={isIncorrect}>{errorMessage}</Warning>
+
+                    </div>
+
+                    <Clickable color='var(--blue-green)' action={onHandleClick} >
+                        acessar
+                    </Clickable>
+
+                    <Separator margin={10} />
+                    <Link path='/cadastro' >Não tem uma conta? Cadastre-se!</Link>
+
+                </div>
+                <div className={styles.responsive_image} >
+                    <img src={responsive_image} alt="" />
+                </div>
+            </div>    
         </Page>
     )
 }

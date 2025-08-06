@@ -71,6 +71,7 @@ export function Input ({id, name, type, placeholder, icon, handleChange, styleTy
                 onChange={handleChange}
                 className={setStyle()}
                 style={custom_styles}
+                autoComplete={(styleType === 'senha' || styleType === 'senhac') && 'off'}
             />
             {styleType === 'senha' || styleType === 'senhac' ? (
                 <div className={defineTypeShow()} onClick={showPass}><Icon icon={eye}/></div>
