@@ -3,7 +3,7 @@
     top: 0;
     height: 100vh;
     min-width: 20%;
-    background-color: #34816c;
+    background-color: var(--side-green);
     padding-inline: 10px;
     position: relative;
 }
@@ -45,14 +45,14 @@
 }
 
 .option:hover {
-    background-color: #558e7f;
+    background-color: var(--opac-green);
 }
 
 .logoutbutton {
     position: absolute;
     height: 40px;
     width: 80px;
-    background-color: #34816c;
+    background-color: var(--side-green);
     color: white;
     font-size: x-large;
     cursor: pointer;
@@ -66,7 +66,7 @@
 }
 
 .logoutbutton:hover {
-    background-color: #558e7f;
+    background-color: var(--opac-green);
 }
 
 @media screen and (width < 590px) {

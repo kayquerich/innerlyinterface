@@ -140,12 +140,13 @@
 
 .anotationinput {
     width: 90%;
-    height: 170px;
+    min-height: 170px;
     resize: none;
     padding: 15px;
     background-color: var(--white-blue);
     outline: unset;
-    border-radius: 5px;
+    border-radius: 3px;
+    font-size: 16px;
 }
 
 .editinput {
@@ -248,5 +249,18 @@
 
     .senha {
         width: 220px;
+    }
+}
+
+@media screen and (width < 400px) {
+    .emojiicon {
+        height: 32px;
+        width: 32px;
+    }
+}
+
+@media screen and (width < 450px) {
+    .anotationinput {
+        width: 100%;
     }
 }

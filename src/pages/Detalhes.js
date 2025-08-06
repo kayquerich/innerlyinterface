@@ -2,9 +2,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, EmotionInput } from "../components/Input"
 import { Clickable, VoltarPagina } from "../components/Button";
-import { Separator, Subtitle } from "../components/Text";
+import { Subtitle } from "../components/Text";
 import { useState } from "react";
 import { updateRegistro } from "../services/Usuarios";
+import { dateString } from "../services/Gadgets";
+import styles from '../styles/detalhes.module.css'
 
 export default function Detalhes () {
 
@@ -47,28 +49,32 @@ export default function Detalhes () {
     return (
         <Page dados={usuario}>
 
-            <header style={{ display : 'flex', gap : 20 }} >
-                <VoltarPagina/>
-                <Subtitle>{registro.title}</Subtitle>
-            </header>
+            <div className={styles.container} >
 
-            <Separator margin={30}/>
+                <header>
+                    <VoltarPagina/>
+                    <Subtitle>{registro.title}</Subtitle>
+                </header>
 
-            <Subtitle>Como está se sentindo?</Subtitle>  
-            <Separator margin={10}/>     
-            <EmotionInput valuehumor={registro ? registro.value_humor + 1 : - 1} handleChange={onEmotionChange} />
-            <Separator margin={20}/>
+                <div className={styles.container_input} >
+                    <Subtitle>Como está se sentindo?</Subtitle>
+                    <EmotionInput valuehumor={registro ? registro.value_humor + 1 : - 1} handleChange={onEmotionChange} />
+                </div>
 
-            <Subtitle>Anotação</Subtitle>
-            <Separator margin={10}/>
-            <AnotationInput value={update_data.anotacao} handleChange={alterAnotation}/>
-            <Separator margin={30}/>
+                <div className={styles.container_input} >
+                    <Subtitle>Anotação</Subtitle>
+                    <AnotationInput value={update_data.anotacao} handleChange={alterAnotation}/>
+                </div>
 
-            {mexeu && (
-                <Clickable action={onHandleClick} color='var(--blue-green)' >
-                    Alterar
-                </Clickable>
-            )}
+                {mexeu && (
+                    <div className={styles.container_button} >
+                        <Clickable action={onHandleClick} color='var(--blue-green)' >
+                            Alterar
+                        </Clickable>
+                    </div>
+                )}
+
+            </div>
 
         </Page>
     )

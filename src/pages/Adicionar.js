@@ -2,9 +2,11 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { Clickable, VoltarPagina} from "../components/Button";
 import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, DateInput, EmotionInput } from '../components/Input';
-import { Subtitle, Separator } from "../components/Text";
+import { Subtitle } from "../components/Text";
 import { useState } from "react";
 import { createRegistro } from "../services/Usuarios";
+import styles from '../styles/adicionar.module.css'
+import { getCurrentDate } from "../services/Gadgets";
 
 export default function Adicionar () {
 
@@ -16,14 +18,12 @@ export default function Adicionar () {
     const location = useLocation()
     const dados = location.state
 
-    const [registro, setRegistro] = useState()
+    const [registro, setRegistro] = useState({
+        data : getCurrentDate()
+    })
 
     const onEmotionChange = (e) => {
         setRegistro({...registro, 'value_humor' : e})
-    }
-
-    const onDateChange = (e) => {
-        setRegistro({...registro, 'data' : e})
     }
 
     const onAnotationChange = (e) => {
@@ -31,7 +31,7 @@ export default function Adicionar () {
     } 
 
     const onHandleSubmit = async () => {
-
+    
         const response = await createRegistro(registro, dados.token)
 
         if (response && response.criado) {
@@ -47,32 +47,30 @@ export default function Adicionar () {
 
     return (
         <Page dados={dados}>
-            
-            <header style={{ display : 'flex', gap : 20 }} >
-                <VoltarPagina/>
-                <Subtitle>Adicionar registro</Subtitle>
-            </header>
-            <Separator margin={30}/>
+            <div className={styles.container} >
 
-            <Subtitle>Como está se sentindo?</Subtitle>
-            <Separator margin={10}/>
-            <EmotionInput handleChange={onEmotionChange}/>
-            <Separator margin={20}/>
+                <header>
+                    <VoltarPagina/>
+                    <Subtitle>Adicionar registro</Subtitle>
+                </header>
 
-            <Subtitle>Data do registro</Subtitle>
-            <Separator margin={10}/>
-            <DateInput handleChange={onDateChange} current={true}/>
-            <Separator margin={20}/>
+                <div className={styles.container_input} >
+                    <Subtitle>Como está se sentindo?</Subtitle>
+                    <EmotionInput handleChange={onEmotionChange}/>
+                </div>
 
-            <Subtitle>Anotações</Subtitle>
-            <Separator margin={10}/>
-            <AnotationInput handleChange={onAnotationChange}/>
-            <Separator margin={30}/>
+                <div className={styles.container_input} >
+                    <Subtitle>Anotações</Subtitle>
+                    <AnotationInput handleChange={onAnotationChange}/>
+                </div>
 
-            <Clickable action={onHandleSubmit} color='var(--blue-green)' >
-                Adicionar
-            </Clickable>
-        
+                <div className={styles.container_button} >
+                    <Clickable action={onHandleSubmit} color='var(--blue-green)' >
+                        Adicionar
+                    </Clickable>
+                </div>
+
+            </div>
         </Page>
     )
 }
