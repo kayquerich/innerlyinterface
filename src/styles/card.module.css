@@ -169,3 +169,32 @@
     font-size: 14px;
     font-weight: bold;
 }
+
+.client_preview {
+    position: relative;
+    width: 95%;
+    box-shadow: 0px 2px 5px -1px black;
+    padding: 10px;
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.client_preview img {
+    height: 60px;
+}
+
+.preview_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.circle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 15px;
+    width: 15px;
+    background-color: var(--lime-green);
+    border-radius: 50%;
+}

@@ -1,0 +1,42 @@
+.container_clientes {
+    width: 32.99%;
+    height: 100%;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
+    border-color: black;
+    margin-right: 2%;
+}
+
+.container_registros {
+    width: 66.01%;
+    height: 100%;
+}
+
+.lista_clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.void_container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+.void_container p {
+    font-size: 18px;
+    font-weight: bold;
+    color: gray;
+    opacity: 70%;
+}
+
+.lista_registros {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+    gap: 15px;
+}

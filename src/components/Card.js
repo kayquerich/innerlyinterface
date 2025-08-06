@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import picture from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/card.module.css'
-import { PainelTitle } from './Text'
+import { PainelTitle, Separator } from './Text'
 import { dateString, setColorBoolean } from '../services/Gadgets'
 
 function ActiveTag ({boolean}) {
@@ -142,4 +142,24 @@ export function ProfessionalFollow ({dados}) {
             </div>
         </div>
     )
+}
+
+export function ClientPreview ({dados, execute}) {
+
+    const handleClick = () => {
+        execute && execute()
+    }
+
+    return (
+        <div className={styles.client_preview} onClick={handleClick} >
+            <img src={picture} alt="imagem estática de perfil" />
+            <div className={styles.preview_text} >
+                <PainelTitle>{dados.user_data.nome}</PainelTitle>
+                <p style={{ color : 'gray' }} >Data Inicio</p>
+                <p>{dateString(dados.data_inicio)}</p>
+            </div>   
+            <div className={styles.circle} title='verde/ativo | vermelho/não ativo' ></div>
+        </div>
+    )
+
 }
