@@ -1,8 +1,6 @@
 .containerforms {
-    width: 90%;
-    display: flex;
     gap: 40px;
-    justify-content: center;
+    display: flex;
 }
 
 .internalcontainer {

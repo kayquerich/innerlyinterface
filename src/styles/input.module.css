@@ -1,6 +1,7 @@
 .containerinput {
     display: flex;
     align-items: center;
+    width: 100%;
 }
 
 .iconinputl {
@@ -90,7 +91,7 @@
 }
 
 .selectdate {
-    width: 110px;
+    width: 40%;
     height: 40px;
     background-color: #C5DBFF;
     border: none;
@@ -104,6 +105,7 @@
     display: flex;
     gap: 10px;
     margin-top: 5px;
+    width: 100%;
 }
 
 .emotioninput {
@@ -163,6 +165,11 @@
     align-items: center;
     border: 1px solid gray;
     padding-inline: 12px;
+    height: 40px;
+    width: 32%;
+    white-space: nowrap;  
+    overflow: hidden;             
+    text-overflow: ellipsis;  
 }
 
 .radio_personalize {
@@ -171,17 +178,13 @@
     padding-inline: 20px;
     margin-top: 5px;
     outline: unset;
-    width: 350px;
+    width: 100%;
 }
 
 .radio_external {
     display: flex;
     gap: 10px;
     margin-top: 2px;
-}
-
-.radio {
-    margin-bottom: -3px;
 }
 
 .input_comum {
@@ -193,17 +196,6 @@
     outline: unset;
     padding-inline: 10px;
     margin-block: 5px;
-}
-
-.radio {
-    height: 35px;
-    width: 32%;
-    border: 1px solid gray;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 5px;
 }
 
 .picker_option {
@@ -221,7 +213,9 @@
     top: 50px;
     border-top: 1px solid gray;
     z-index: 999999999;
+    width: 100%;
 }
+
 
 .textinput {
     padding: 10px;
@@ -233,6 +227,13 @@
     width: 600px;
 }
 
+.container_picker {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
 @media screen and (width < 680px) {
     .textinput {
         width: 350px;
@@ -241,11 +242,11 @@
 }
 
 @media screen and (width < 385px) {
-    .input, .inputlogin {
+    .inputlogin {
         width: 270px;
     }
 
-    .senha, .senhac {
+    .senha {
         width: 220px;
     }
 }

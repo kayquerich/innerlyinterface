@@ -66,6 +66,7 @@ export default function Login () {
                             icon='envelope'
                             styleType='login'
                             placeholder='Seu email...'
+                            type='email'
                             handleChange={onHandleChange}
                         />
 
@@ -74,6 +75,7 @@ export default function Login () {
                             id='senha'
                             icon='lock'
                             styleType='senha'
+                            type='password'
                             placeholder='Informe sua senha...'
                             handleChange={onHandleChange}
                         />

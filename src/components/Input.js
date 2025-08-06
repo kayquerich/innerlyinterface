@@ -3,7 +3,7 @@ import styles from '../styles/input.module.css'
 import { listaEmojis, listaNomesEmojis } from '../assets/dados'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
-export function Input ({id, name, type, placeholder, icon, handleChange, styleType, value, custom_styles}) {
+export function Input ({id, name, type, placeholder, icon, handleChange, styleType, value, custom_styles, lista}) {
 
     const setStyle = () => {
         if (styleType === 'login') {
@@ -72,6 +72,7 @@ export function Input ({id, name, type, placeholder, icon, handleChange, styleTy
                 className={setStyle()}
                 style={custom_styles}
                 autoComplete={(styleType === 'senha' || styleType === 'senhac') && 'off'}
+                list={lista && lista}
             />
             {styleType === 'senha' || styleType === 'senhac' ? (
                 <div className={defineTypeShow()} onClick={showPass}><Icon icon={eye}/></div>
@@ -150,7 +151,7 @@ export function DateInput ({handleChange, text}) {
     
 
     return (
-        <div>
+        <div style={{ width : '100%' }} >
             <p>{text}</p>
 
             <div className={styles.containerdates} > 
@@ -259,7 +260,7 @@ export function RadioInput ({handleChange, checked_value, options, title, initia
     }
 
     return (
-        <div>
+        <div style={{ width : '100%'}} >
 
             <p style={{marginBottom : 5}}>{title}</p>
 
@@ -334,7 +335,7 @@ export function Picker({handleChange, options, custom_styles, icon, placeholder,
 
     return (
 
-        <div style={{display : 'flex', flexDirection : 'column', position : 'relative'}} ref={pickerRef}>
+        <div className={styles.container_picker} ref={pickerRef} style={{width : '100%'}} >
 
             <div className={icon ? styles.containerinput : 'void'}>
 
@@ -364,7 +365,7 @@ export function Picker({handleChange, options, custom_styles, icon, placeholder,
                             onClick={() => onHandleSelect(option)}
                             key={index}
                             className={styles.picker_option}
-                            style={!custom_styles? {width : '350px'} : {width : options_width}}
+                            style={{width : '100%'}}
                         >
                             {option.label}
                         </div>

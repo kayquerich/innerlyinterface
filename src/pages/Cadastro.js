@@ -1,53 +1,118 @@
 import { Page } from '../components/Container'
-import { FormularioCadastro as Formulario } from '../components/Formulario'
-import { CadastroTitle } from '../components/Text'
-import { ImageWave } from '../components/Imagens'
+import { Line, Link, Title, TitleForm } from '../components/Text'
 import { useNavigate } from 'react-router-dom'
 import { cadastroUsuario } from '../services/Usuarios'
-import { cadastroProfissional } from '../services/Profissionais'
+import styles from '../styles/cadastro.module.css'
+import { DateInput, Input, RadioInput } from '../components/Input'
+import { useState } from 'react'
+import { Clickable } from '../components/Button'
+import shape from '../assets/onda-cut.png'
 
 export default function Cadastro () {
 
     const navigation = useNavigate()
 
-    const foi_criado = (response) => {
-        return response ? response.criado : false
-    } 
+    const [dados, setDados] = useState({})
+    const handleChange = (e) => {
+        setDados({...dados, [e.target.name] : e.target.value})
+    }
 
-    const onHandleSubmit = async (dados) => {
+    const genderChange = (e) => {
+        setDados({...dados, 'genero' : e})
+    }
 
-        const dados_especificos = ['concelho', 'registro', 'regiao']
+    const dateChange = (e) => {
+        setDados({...dados, 'nascimento' : e})
+    }
 
-        const existem = dados_especificos.every(coluna => coluna in dados)
-
-        if (existem) {
-            const response = await cadastroProfissional(dados)
-            if (foi_criado(response)) {
-                alert(response.message)
-                navigation('/')
-            }
-        } else {
-            const response = await cadastroUsuario(dados)
-            if (foi_criado(response)) {
-                alert(response.message)
-                navigation('/')
-            }
+    const handleSubmit = async () => {
+        const response = await cadastroUsuario(dados)
+        if (response.criado) {
+            alert('Cadastro realizado com sucesso!')
+            navigation('/')
         }
-        
     }
 
     return (
         <Page>
 
-            <div style={{alignItems : 'center', flexDirection : 'column', paddingTop : 20, display : 'flex', width : '100%', height : '100%'}}>
+            <div className={styles.container} >
 
-                <CadastroTitle />
+                <Title>Innerly</Title>
 
-                <Formulario onHandleSubmit={onHandleSubmit} />
+                <div className={styles.container_formulario}>
+
+                    <TitleForm>Cadastre-se</TitleForm>
+                    <Line/>
+
+                    <Input
+                        name='nome'
+                        id='nome'
+                        icon='user'
+                        styleType='cadastro'
+                        placeholder='Seu nome...'
+                        type='text'
+                        handleChange={handleChange}
+                    />
+
+                    <Input
+                        name='username'
+                        id='username'
+                        icon='user-tag'
+                        styleType='cadastro'
+                        placeholder='crie um nome de usuario...'
+                        type='text'
+                        handleChange={handleChange}
+                    />
+
+                    <Input
+                        name='email'
+                        id='email'
+                        icon='envelope'
+                        styleType='cadastro'
+                        placeholder='Seu email...'
+                        type='email'
+                        handleChange={handleChange}
+                    />
+
+                    <RadioInput
+                        title='Gênero'
+                        options={['masculino', 'feminino', 'outro']}
+                        handleChange={genderChange}
+                    />
+
+                    <DateInput
+                        text='Data de nascimento'
+                        handleChange={dateChange}
+                    />
+
+                    <Input
+                        name='senha'
+                        id='senha'
+                        icon='lock'
+                        type='password'
+                        handleChange={handleChange}
+                        placeholder='Crie uma senha...'
+                        styleType='senhac'
+                    />
+
+                    <Clickable color='var(--blue-green)' action={handleSubmit} >
+                        Cadastrar
+                    </Clickable>
+
+                    <Link path='/profissional/cadastro' >Sou um profissional da saúde mental, clique aqui!</Link>
+
+                    <div className={styles.line}><Line/><span>ou</span><Line/></div>
+
+                    <Link path={'/'} >Já tenho uma conta!</Link>
+
+                </div>
+
+                <div className={styles.container_imagem} >
+                    <img src={shape} alt="imagem de uma onda da tela de cadastro"/>
+                </div>
 
             </div>
-
-            <ImageWave/>
 
         </Page>
     )

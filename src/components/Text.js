@@ -23,14 +23,6 @@ export function TitleThree ({children}) {
     return <h3 className={styles.subtitle} style={{ fontWeight : 400, marginBlock : 10 }} >{children}</h3>
 }
 
-export function CadastroTitle () {
-    return (
-        <header style={{marginBottom : '1.5em'}}>
-            <h1 className={styles.title}>Innerly</h1>
-        </header>
-    )
-}
-
 export function Line ({color}) {
     return (
         <hr style={{ border: `1px solid ${color ? color : '#ccc'}`, margin: '10px 0', width : '100%' }} />

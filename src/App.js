@@ -14,6 +14,7 @@ import Acompanhamento from './pages/Acompanhamento';
 import Solicitacao from './pages/Solicitacao';
 import Responder from './pages/profissional/Responder';
 import Clientes from './pages/profissional/Clientes';
+import CadastroProfissional from './pages/profissional/CadastroProfissional';
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Login/>} />
                 <Route path='/cadastro' element={<Cadastro/>} />
+                <Route path='/profissional/cadastro' element={<CadastroProfissional/>} />
                 <Route path='/registros' element={<UserRegistros/>}/>
                 <Route path='/perfil' element={<Perfil/>}/>
                 <Route path='/registros/adicionar' element={<Adicionar/>}/>
