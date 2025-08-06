@@ -22,3 +22,11 @@
 .painel_title {
     color: var(--title-blue);
 }
+
+@media screen and (width < 385px) {
+    .subtitle, .subtitle_dark {
+        width: 350px;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+}

@@ -39,7 +39,7 @@ export default function Cadastro () {
     return (
         <Page>
 
-            <div style={{alignItems : 'center', flexDirection : 'column', paddingTop : '2.5em', display : 'flex', width : '100%', height : '100%'}}>
+            <div style={{alignItems : 'center', flexDirection : 'column', paddingTop : 20, display : 'flex', width : '100%', height : '100%'}}>
 
                 <CadastroTitle />
 

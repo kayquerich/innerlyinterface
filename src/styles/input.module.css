@@ -239,3 +239,13 @@
         height: 120px;
     }
 }
+
+@media screen and (width < 385px) {
+    .input, .inputlogin {
+        width: 270px;
+    }
+
+    .senha, .senhac {
+        width: 220px;
+    }
+}
