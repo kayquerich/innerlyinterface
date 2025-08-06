@@ -68,3 +68,47 @@
 .logoutbutton:hover {
     background-color: #558e7f;
 }
+
+@media screen and (width < 590px) {
+    .container {
+        display: flex;
+        height: 80px;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+    }
+    .headertext span, .logoutbutton, .line, .menu {
+        display: none;
+    }
+    .container_options {
+        display: flex;
+    }
+    .header, .headertext {
+        margin: 0;
+    }
+    .container_options {
+        margin: 0;
+        height: 100%;
+    }
+    .labelopt {
+        display: none;
+    }
+    .option {
+        height: 100%;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: 0;
+        font-size: larger;
+    }
+    .header h3 {
+        font-size: 20px;
+    }
+    .header img {
+        height: 50px;
+    }
+}

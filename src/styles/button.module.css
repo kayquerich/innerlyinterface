@@ -1,33 +1,3 @@
-.buttonsubmitone {
-    height: 50px;
-    width: 150px;
-    background-color: #40a999;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    font-size: medium;
-    transition: .5s;
-}
-
-.buttonsubmitone:hover {
-    background-color: #40a999;
-}
-
-.buttonsubmittwo {
-    height: 40px;
-    width: 150px;
-    background-color: #40a999;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    font-size: medium;
-    transition: .5s;
-}
-
-.buttonsubmittwo:hover {
-    background-color: #40a999;
-}
-
 .buttonbacklogin {
     height: 40px;
     width: 170px;
@@ -125,4 +95,11 @@
     color: var(--title-blue);
     margin-bottom: -3px;
     cursor: pointer;
+}
+
+@media screen and (width < 590px) {
+    .contaddres {
+        bottom: 15px;
+        right: 15px;
+    }
 }

@@ -16,3 +16,14 @@
     padding: 2%;
     height: 100vh;
 }
+
+@media screen and (width < 590px) {
+    .internalpages {
+        flex-direction: column;
+    }
+    .internalcontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

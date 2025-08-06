@@ -28,11 +28,11 @@ export function SideBar ({dados}) {
                 </div>
             </div>
 
-            <hr style={{ border: '1px solid #fff', margin: '10px 0' }} />
+            <hr className={styles.line} style={{ border: '1px solid #fff', margin: '10px 0' }} />
 
-            <p style={{color : 'white', fontSize : 16, marginBottom : 10}}>Menu</p>
+            <p className={styles.menu} style={{color : 'white', fontSize : 16, marginBottom : 10}}>Menu</p>
 
-            <div className={styles.containeroptions}>
+            <div className={styles.container_options}>
 
                 {dados && 'credencial' in dados ? (
                     <>

@@ -60,7 +60,9 @@ export default function UserRegistros () {
     return (
         <Page dados={usuario}>
 
-            <Subtitle>Meus Registros</Subtitle>
+            <div className={styles.header} >
+                <Subtitle>Meus Registros</Subtitle>
+            </div>
 
             <div className={styles.containerregistros}>
 
