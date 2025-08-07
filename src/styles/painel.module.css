@@ -23,3 +23,16 @@
 .label {
     color: gray;
 }
+
+@media screen and (width < 660px) {
+    .informacoes {
+        flex-direction: column;
+    }
+    .coluna {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .last_line {
+        text-align: end;
+    }
+}

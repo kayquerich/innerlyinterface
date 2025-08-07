@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { Clickable, VoltarPagina} from "../components/Button";
 import { InternalPage as Page } from "../components/Container"
-import { AnotationInput, DateInput, EmotionInput } from '../components/Input';
+import { AnotationInput, EmotionInput } from '../components/Input';
 import { Subtitle } from "../components/Text";
 import { useState } from "react";
 import { createRegistro } from "../services/Usuarios";

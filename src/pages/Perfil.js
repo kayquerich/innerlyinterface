@@ -97,13 +97,14 @@ export default function Perfil () {
 
             <Page dados={usuario} >
 
-                <Subtitle>Meu Perfil</Subtitle>
-
-                <Header dados={usuario} />
-                <DataPainel 
-                    dados={usuario}
-                    execute={() => setOpenModal(true)}
-                />
+                <div className={styles.page} >
+                    <Subtitle>Meu Perfil</Subtitle>
+                    <Header dados={usuario} />
+                    <DataPainel
+                        dados={usuario}
+                        execute={() => setOpenModal(true)}
+                    />
+                </div>
 
             </Page>
         </>

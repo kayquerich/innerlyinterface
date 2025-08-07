@@ -6,7 +6,6 @@ import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 export function DataPainel ({dados, execute}) {
     return (
         <div className={styles.container} >
-            {console.log(dados)}
             <header>
 
                 <PainelTitle>Informações Pessoais</PainelTitle>
@@ -29,7 +28,7 @@ export function DataPainel ({dados, execute}) {
                         <p className={styles.label} >Nome</p>
                         <p>{dados.nome}</p>
                     </div>
-                    <div>
+                    <div className={styles.last_line} >
                         <p className={styles.label} >Username</p>
                         <p>{dados.username}</p>
                     </div>
@@ -40,7 +39,7 @@ export function DataPainel ({dados, execute}) {
                         <p className={styles.label} >Email</p>
                         <p>{dados.email}</p>
                     </div>
-                    <div>
+                    <div className={styles.last_line} >
                         <p className={styles.label} >Contato</p>
                         <p>{dados.contato}</p>
                     </div>
@@ -51,7 +50,7 @@ export function DataPainel ({dados, execute}) {
                         <p className={styles.label} >Gênero</p>
                         <p>{dados.genero}</p>
                     </div>
-                    <div>
+                    <div className={styles.last_line} >
                         <p className={styles.label} >Nascimento</p>
                         <p>{dados.nascimento}</p>
                     </div>
@@ -63,7 +62,7 @@ export function DataPainel ({dados, execute}) {
                             <p className={styles.label} >Credenciais</p>
                             <p>{dados.credencial}</p>
                         </div>
-                        <div>
+                        <div className={styles.last_line} >
                             <p className={styles.label} >Código de Acompanhamento</p>
                             <p>{dados.codigo_acompanhamento}</p>
                         </div>

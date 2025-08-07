@@ -5,7 +5,6 @@ import { Clickable, VoltarPagina } from "../components/Button";
 import { Subtitle } from "../components/Text";
 import { useState } from "react";
 import { updateRegistro } from "../services/Usuarios";
-import { dateString } from "../services/Gadgets";
 import styles from '../styles/detalhes.module.css'
 
 export default function Detalhes () {
