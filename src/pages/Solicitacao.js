@@ -32,7 +32,7 @@ export default function Solicitacao () {
         fetchAcompanhamento()
         fetchSolicitacao()
 
-    }, [dados, usuario])
+    }, [])
 
     const [showModal, setShowModal] = useState(false)
     const [menssagem, setMenssagem] = useState('Gostaria que acompanhasse meus registros!')

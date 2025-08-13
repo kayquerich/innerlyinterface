@@ -47,15 +47,26 @@ export function ProfessionalOption ({dados}) {
     const navigation = useNavigate()
 
     const HandleClick = () => {
+        const lista = JSON.parse(sessionStorage.getItem('recentes')) || []
+        
+        const jaExiste = lista.some(item => item.codigo_acompanhamento === dados.codigo_acompanhamento)
+        if (!jaExiste) {
+            lista.push(dados)
+            sessionStorage.setItem('recentes', JSON.stringify(lista))
+        }
+
         navigation('/solicitacao', { state : dados })
     }
 
     return (
         <div className={styles.profissional_tag} onClick={HandleClick} >
             <img src={picture} alt="imagem estática de perfil" />
-            <div style={{ height : '100%', paddingBlock : 10, marginLeft : 15 }} >
-                <p className={styles.user_name} >{dados.nome}</p>
-                <p className={styles.follow_info} >Codigo: {dados.codigo_acompanhamento}</p>
+            <div style={{ height : '100%', paddingBlock : 10, marginLeft : 10 }} >
+                <PainelTitle>{dados.nome}</PainelTitle>
+                <div>
+                    <p style={{ color : 'gray' }} >Codigo</p>
+                    <p>{dados.codigo_acompanhamento}</p>
+                </div>
                 <p>{dados.biografia.substring(0, 52) + '...'}</p>
             </div>
         </div>

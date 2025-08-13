@@ -66,18 +66,12 @@
 }
 
 .profissional_tag {
-    height: 120px;
     width: 100%;
     box-shadow: 0px 2px 3px -1px black;
     display: flex;
     align-items: center;
     padding-inline: 10px;
     cursor: pointer;
-}
-
-.profissional_tag img {
-    height: 90%;
-    width: 105px;
 }
 
 .profissional_tag div {
@@ -197,4 +191,10 @@
     width: 15px;
     background-color: var(--lime-green);
     border-radius: 50%;
+}
+
+@media screen and (width < 395px) {
+    .card_follow {
+        width: 100%;
+    }
 }

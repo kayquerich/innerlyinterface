@@ -1,3 +1,8 @@
+.page {
+    display: flex;
+    height: 100%;
+}
+
 .container {
     display: flex;
     gap: 20px;
@@ -18,11 +23,64 @@
 
 .container_search {
     height: 100%;
-    width: 350px;
+    width: 30%;
     display: flex;
     flex-direction: column;
 }
 
 .container_search p {
     margin-block: 10px;
+}
+
+.search_button {
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    background-color: var(--white-blue);
+    color: black;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (width < 1275px) {
+    .container_saved {
+        width: 58%;
+    }
+    .container_search {
+        width: 40%;
+    }
+}
+
+@media screen and (width < 980px) {
+    .container_saved {
+        width: 54%;
+    }
+    .container_search {
+        width: 44%;
+    }
+}
+
+@media screen and (width < 925px) {
+    .page {
+        flex-direction: column;
+    }
+    .container_saved, .container_search {
+        width: 100%;
+        margin: 0;
+        border: none;
+    }
+    .search_button {
+        display: block;
+    }
+}
+
+@media screen and (width < 480px) {
+    .page {
+        padding: 10px;
+    }
+
 }

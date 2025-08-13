@@ -287,7 +287,19 @@ export const buscarSolicitacao = async (token, codigo) => {
         error_case()
     }
 
-} 
+}
+
+export const buscarNomes = async () => {
+    try {
+
+        const response = await fetch('http://localhost:8000/profissionais/nomes', { method : 'GET' })
+        if (response.ok) return await response.json();
+        return []
+
+    } catch (error) {
+        error_case()
+    }
+}
 
 function error_case () {
     alert('O servidor não está respondendo, tente novamente mais tarde')
