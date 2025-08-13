@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/innerlyinterface/static/css/main.6c526716.css",
-    "main.js": "/innerlyinterface/static/js/main.e4aa9253.js",
+    "main.css": "/innerlyinterface/static/css/main.13b61dad.css",
+    "main.js": "/innerlyinterface/static/js/main.00035469.js",
     "static/js/453.edde93b5.chunk.js": "/innerlyinterface/static/js/453.edde93b5.chunk.js",
     "static/media/logo-site.png": "/innerlyinterface/static/media/logo-site.649312f4b50a224cc92a.png",
     "static/media/muito-bem.png": "/innerlyinterface/static/media/muito-bem.8c404968146c36994b76.png",
@@ -14,12 +14,12 @@
     "static/media/onda-cut.png": "/innerlyinterface/static/media/onda-cut.3c02bac93caeb590cde8.png",
     "static/media/perfil-static-icon.png": "/innerlyinterface/static/media/perfil-static-icon.a18d5ef15d311676dccd.png",
     "index.html": "/innerlyinterface/index.html",
-    "main.6c526716.css.map": "/innerlyinterface/static/css/main.6c526716.css.map",
-    "main.e4aa9253.js.map": "/innerlyinterface/static/js/main.e4aa9253.js.map",
+    "main.13b61dad.css.map": "/innerlyinterface/static/css/main.13b61dad.css.map",
+    "main.00035469.js.map": "/innerlyinterface/static/js/main.00035469.js.map",
     "453.edde93b5.chunk.js.map": "/innerlyinterface/static/js/453.edde93b5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6c526716.css",
-    "static/js/main.e4aa9253.js"
+    "static/css/main.13b61dad.css",
+    "static/js/main.00035469.js"
   ]
 }
