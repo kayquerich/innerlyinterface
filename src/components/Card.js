@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import picture from '../assets/images/perfil-static-icon.png'
 import styles from '../styles/card.module.css'
-import { PainelTitle, Separator } from './Text'
+import { PainelTitle } from './Text'
 import { dateString, setColorBoolean } from '../services/Gadgets'
 
 function ActiveTag ({boolean}) {

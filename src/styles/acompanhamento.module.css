@@ -1,12 +1,6 @@
-.footer {
-    width: 95%;
-    height: 120px;
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    gap: 15px;
-    align-items: end;
-    justify-content: end;
+.page {
+    position: relative;
+    height: 100%;
 }
 
 .linha_texto {
@@ -22,4 +16,16 @@
     display: flex;
     justify-content: end;
     margin-top: 10px;
+}
+
+.container_button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+@media screen and (width < 590px) {
+    .page{
+        padding: 10px;
+    }
 }

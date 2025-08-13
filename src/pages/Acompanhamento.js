@@ -52,23 +52,25 @@ export default function Acompanhamento () {
                 </ModalModular>
             )}
 
-            <Page dados={usuario} style={{ position : 'relative' }}>
+            <Page dados={usuario} style={{ position : 'relative' }} >
+                <div className={styles.page}>
 
-                <header style={{ display : 'flex', gap : 20 }} >
-                    <VoltarPagina/>
-                    <Subtitle>Acompanhamento</Subtitle>
-                </header>
+                    <header style={{ display : 'flex', gap : 20 }} >
+                        <VoltarPagina/>
+                        <Subtitle>Acompanhamento</Subtitle>
+                    </header>
 
-                <FollowCard dados={follow} />
+                    <FollowCard dados={follow} />
 
-                <div className={styles.footer} >
-                    {follow.is_ativo && (
-                        <Clickable action={() => setShowModal(true)} color='var(--button-red)' >
-                            Encerrar Acompanhamento
-                        </Clickable>
-                    )}
+                    <div className={styles.container_button} >
+                        {follow.is_ativo && (
+                            <Clickable action={() => setShowModal(true)} color='var(--button-red)' >
+                                Encerrar Acompanhamento
+                            </Clickable>
+                        )}
+                    </div>
+
                 </div>
-
             </Page>
 
         </>
