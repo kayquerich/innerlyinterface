@@ -74,67 +74,68 @@ export default function Solicitacao () {
                 </ModalModular>
             )}
         
-            <Page dados={usuario} >
+            <Page dados={usuario}>
 
-                <header style={{ display : 'flex', gap : 20}} >
-                    <VoltarPagina/>
-                    <Subtitle>Solicitar acompanhamento</Subtitle>
-                </header>
-                
-                <ProfessionalFollow dados={dados} />
+                <div className={styles.page} >
+                    <header style={{ display : 'flex', gap : 20}} >
+                        <VoltarPagina/>
+                        <Subtitle>Solicitar acompanhamento</Subtitle>
+                    </header>
+                    
+                    <ProfessionalFollow dados={dados} />
 
-                <p>Ao solicitar acomapnhamento de um profissional uma notificação será enviada para o mesmo, quando ele aceitar o profissional poderá ver seus registros, todas as infomações sobre o acompanhamento estarão na seção de profissionais, e você pode encerrar o acompanhamento quando bem entender</p>
+                    <p className={styles.describe} >Ao solicitar um acomapnhamento uma notificação será enviada , quando aceita o profissional poderá ver seus registros, as infomações sobre o acompanhamento estarão na seção de profissionais, e você pode encerrar o acompanhamento quando bem entender</p>
 
-                <Line />
+                    <Line />
 
-                {(!isEmpty(apiFollow)) && (
-                    <div>
-                        
-                        <h3>Já existe um acompanhamento entre vocês</h3>
-                        <p>iniciado em {dateString(apiFollow.data_inicio)}</p>
+                    {(!isEmpty(apiFollow)) && (
+                        <div className={styles.page_content} >
+                            
+                            <h3>Já existe um acompanhamento entre vocês</h3>
+                            <p>iniciado em {dateString(apiFollow.data_inicio)}</p>
 
-                        <div 
-                            className={styles.estado} 
-                            style={setColorBoolean(apiFollow.is_ativo)}
-                        >
-                            {apiFollow.is_ativo === true ? 'ativo' : 'não ativo'}
+                            <div 
+                                className={styles.estado} 
+                                style={setColorBoolean(apiFollow.is_ativo)}
+                            >
+                                {apiFollow.is_ativo === true ? 'ativo' : 'não ativo'}
+                            </div>
+
                         </div>
+                    )}
 
-                    </div>
-                )}
+                    {(!isEmpty(apiSolicitacao) && (isEmpty(apiFollow) || !apiFollow.is_ativo)) && (
+                        <div className={styles.page_content}>
+                            
+                            <h3>Você já fez uma solicitação</h3>
+                            <p>{apiSolicitacao.descricao}</p>
+                            <p>{apiSolicitacao.menssagem}</p>
+                            <p>feita no dia {dateString(apiSolicitacao.data)}</p>
 
-                {(!isEmpty(apiSolicitacao) && (isEmpty(apiFollow) || !apiFollow.is_ativo)) && (
-                    <div style={{ display : 'flex', flexDirection : 'column', gap : 5 }} >
-                        
-                        <h3>Você já fez uma solicitação</h3>
-                        <p>{apiSolicitacao.descricao}</p>
-                        <p>{apiSolicitacao.menssagem}</p>
-                        <p>feita no dia {dateString(apiSolicitacao.data)}</p>
-
-                        <div className={styles.estado} style={setColorString(apiSolicitacao.estado)} >
-                            <p>{apiSolicitacao.estado}</p>
+                            <div className={styles.estado} style={setColorString(apiSolicitacao.estado)} >
+                                <p>{apiSolicitacao.estado}</p>
+                            </div>
+                            
                         </div>
-                        
+                    )}
+
+                    <div className={styles.teste} >
+                        { (!isEmpty(apiFollow) && apiFollow.is_ativo === false) && (
+                            isEmpty(apiSolicitacao) && (
+                                <Clickable color='green' action={() => setShowModal(true)} >
+                                    Solicitar Reativação
+                                </Clickable>
+                            ))
+                        }
+                        {
+                            (isEmpty(apiSolicitacao) && isEmpty(apiFollow)) && (
+                                <Clickable color='green' action={() => setShowModal(true)} >
+                                    Solicitar Acompanhamento
+                                </Clickable>
+                            )
+                        }
                     </div>
-                )}
-
-                <footer className={styles.footer} >
-                    { (!isEmpty(apiFollow) && apiFollow.is_ativo === false) && (
-                        isEmpty(apiSolicitacao) && (
-                            <Clickable color='green' action={() => setShowModal(true)} >
-                                Solicitar Reativação
-                            </Clickable>
-                        ))
-                    }
-                    {
-                        (isEmpty(apiSolicitacao) && isEmpty(apiFollow)) && (
-                            <Clickable color='green' action={() => setShowModal(true)} >
-                                Solicitar Acompanhamento
-                            </Clickable>
-                        )
-                    }
-                </footer>
-
+                </div>
             </Page>
         </>
     )

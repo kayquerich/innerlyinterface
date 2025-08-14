@@ -45,40 +45,9 @@
 }
 
 .footer {
-    width: 75%;
-    height: 120px;
     position: absolute;
     bottom: 20px;
-    display: flex;
-    gap: 15px;
-    align-items: end;
-    justify-content: end;
-}
-
-.back {
-    height: 40px;
-    width: 90px;
-    font-size: 14px;
-    color: white;
-    background-color: #383897;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: .5s;
-}
-
-.back:hover {
-    background-color: #4b4ba1;
-}
-
-.solicitar {
-    height: 40px;
-    width: 200px;
-    font-size: 14px;
-    color: white;
-    background-color: green;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: .5s;
+    right: 20px;
 }
 
 .estado {
@@ -106,4 +75,53 @@
     margin-top: 20px;
     display: flex;
     justify-content: end;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+}
+
+.teste {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+@media screen and (width < 650px) {
+    .paragrafo {
+        width: 100%;
+    }
+}
+
+@media screen and (width < 960px) {
+    .describe {
+        text-align: justify;
+    }
+}
+
+@media screen and (width < 900px) {
+    .teste {
+        position: static;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (width < 590px){
+    .page {
+        padding: 10px;
+    }
+
+    .teste {
+        align-self: center;
+    }
+
+    .page_content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
 }

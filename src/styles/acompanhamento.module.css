@@ -29,3 +29,9 @@
         padding: 10px;
     }
 }
+
+@media screen and (width < 990px) {
+    .linha_texto {
+        width: 100%;
+    }
+}
