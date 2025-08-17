@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom'
-import picture from '../assets/images/perfil-static-icon.png'
-import styles from '../styles/card.module.css'
 import { PainelTitle } from './Text'
 import { dateString, setColorBoolean } from '../services/Gadgets'
+import { profile_pics } from '../assets/dados'
+import styles from '../styles/card.module.css'
+
 
 function ActiveTag ({boolean}) {
     return (
@@ -24,7 +25,11 @@ export function FollowPreview ({dados}) {
         <div className={styles.card_follow} onClick={HandleClick} >
 
             <header className={styles.follow_header} >
-                <img src={picture} alt="imagem estatica de perfil" className={styles.follow_image} />
+                <img 
+                    src={profile_pics[dados.profile_pic_value]} 
+                    alt="imagem estatica de perfil" 
+                    className={styles.follow_image} 
+                />
 
                 <div>
                     <p className={styles.user_name} >{dados.nome_profissional}</p>
@@ -60,7 +65,11 @@ export function ProfessionalOption ({dados}) {
 
     return (
         <div className={styles.profissional_tag} onClick={HandleClick} >
-            <img src={picture} alt="imagem estática de perfil" />
+            <img 
+                src={profile_pics[dados.profile_pic_value]} 
+                alt="imagem estática de perfil" 
+                style={{ height : 100, borderRadius : '50%' }}
+            />
             <div style={{ height : '100%', paddingBlock : 10, marginLeft : 10 }} >
                 <PainelTitle>{dados.nome}</PainelTitle>
                 <div>
@@ -83,7 +92,10 @@ export function Notification ({dados}) {
 
     return (
         <div className={styles.notification} onClick={handleClick} >
-            <img src={picture} alt="imagem estática de perfil" />
+            <img 
+                src={profile_pics[dados.dados_usuario.profile_pic_value]} 
+                alt="imagem estática de perfil" 
+            />
             <div>
                 <p>{dados.dados_usuario.nome} te enviou uma solicitação, veja mais...</p>
             </div>
@@ -94,7 +106,11 @@ export function Notification ({dados}) {
 export function UsuarioCard ({dados}) {
     return (
         <div className={styles.usuario_tag} >
-            <img src={picture} alt="imagem estática de perfil" />
+            <img 
+                src={profile_pics[dados.profile_pic_value]} 
+                alt="imagem estática de perfil" 
+                style={{ borderRadius : '50%' }}
+            />
             <div className={styles.text_user_card} >
                 <p className={styles.user_name} >{dados.nome}</p>
                 <p>{dados.biografia}</p>
@@ -120,7 +136,11 @@ export function UsuarioCard ({dados}) {
 export function FollowCard ({dados}) {
     return (
         <div className={styles.follow} >
-            <img src={picture} alt="imagem estática de perfil" />
+            <img 
+                src={profile_pics[dados.profile_pic_value]} 
+                alt="imagem estática de perfil"
+                style={{ height : 100, borderRadius : '50%' }} 
+            />
             
             <div className={styles.follow_text} >
                 <PainelTitle>{dados.nome_profissional}</PainelTitle>
@@ -143,7 +163,11 @@ export function FollowCard ({dados}) {
 export function ProfessionalFollow ({dados}) {
     return (
         <div className={styles.follow} >
-            <img src={picture} alt="imagem estática de perfil" />
+            <img 
+                src={profile_pics[dados.profile_pic_value]} 
+                alt="imagem estática de perfil"
+                style={{ height : 100, borderRadius : '50%' }}    
+            />
             <div className={styles.follow_text} >
                 <PainelTitle>{dados.nome}</PainelTitle>
                 <p>{dados.biografia}</p>
@@ -163,7 +187,7 @@ export function ClientPreview ({dados, execute}) {
 
     return (
         <div className={styles.client_preview} onClick={handleClick} >
-            <img src={picture} alt="imagem estática de perfil" />
+            <img src={profile_pics[dados.user_data.profile_pic_value]} alt="imagem estática de perfil" />
             <div className={styles.preview_text} >
                 <PainelTitle>{dados.user_data.nome}</PainelTitle>
                 <p style={{ color : 'gray' }} >Data Inicio</p>

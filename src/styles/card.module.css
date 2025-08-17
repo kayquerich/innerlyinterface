@@ -17,6 +17,7 @@
 
 .follow_image {
     height: 60px;
+    border-radius: 50%;
 }
 
 .follow_info {
@@ -98,6 +99,7 @@
 .notification img {
     height: 80%;
     margin-right: 10px;
+    border-radius: 50%;
 }
 
 .usuario_tag {
@@ -112,6 +114,7 @@
 .usuario_tag img {
     height: 60px;
     width: 60px;
+    border-radius: 50%;
 }
 
 .naosei {
@@ -176,6 +179,7 @@
 
 .client_preview img {
     height: 60px;
+    border-radius: 50%;
 }
 
 .preview_text {

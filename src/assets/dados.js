@@ -1,9 +1,33 @@
 export const listaEmojis = [
-        require('../assets/images/emojis/muito-mal.png'), 
-        require('../assets/images/emojis/mal.png'), 
-        require('../assets/images/emojis/mais-ou-menos.png'), 
-        require('../assets/images/emojis/bem.png'), 
-        require('../assets/images/emojis/muito-bem.png')
+    require('../assets/images/emojis/muito-mal.png'), 
+    require('../assets/images/emojis/mal.png'), 
+    require('../assets/images/emojis/mais-ou-menos.png'), 
+    require('../assets/images/emojis/bem.png'), 
+    require('../assets/images/emojis/muito-bem.png')
+]
+
+export const profile_pics = [
+    require('../assets/images/avatares/profile_icon_0.png'),
+    require('../assets/images/avatares/profile_icon_1.png'),
+    require('../assets/images/avatares/profile_icon_2.png'),
+    require('../assets/images/avatares/profile_icon_3.png'),
+    require('../assets/images/avatares/profile_icon_4.png'),
+    require('../assets/images/avatares/profile_icon_5.png'),
+    require('../assets/images/avatares/profile_icon_6.png'),
+    require('../assets/images/avatares/profile_icon_7.png'),
+    require('../assets/images/avatares/profile_icon_8.png'),
+    require('../assets/images/avatares/profile_icon_9.png'),
+    require('../assets/images/avatares/profile_icon_10.png'),
+    require('../assets/images/avatares/profile_icon_11.png'),
+    require('../assets/images/avatares/profile_icon_12.png'),
+    require('../assets/images/avatares/profile_icon_13.png'),
+    require('../assets/images/avatares/profile_icon_14.png'),
+    require('../assets/images/avatares/profile_icon_15.png'),
+    require('../assets/images/avatares/profile_icon_16.png'),
+    require('../assets/images/avatares/profile_icon_17.png'),
+    require('../assets/images/avatares/profile_icon_18.png'),
+    require('../assets/images/avatares/profile_icon_19.png'),
+    require('../assets/images/avatares/profile_icon_20.png'),
 ]
 
 export const listaNomesEmojis = [

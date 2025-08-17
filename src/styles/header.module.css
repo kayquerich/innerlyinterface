@@ -24,6 +24,30 @@
     color: gray;
 }
 
+.profile_image {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: relative;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.profile_image_hover {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    opacity: 40%;
+    color: white;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    transition: .5s;
+    font-size: xx-large;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (width < 400px) {
     .container {
         flex-direction: column;

@@ -1,10 +1,16 @@
 import styles from '../styles/header.module.css'
-import picture from '../assets/images/perfil-static-icon.png'
+import { profile_pics } from '../assets/dados'
+import { useState } from 'react'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 export function ProfissionalHeader ({dados}) { 
     return (
         <div className={styles.container} >
-            <img src={picture} alt="imagem estática de perfil" />
+            <img 
+                src={profile_pics[dados.profile_pic_value]} 
+                alt="imagem estática de perfil" 
+                className={styles.profile_image}
+            />
             <div className={styles.header_text} >
 
                 <p className={styles.name} >{dados.nome}</p>
@@ -18,9 +24,27 @@ export function ProfissionalHeader ({dados}) {
 }
 
 export function UserHeader ({dados}) {
+
+    const [inFocus, setFocus] = useState(false)
+
     return (
         <div className={styles.container} >
-            <img src={picture} alt="imagem estática de perfil" />
+            <div className={styles.profile_image}
+                onMouseEnter={() => setFocus(true)}
+                onMouseLeave={() => setFocus(false)}
+            >
+                <img 
+                    src={profile_pics[dados.profile_pic_value]} 
+                    alt="imagem estática de perfil" 
+                    className={styles.profile_image}
+                />
+                <div 
+                    style={ inFocus ? { display : 'flex' } : { display : 'none' }} 
+                    className={styles.profile_image_hover}
+                >
+                    <Icon icon='pen'/>
+                </div>
+            </div>
             <div className={styles.header_text} >
                 <p className={styles.name} >{dados.nome}</p>
                 <p className={styles.opacity} >{dados.username}</p>

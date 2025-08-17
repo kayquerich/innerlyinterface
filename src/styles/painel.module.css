@@ -31,6 +31,7 @@
     .coluna {
         flex-direction: row;
         justify-content: space-between;
+        margin-bottom: 10px;
     }
     .last_line {
         text-align: end;
