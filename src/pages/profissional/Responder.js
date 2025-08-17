@@ -6,7 +6,7 @@ import { UsuarioCard } from "../../components/Card"
 import { dateString } from "../../services/Gadgets"
 import styles from '../../styles/styles-profissional/response.module.css'
 import { Clickable, VoltarPagina } from "../../components/Button"
-import { listarAcompanhamentos, listarRegistrosByFollow, responderSolicitacao } from "../../services/Profissionais"
+import { listarAcompanhamentos, listarClientes, listarRegistrosByFollow, responderSolicitacao } from "../../services/Profissionais"
 import { ModalModular } from "../../components/Modal"
 
 export default function Responder () {
@@ -31,6 +31,9 @@ export default function Responder () {
             let notify_list = JSON.parse(sessionStorage.getItem('solicitacoes'))
             notify_list = notify_list.filter(item => item.id !== solicitacao.id)
             sessionStorage.setItem('solicitacoes', JSON.stringify(notify_list))
+            
+            const new_clients = await listarClientes(profissional.token)
+            sessionStorage.setItem('clientes', JSON.stringify(new_clients))
 
             navigation('/profissional/home')
 

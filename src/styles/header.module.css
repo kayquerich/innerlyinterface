@@ -37,13 +37,12 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    opacity: 40%;
     color: white;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 0;
     transition: .5s;
-    font-size: xx-large;
+    font-size: x-large;
     align-items: center;
     justify-content: center;
 }

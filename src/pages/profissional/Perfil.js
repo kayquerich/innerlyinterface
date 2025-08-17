@@ -8,6 +8,7 @@ import { ModalModular } from "../../components/Modal";
 import { Input, RadioInput, TextInput } from "../../components/Input";
 import { Clickable } from "../../components/Button";
 import { updateProfissional } from "../../services/Profissionais";
+import { profile_pics } from "../../assets/dados";
 
 export default function PerfilProfissional () {
 
@@ -18,7 +19,8 @@ export default function PerfilProfissional () {
         nome : profissional.nome,
         contato : profissional.contato,
         biografia : profissional.biografia,
-        genero : profissional.genero
+        genero : profissional.genero,
+        profile_pics_value : profissional.profile_pic_value
     })
 
     const handleChange = (event) => {
@@ -35,6 +37,18 @@ export default function PerfilProfissional () {
         if (response) setOpen(false);
 
     }
+
+    const [editPic, setEditPic] = useState(false)
+    const [selectedPic, setSelectedPic] = useState(null)
+    const selectPicHandler = (index) => {
+        setSelectedPic(index)
+        setDTOprofissional({...DTOprofissional, 'profile_pic_value' : index})
+    }
+
+    const changeProfilePic = () => {
+        const response = updateProfissional(profissional.token, DTOprofissional)
+        if (response) setEditPic(false)
+    } 
 
     return (
         <>
@@ -95,11 +109,50 @@ export default function PerfilProfissional () {
                 </ModalModular>
             )}
 
+            {editPic && (
+                <ModalModular
+                    close={() => setEditPic(false)}
+                    title='Alterar Imagem de Perfil'
+                >
+                    <div className={styles.edit_profile_pic} >
+                        {profile_pics.map((pic, index) => (
+                            <div 
+                                className={styles.choice_pic}
+                                onClick={() => selectPicHandler(index)}
+                            >
+                                <img
+                                    src={pic}
+                                    alt={`Imagem de perfil ${index + 1}`}
+                                    style={{height: '100%', width: '100%'}}
+                                />
+                                <div 
+                                    className={styles.choiced_pic} 
+                                    style={ 
+                                        selectedPic === index ? { display : 'flex' } 
+                                        : { display : 'none' }
+                                    }
+                                >
+                                    { selectedPic === index ? <span>&#10003;</span> : <span></span> }
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className={styles.button_area} >
+                        <Clickable
+                            color={'var(--title-blue)'}
+                            action={changeProfilePic}
+                        >
+                            Confirmar
+                        </Clickable>
+                    </div>
+                </ModalModular>
+            )}
+
             <Page dados={profissional}>
 
                 <Subtitle>Meu Perfil</Subtitle>
                 
-                <Header dados={profissional} />
+                <Header dados={profissional} open={() => setEditPic(true)} />
                 <DataPainel 
                     dados={profissional} 
                     execute={() => setOpen(true)}

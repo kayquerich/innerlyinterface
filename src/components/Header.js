@@ -3,14 +3,29 @@ import { profile_pics } from '../assets/dados'
 import { useState } from 'react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
-export function ProfissionalHeader ({dados}) { 
+export function ProfissionalHeader ({dados, open}) { 
+
+    const [inFocus, setFocus] = useState(false)
+
     return (
         <div className={styles.container} >
-            <img 
-                src={profile_pics[dados.profile_pic_value]} 
-                alt="imagem estática de perfil" 
-                className={styles.profile_image}
-            />
+            <div className={styles.profile_image}
+                onMouseEnter={() => setFocus(true)}
+                onMouseLeave={() => setFocus(false)}
+                onClick={() => open(true)}
+            >
+                <img 
+                    src={profile_pics[dados.profile_pic_value]} 
+                    alt="imagem estática de perfil" 
+                    className={styles.profile_image}
+                />
+                <div 
+                    style={ inFocus ? { display : 'flex' } : { display : 'none' }} 
+                    className={styles.profile_image_hover}
+                >
+                    <Icon icon='pen'/>
+                </div>
+            </div>
             <div className={styles.header_text} >
 
                 <p className={styles.name} >{dados.nome}</p>
@@ -23,7 +38,7 @@ export function ProfissionalHeader ({dados}) {
     )
 }
 
-export function UserHeader ({dados}) {
+export function UserHeader ({dados, open}) {
 
     const [inFocus, setFocus] = useState(false)
 
@@ -32,6 +47,7 @@ export function UserHeader ({dados}) {
             <div className={styles.profile_image}
                 onMouseEnter={() => setFocus(true)}
                 onMouseLeave={() => setFocus(false)}
+                onClick={() => open(true)}
             >
                 <img 
                     src={profile_pics[dados.profile_pic_value]} 

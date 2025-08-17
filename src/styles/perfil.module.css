@@ -119,8 +119,58 @@
     justify-content: end;
 }
 
+.edit_profile_pic {
+    display: flex;
+    gap: 10px;
+    width: 400px;
+    flex-wrap: wrap;
+}
+
+.choice_pic {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    position: relative;
+}
+
+.choice_pic:hover {
+    transform: scale(1.1);
+}
+
+.choiced_pic {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    transition: .5s;
+    font-size: xx-large;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bolder;
+}
+
+.button_area {
+    display: flex;
+    justify-content: end;
+    margin-top: 5px;    
+}
+
 @media screen and (width < 500px){
     .page {
         padding: 10px;
+    }
+}
+
+@media screen and (width < 490px) {
+    .edit_profile_pic {
+        width: 335px;
+        margin-left: 5%;
+    }
+    .choice_pic {
+        width: 60px;
+        height: 60px;
     }
 }
