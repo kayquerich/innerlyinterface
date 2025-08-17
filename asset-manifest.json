@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/innerlyinterface/static/css/main.5cf00663.css",
-    "main.js": "/innerlyinterface/static/js/main.2baf044c.js",
+    "main.css": "/innerlyinterface/static/css/main.db1a704c.css",
+    "main.js": "/innerlyinterface/static/js/main.0611e758.js",
     "static/js/453.edde93b5.chunk.js": "/innerlyinterface/static/js/453.edde93b5.chunk.js",
     "static/media/logo-site.png": "/innerlyinterface/static/media/logo-site.649312f4b50a224cc92a.png",
     "static/media/muito-bem.png": "/innerlyinterface/static/media/muito-bem.8c404968146c36994b76.png",
@@ -11,15 +11,35 @@
     "static/media/mais-ou-menos.png": "/innerlyinterface/static/media/mais-ou-menos.279c7f1704a9d08b1689.png",
     "static/media/login-image.png": "/innerlyinterface/static/media/login-image.fe66103fff26df3d9094.png",
     "static/media/image-login-responsive.png": "/innerlyinterface/static/media/image-login-responsive.ae74ca87f0c19f232a96.png",
+    "static/media/profile_icon_17.png": "/innerlyinterface/static/media/profile_icon_17.3285e54764b754680441.png",
+    "static/media/profile_icon_2.png": "/innerlyinterface/static/media/profile_icon_2.02fa0ca2e1ad801c3de2.png",
+    "static/media/profile_icon_7.png": "/innerlyinterface/static/media/profile_icon_7.90b4f87c635dde91ef5b.png",
+    "static/media/profile_icon_4.png": "/innerlyinterface/static/media/profile_icon_4.d7df094c8ebd8359b881.png",
+    "static/media/profile_icon_5.png": "/innerlyinterface/static/media/profile_icon_5.1ee7f519ade67d7152b6.png",
+    "static/media/profile_icon_14.png": "/innerlyinterface/static/media/profile_icon_14.94fcb40459327d796e42.png",
+    "static/media/profile_icon_1.png": "/innerlyinterface/static/media/profile_icon_1.f02d122cd672cf49825b.png",
+    "static/media/profile_icon_20.png": "/innerlyinterface/static/media/profile_icon_20.10afa9e56fabef469b59.png",
+    "static/media/profile_icon_18.png": "/innerlyinterface/static/media/profile_icon_18.9a83a2f2704f40113bb5.png",
+    "static/media/profile_icon_3.png": "/innerlyinterface/static/media/profile_icon_3.5b7e4772ff0f863beeb2.png",
+    "static/media/profile_icon_9.png": "/innerlyinterface/static/media/profile_icon_9.5b7cae48c8feecdddb10.png",
+    "static/media/profile_icon_13.png": "/innerlyinterface/static/media/profile_icon_13.f703610b9e25b71cb106.png",
+    "static/media/profile_icon_15.png": "/innerlyinterface/static/media/profile_icon_15.528121eee546edbaa478.png",
     "static/media/onda-cut.png": "/innerlyinterface/static/media/onda-cut.3c02bac93caeb590cde8.png",
-    "static/media/perfil-static-icon.png": "/innerlyinterface/static/media/perfil-static-icon.a18d5ef15d311676dccd.png",
+    "static/media/profile_icon_8.png": "/innerlyinterface/static/media/profile_icon_8.0652fe1eedfb46847f75.png",
+    "static/media/profile_icon_12.png": "/innerlyinterface/static/media/profile_icon_12.6c69863b6af616ef926a.png",
+    "static/media/profile_icon_6.png": "/innerlyinterface/static/media/profile_icon_6.edcb8727b2c013e5e75f.png",
+    "static/media/profile_icon_19.png": "/innerlyinterface/static/media/profile_icon_19.339f76e1c5e9315c84dd.png",
+    "static/media/profile_icon_16.png": "/innerlyinterface/static/media/profile_icon_16.9fc5a3acb1364b11fbaa.png",
+    "static/media/profile_icon_10.png": "/innerlyinterface/static/media/profile_icon_10.0e532a5e9d73c41ff3d8.png",
+    "static/media/profile_icon_11.png": "/innerlyinterface/static/media/profile_icon_11.4006389cd2bd8a15eb25.png",
+    "static/media/profile_icon_0.png": "/innerlyinterface/static/media/profile_icon_0.f758b4d94bc69725cc28.png",
     "index.html": "/innerlyinterface/index.html",
-    "main.5cf00663.css.map": "/innerlyinterface/static/css/main.5cf00663.css.map",
-    "main.2baf044c.js.map": "/innerlyinterface/static/js/main.2baf044c.js.map",
+    "main.db1a704c.css.map": "/innerlyinterface/static/css/main.db1a704c.css.map",
+    "main.0611e758.js.map": "/innerlyinterface/static/js/main.0611e758.js.map",
     "453.edde93b5.chunk.js.map": "/innerlyinterface/static/js/453.edde93b5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5cf00663.css",
-    "static/js/main.2baf044c.js"
+    "static/css/main.db1a704c.css",
+    "static/js/main.0611e758.js"
   ]
 }
