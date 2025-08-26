@@ -1,12 +1,13 @@
+import styles from '../../styles/styles-profissional/home.module.css'
 import { useLocation } from "react-router-dom"
 import { InternalPage as Page } from "../../components/Container"
 import { useEffect, useState } from "react"
 import { getProfissional, listarAcompanhamentos, listarRegistrosByFollow, listarSolicitacoes } from "../../services/Profissionais"
 import { Subtitle } from "../../components/Text"
-import styles from '../../styles/styles-profissional/home.module.css'
 import { Notification } from "../../components/Card"
 import { Registro } from "../../components/Registro"
 import { filtarRegistros } from "../../services/Gadgets"
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 export default function Home () {
 
@@ -15,8 +16,10 @@ export default function Home () {
     const [profissional, setProfissional] = useState({})
     const [solicitacoes, setSolicitacoes] = useState([])
     const [registrosSemana, setRegistrosSemana] = useState([])
+    const [largura, setLargura] = useState(window.innerWidth)
 
     useEffect(() => {
+
         const fetchDados = async () => {
 
             let temporary_data = null
@@ -68,35 +71,78 @@ export default function Home () {
             }
 
         }
+
         fetchDados()
+
+        function handleResize () {
+            setLargura(window.innerWidth)
+        }
+
+        window.addEventListener("resize", handleResize)
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+        }
+
     }, [data_login])
 
+    const [list_view, setList_view] = useState(true)
+    const notifyClick = () => {
+        setList_view(!list_view)
+    }
+
     return (
-        <Page dados={profissional} style={{ display : 'flex' }}>
-            <div className={styles.container} >
-                <Subtitle>Registros recentes</Subtitle>
+        <Page dados={profissional}>
+            <div className={styles.page} >
 
-                {registrosSemana.length === 0 && (
-                    <div className={styles.void} >
-                        <p>Não há registros recentes</p>
+                <div className={styles.container} style={(!list_view && largura < 940) ? {display : 'none'} : {}} >
+
+                    <div>
+                        <Subtitle>Registros recentes</Subtitle>
                     </div>
-                )}
 
-                <div className={styles.container_registros} >
-                    {registrosSemana.map((item, index) => (
-                        <Registro dados={profissional} key={index} registro={item} />
-                    ))}
+                    {registrosSemana.length === 0 && (
+                        <div className={styles.void} >
+                            <p>Não há registros recentes</p>
+                        </div>
+                    )}
+
+                    <div className={styles.container_registros} >
+                        {registrosSemana.map((item, index) => (
+                            <Registro dados={profissional} key={index} registro={item} />
+                        ))}
+                    </div>
+                
                 </div>
-            
-            </div>
 
-            <div className={styles.notifications} >
-                <h3>Solicitações de acompanhamento</h3>
-                {solicitacoes && solicitacoes.map((item, key) => (
-                    <Notification dados={item} key={key} />
-                ))}
-            </div>
+                <div className={styles.notifications} style={(list_view && largura < 940) ? {display : 'none'} : {}} >
+                    <h3>Solicitações de acompanhamento</h3>
+                    {solicitacoes && solicitacoes.map((item, key) => (
+                        <Notification dados={item} key={key} />
+                    ))}
+                    {solicitacoes.length === 0 && (
+                        <div className={styles.void} >
+                            <p>Não há solicitações pendentes</p>
+                        </div>
+                    )}
+                </div>
 
+                <button className={styles.show_notifications} onClick={notifyClick} >
+                    {list_view ? (
+                        <>
+                            <Icon icon="fa-solid fa-bell" />
+                            {solicitacoes.length > 0 && (
+                                <div className={styles.notification_bubble} >
+                                    <p>{solicitacoes.length}</p>
+                                </div>
+                            )}
+                        </>
+                    ) : (
+                        <Icon icon='chevron-left'/>
+                    )}
+                </button>
+
+            </div>
         </Page>
     )
 }

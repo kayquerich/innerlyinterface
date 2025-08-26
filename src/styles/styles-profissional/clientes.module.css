@@ -40,3 +40,12 @@
     width: 100%;
     gap: 15px;
 }
+
+@media screen and (width < 1290px) {
+    .container_registros {
+        width: 53%;
+    }
+    .container_clientes {
+        width: 45%;
+    }
+}

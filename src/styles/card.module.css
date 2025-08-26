@@ -214,4 +214,37 @@
         position: static;
         margin-top: 10px;
     }
+    .usuario_tag {
+        width: 550px;
+    }
+}
+
+@media screen and (width < 795px) {
+    .usuario_tag {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .naosei {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .naosei div {
+        text-align: left;
+    }
+}
+
+@media screen and (width < 645px) {
+    .naosei {
+        align-items: center;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .naosei div {
+        text-align: center;
+    }
 }

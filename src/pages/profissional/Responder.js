@@ -74,40 +74,44 @@ export default function Responder () {
 
             <Page dados={profissional} style={{ positon : 'relative' }}> 
 
-                <header style={{ display : 'flex', gap : 20 }}>
-                    <VoltarPagina/>
-                    <Subtitle>Responder solicitação</Subtitle>
-                </header>
-                
-                <div style={{ width : '50%', marginBlock : 10 }} >
-                    <p>Você recebeu uma solicitação de acompanhamento, ao aceitar poderá vizualizar os registros que o usuario solicitante postar na plataforma!</p>
+                <div className={styles.page} >
+
+                    <header style={{ display : 'flex', gap : 20 }}>
+                        <VoltarPagina/>
+                        <Subtitle>Responder solicitação</Subtitle>
+                    </header>
+                    
+                    <div className={styles.paragraph} >
+                        <p>Você recebeu uma solicitação de acompanhamento, ao aceitar poderá vizualizar os registros que o usuario solicitante postar na plataforma!</p>
+                    </div>
+                    
+                    <UsuarioCard dados={solicitacao.dados_usuario} />
+                    
+                    <p>{solicitacao.descricao}</p>
+
+                    <Separator margin={10} />
+                    <p>Data da solicitação</p>
+                    <p>{dateString(solicitacao.data)}</p>
+                    <Separator margin={10} />
+
+                    <div className={styles.container_message}>
+                        <div className={styles.triangulo} ></div>
+                        <div className={styles.message} >{solicitacao.menssagem}</div>
+                    </div>
+
+                    <footer className={styles.container_buttons} >
+
+                        <Clickable color='green' action={() => sendResponse('aceita')}>
+                            Aceitar
+                        </Clickable>
+                        <Clickable color='var(--button-red)' action={() => setShow(true)} >
+                            Recusar
+                        </Clickable>
+
+                    </footer>
+
                 </div>
-                
-                <UsuarioCard dados={solicitacao.dados_usuario} />
-                
-                <p>{solicitacao.descricao}</p>
-
-                <Separator margin={10} />
-                <p>Data da solicitação</p>
-                <p>{dateString(solicitacao.data)}</p>
-                <Separator margin={10} />
-
-                <div className={styles.container_message}>
-                    <div className={styles.triangulo} ></div>
-                    <div className={styles.message} >{solicitacao.menssagem}</div>
-                </div>
-
-                <footer className={styles.container_buttons} >
-
-                    <Clickable color='green' action={() => sendResponse('aceita')}>
-                        Aceitar
-                    </Clickable>
-                    <Clickable color='var(--button-red)' action={() => setShow(true)} >
-                        Recusar
-                    </Clickable>
-
-                </footer>
-
+ 
             </Page>
         </>
     )

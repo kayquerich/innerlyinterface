@@ -150,25 +150,29 @@ export default function PerfilProfissional () {
 
             <Page dados={profissional}>
 
-                <Subtitle>Meu Perfil</Subtitle>
-                
-                <Header dados={profissional} open={() => setEditPic(true)} />
-                <DataPainel 
-                    dados={profissional} 
-                    execute={() => setOpen(true)}
-                />
+                <div className={styles.page} >
 
-                {(profissional && 'credencial' in profissional) && (
-                    <div className={styles.painel_especialidades} >
-                        <PainelTitle>Areas de especialidade</PainelTitle>
-                        <Line/>
-                        <div style={{ display : 'flex', gap : 10 }} >
-                            <div className={styles.especialidade} >Especialidade</div>
-                            <div className={styles.especialidade} >Em desenvolvimento</div>
-                            <div className={styles.especialidade} >Especialidade</div>
+                    <Subtitle>Meu Perfil</Subtitle>
+                    
+                    <Header dados={profissional} open={() => setEditPic(true)} />
+                    <DataPainel 
+                        dados={profissional} 
+                        execute={() => setOpen(true)}
+                    />
+
+                    {(profissional && 'credencial' in profissional) && (
+                        <div className={styles.painel_especialidades} >
+                            <PainelTitle>Areas de especialidade</PainelTitle>
+                            <Line/>
+                            <div style={{ display : 'flex', gap : 10 }} >
+                                <div className={styles.especialidade} >Especialidade</div>
+                                <div className={styles.especialidade} >Em desenvolvimento</div>
+                                <div className={styles.especialidade} >Especialidade</div>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+
+                </div>
 
             </Page>
 
