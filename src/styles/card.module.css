@@ -248,3 +248,9 @@
         text-align: center;
     }
 }
+
+@media screen and (width < 940px) {
+    .client_preview {
+        width: 100%;
+    }
+}

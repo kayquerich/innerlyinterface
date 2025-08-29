@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-top: 15px;
 }
 
 .void_container {
@@ -41,11 +42,58 @@
     gap: 15px;
 }
 
+.back_button {
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--title-blue);
+    color: white;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+
 @media screen and (width < 1290px) {
     .container_registros {
         width: 53%;
     }
     .container_clientes {
         width: 45%;
+    }
+}
+
+@media screen and (width < 940px) {    
+    .container_clientes {
+        width: 100%;
+        border: none;
+        margin: 0;
+    }
+    .container_registros {
+        width: 100%;
+        border: none;
+        margin: 0;
+        padding: 0%;
+    }
+}
+
+.page {
+    display: flex;
+}
+
+@media screen and (width < 590px) {
+    .page {
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+    }
+    .lista_registros {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 }

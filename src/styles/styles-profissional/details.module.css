@@ -48,4 +48,8 @@
     .page {
         padding: 10px;
     }
+
+    .note {
+        max-width: 100%;
+    }
 }
