@@ -84,7 +84,7 @@ export default function Clientes () {
                         </div>
                     )}
 
-                    {registros.length && (
+                    {registros.length !== 0 && (
                         <div className={styles.lista_registros} >
                             {registros.map((item, index) => (
                                 <Registro dados={profissional} registro={item} key={index} />
