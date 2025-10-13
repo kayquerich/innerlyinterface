@@ -6,6 +6,8 @@ import { Subtitle } from "../components/Text"
 import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getRegistrosByUser, getUsuario } from "../services/Usuarios"
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome"
+import { useNavigate } from "react-router-dom"
 
 export default function UserRegistros () {
 
@@ -57,8 +59,40 @@ export default function UserRegistros () {
 
     }, [data_login])
 
+    const navigation = useNavigate()
+    const handleclick_link = (path) => {
+        navigation(path, {state : usuario})
+    }
+
     return (
         <Page dados={usuario}>
+
+            <div className={styles.header} >
+                <Subtitle>Olá, {usuario ? usuario.nome : 'usuário'}!</Subtitle>
+            </div>
+
+            <nav className={styles.nav} >
+                <ul className={styles.buttons_list} >
+                    <li onClick={() => handleclick_link('/profissionais')}>
+                        <div>
+                            <span>
+                                <Icon icon="user-doctor" />
+                            </span>
+                            <span>Profissionais</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span>
+                                <Icon icon="bullseye" />
+                            </span>
+                            <span>
+                                Objetivos
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
 
             <div className={styles.header} >
                 <Subtitle>Meus Registros</Subtitle>

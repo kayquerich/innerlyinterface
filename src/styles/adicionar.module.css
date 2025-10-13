@@ -26,3 +26,96 @@
         padding: 10px;
     }
 }
+
+.atividade_item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 80px;
+    cursor: pointer;
+    position: relative;
+}
+
+.atividade_icone {
+    font-size: 24px;
+    border: 3px solid var(--text-green);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-green);
+}
+
+.atividade_icone_selected {
+    font-size: 20px;
+    border: 3px solid var(--text-green);
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-green);
+}
+
+.atividade_nome {
+    display: flex;
+    width: 50px;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.atividades_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.atividade_check {
+    position: absolute;
+    background-color: var(--text-green);
+    color: white;
+    border-radius: 50%;
+    padding: 2px;
+    font-size: 12px;
+    top: 27px;
+    right: 15px;
+    height: 18px;
+    width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+@media screen and (width < 400px) {
+    .atividade_item {
+        width: 60px;
+    }
+    .atividade_icone {
+        height: 40px;
+        width: 40px;
+        font-size: 20px;
+    }
+    .atividade_icone_selected {
+        height: 35px;
+        width: 35px;
+        font-size: 16px;
+    }
+    .atividade_nome {
+        width: 40px;
+        font-size: 14px;
+    }
+    .atividade_check {
+        top: 20px;
+        right: 10px;
+        height: 15px;
+        width: 15px;
+        font-size: 10px;
+    }
+}

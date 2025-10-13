@@ -3,8 +3,10 @@ import { InternalPage as Page } from "../components/Container"
 import { AnotationInput, EmotionInput } from "../components/Input"
 import { Clickable, VoltarPagina } from "../components/Button";
 import { Subtitle } from "../components/Text";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { updateRegistro } from "../services/Usuarios";
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
+import { getAtivides } from "../services/Gadgets";
 import styles from '../styles/detalhes.module.css'
 
 export default function Detalhes () {
@@ -12,12 +14,13 @@ export default function Detalhes () {
     const location = useLocation()
 
     const {registro, usuario} = location.state
-
+    const atividades_ids = registro.atividades.map(atividade => atividade.id)
     const [update_data, set_update_data] = useState({
         id : registro.id,
         usuario : registro.usuario,
         value_humor : registro.value_humor,
-        anotacao : registro.anotacao
+        anotacao : registro.anotacao,
+        atividades : atividades_ids
     })
 
     const navigation = useNavigate()
@@ -45,6 +48,26 @@ export default function Detalhes () {
         setMexeu(true)
     }
 
+    const [click_add_atividade, setClickAddAtividade] = useState(false)
+    const [atividades, setAtividades] = useState([])
+    useEffect(() => {
+            async function fetchAtividades() {
+                const saved_atividades = await getAtivides()
+                setAtividades(saved_atividades)
+            }
+            fetchAtividades()
+    }, [])
+
+    const selectAtividade = (id) => {
+        if (update_data.atividades.includes(id)) {
+            const novas_atividades = update_data.atividades.filter(item => item !== id)
+            set_update_data({...update_data, 'atividades' : novas_atividades})
+        } else {
+            set_update_data({...update_data, 'atividades' : [...update_data.atividades, id]})
+        }
+        setMexeu(true)
+    }
+
     return (
         <Page dados={usuario}>
 
@@ -58,6 +81,25 @@ export default function Detalhes () {
                 <div className={styles.container_input} >
                     <Subtitle>Como está se sentindo?</Subtitle>
                     <EmotionInput valuehumor={registro ? registro.value_humor + 1 : - 1} handleChange={onEmotionChange} />
+                </div>
+
+                <div className={styles.container_input} >
+                    <Subtitle>O que você tem feito?</Subtitle>
+                    <div  className={styles.atividades_container} >
+                        {atividades.length > 0 ? atividades.map((atividade) => (
+                            <div 
+                                key={atividade.id} 
+                                className={styles.atividade_item}
+                                onClick={() => selectAtividade(atividade.id)}
+                            >
+                                <span className={update_data.atividades.includes(atividade.id) ? styles.atividade_icone_selected : styles.atividade_icone} >
+                                    <Icon icon={atividade.icone} />
+                                </span>
+                                <span className={styles.atividade_nome} >{atividade.nome}</span>
+                                {update_data.atividades.includes(atividade.id) && <span className={styles.atividade_check} ><Icon icon="fa-solid fa-check" /></span>}
+                            </div>
+                        )) : <div>Carregando...</div>}
+                    </div>
                 </div>
 
                 <div className={styles.container_input} >

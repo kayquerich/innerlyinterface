@@ -50,3 +50,35 @@
         width: 90%;
     }
 }
+
+.nav {
+    width: 100%;
+}
+
+.buttons_list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 20px 0px;
+}
+
+.buttons_list li div {
+    text-decoration: none;
+    color: var(--text-green);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.buttons_list li div span:first-child {
+    font-size: 30px;
+    border: 3px solid var(--text-green);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

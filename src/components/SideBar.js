@@ -44,7 +44,7 @@ export function SideBar ({dados}) {
                     <>
                         <OptionLink label='Registros' path='/registros' dados={dados} icon='file' />
                         <OptionLink label='Meu Perfil' path='/perfil' dados={dados} icon='user' />
-                        <OptionLink label='Profissionais' path='/profissionais' icon='user-doctor' />   
+                        <OptionLink label='Historico' path='/historico' dados={dados} icon='calendar-days'/>  
                     </>
                 )}
             

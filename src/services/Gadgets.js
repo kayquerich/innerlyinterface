@@ -59,3 +59,26 @@ export function getCurrentDate() {
 export function setEmotionStr (value) {
     return listaNomesEmojis[value]
 }
+
+export async function getAtivides() {
+    try {
+        const atividades = JSON.parse(localStorage.getItem('atividades'))
+        if (!atividades) {
+            const response = await fetch('http://localhost:8000/registros/atividades', {
+                method : 'GET',
+                headers : {
+                    'Content-Type' : 'application/json',
+                }
+            })
+            if (response.ok) {
+                const data = await response.json()
+                localStorage.setItem('atividades', JSON.stringify(data))
+                return data
+            }
+        }
+        return atividades
+    } catch (error) {
+        console.error("Erro ao buscar atividades:", error);
+        return [];
+    }
+}
