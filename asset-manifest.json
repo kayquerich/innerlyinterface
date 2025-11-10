@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/innerlyinterface/static/css/main.11aeb32d.css",
-    "main.js": "/innerlyinterface/static/js/main.101cd0c1.js",
+    "main.js": "/innerlyinterface/static/js/main.62fd1136.js",
     "static/js/453.edde93b5.chunk.js": "/innerlyinterface/static/js/453.edde93b5.chunk.js",
     "static/media/logo-site.png": "/innerlyinterface/static/media/logo-site.649312f4b50a224cc92a.png",
     "static/media/muito-bem.png": "/innerlyinterface/static/media/muito-bem.8c404968146c36994b76.png",
@@ -35,11 +35,11 @@
     "static/media/profile_icon_0.png": "/innerlyinterface/static/media/profile_icon_0.f758b4d94bc69725cc28.png",
     "index.html": "/innerlyinterface/index.html",
     "main.11aeb32d.css.map": "/innerlyinterface/static/css/main.11aeb32d.css.map",
-    "main.101cd0c1.js.map": "/innerlyinterface/static/js/main.101cd0c1.js.map",
+    "main.62fd1136.js.map": "/innerlyinterface/static/js/main.62fd1136.js.map",
     "453.edde93b5.chunk.js.map": "/innerlyinterface/static/js/453.edde93b5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.11aeb32d.css",
-    "static/js/main.101cd0c1.js"
+    "static/js/main.62fd1136.js"
   ]
 }
