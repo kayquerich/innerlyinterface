@@ -367,3 +367,25 @@ export const atualizar_objetivo = async (dados,token) => {
         error_case()
     }
 }
+
+export const cadastrar_resultado_objetivo = async (dados, token) => {
+    try {
+
+        const response = await fetch('http://localhost:8000/objetivos/resultados/adicionar', {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`    
+            },
+            body : JSON.stringify(dados)
+        })
+
+        const new_objetivos = await listar_objetivos(token)
+        sessionStorage.setItem('objetivos', JSON.stringify(new_objetivos))
+
+        return await response.json()
+
+    } catch (error) {
+        error_case()
+    }
+}

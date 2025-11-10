@@ -5,7 +5,7 @@ import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import styles from '../styles/VizualizarObjetivo.module.css'
 import { Subtitle } from "../components/Text";
-import { atualizar_objetivo } from "../services/Usuarios";
+import { atualizar_objetivo, cadastrar_resultado_objetivo } from "../services/Usuarios";
 
 export default function VizualizarObjetivo() {
 
@@ -37,11 +37,30 @@ export default function VizualizarObjetivo() {
         }
     }, [objetivo.id]);
 
-    const handleAddResultado = () => {
+    const handleAddResultado = async () => {
         if (novoResultado.trim() === "") return;
-        const atualizados = [...resultados, novoResultado];
-        setResultados(atualizados);
-        setNovoResultado("");
+        
+        // Enviar o novo resultado para o backend
+        const dados = {
+            id_objetivo: objetivo.id,
+            descricao : novoResultado
+        };
+
+        const response = await cadastrar_resultado_objetivo(dados, usuario.token);
+
+        if (response && response.adicionado) {
+            // Atualizar a lista de resultados localmente com o objeto retornado do backend
+            const novoResultadoObj = {
+                id: response.id,
+                descricao: novoResultado,
+                data_criacao: new Date().toISOString()
+            };
+            const atualizados = [...resultados, novoResultadoObj];
+            setResultados(atualizados);
+            setNovoResultado("");
+        } else {
+            alert("Erro ao adicionar resultado. Tente novamente.");
+        }
     };
 
     // Ao marcar concluído, atualiza o estado de concluido e força progresso para 100
@@ -84,8 +103,6 @@ export default function VizualizarObjetivo() {
 
     return (
         <Page dados={usuario} >
-
-            {console.log(objetivo)}
 
             <div className={styles.view_container}>
                 <div className={styles.view_card}>
@@ -158,7 +175,7 @@ export default function VizualizarObjetivo() {
                                 {resultados.map((r, index) => (
                                     <li key={index}>
                                         <Icon icon="check-circle" className={styles.check_icon} />
-                                        {r}
+                                        {typeof r === 'string' ? r : r.descricao}
                                     </li>
                                 ))}
                             </ul>
