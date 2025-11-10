@@ -45,12 +45,45 @@ export default function UserRegistros () {
                 sessionStorage.setItem('usuario', JSON.stringify(temporary_user));
             }
 
+            const sortRegistrosDesc = (arr) => {
+                if (!Array.isArray(arr)) return arr || [];
+
+                // possíveis campos de data que a API pode retornar
+                const dateFields = ['created_at', 'createdAt', 'data', 'date', 'data_criacao', 'timestamp', 'created'];
+
+                // encontra um campo de data presente em pelo menos um item
+                const sample = arr.find(Boolean) || {};
+                const dateField = dateFields.find((f) => f in sample);
+
+                const cloned = [...arr];
+
+                if (dateField) {
+                    cloned.sort((a, b) => {
+                        const da = new Date(a[dateField]);
+                        const db = new Date(b[dateField]);
+                        return db - da; // decrescente
+                    });
+                    return cloned;
+                }
+
+                // fallback para id numérico (maior id = mais recente)
+                if ('id' in sample && !isNaN(Number(sample.id))) {
+                    cloned.sort((a, b) => Number(b.id) - Number(a.id));
+                    return cloned;
+                }
+
+                // último recurso: reverter a ordem
+                return cloned.reverse();
+            };
+
             if (!saved) {
                 const query_registros = await getRegistrosByUser(temporary_user.id, temporary_user.token)
-                setRegistros(query_registros.reverse())
-                sessionStorage.setItem('registros', JSON.stringify(query_registros));
+                const ordenados = sortRegistrosDesc(query_registros || []);
+                setRegistros(ordenados);
+                sessionStorage.setItem('registros', JSON.stringify(ordenados));
             } else {
-                setRegistros(JSON.parse(saved))
+                const parsed = JSON.parse(saved) || [];
+                setRegistros(sortRegistrosDesc(parsed));
             }
 
         }
