@@ -1,0 +1,285 @@
+.view_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.view_card {
+  width: 100%;
+  max-width: 800px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.view_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.view_header h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn_voltar {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.btn_voltar:hover {
+  color: #2563eb;
+}
+
+.view_content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.info_section,
+.results_section {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.info_section h3,
+.results_section h3 {
+  color: #111827;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form_group label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form_group input,
+.form_group textarea,
+.form_group select {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fff;
+  font-size: 0.95rem;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form_group input:focus,
+.form_group textarea:focus,
+.form_group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.checkbox_label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.resultados_lista {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.resultados_lista li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #111827;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.check_icon {
+  color: #10b981;
+}
+
+.adicionar_resultado {
+  display: flex;
+  gap: 10px;
+}
+
+.adicionar_resultado input {
+  flex: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.adicionar_resultado button {
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.adicionar_resultado button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.25);
+}
+
+.view_footer {
+  margin-top: 32px;
+  text-align: right;
+}
+
+.btn_salvar {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn_salvar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+@media (max-width: 640px) {
+  .view_card {
+    padding: 24px;
+  }
+}
+
+/* barra de progresso */
+.progressBarWrapper {
+  margin: 24px 0;
+}
+
+.progressLabel {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.progressControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progressBarContainer {
+  flex: 1;
+  position: relative;
+  height: 20px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  cursor: default;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.editable {
+  cursor: pointer;
+}
+
+.editable:hover {
+  transform: scale(1.01);
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.progressBarText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.progressButton {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.progressButton:hover:not(:disabled) {
+  background: #e5e7eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progressButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

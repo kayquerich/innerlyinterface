@@ -15,6 +15,10 @@ import Solicitacao from './pages/Solicitacao';
 import Responder from './pages/profissional/Responder';
 import Clientes from './pages/profissional/Clientes';
 import CadastroProfissional from './pages/profissional/CadastroProfissional';
+import Historico from './pages/Historico';
+import Objetivos from './pages/Objetivos';
+import AdicionarObjetivo from './pages/AdicionarObjetivo';
+import VizualizarObjetivo from './pages/VizualizarObjetivo';
 
 function App() {
     return (
@@ -35,6 +39,10 @@ function App() {
                 <Route path='/solicitacao' element={<Solicitacao/>}/>
                 <Route path='/profissional/solicitacao' element={<Responder/>}/>
                 <Route path='/profissional/clientes' element={<Clientes/>}/>
+                <Route path='/historico' element={<Historico/>}/>
+                <Route path='/objetivos' element={<Objetivos/>}/>
+                <Route path='/objetivos/adicionar' element={<AdicionarObjetivo/>}/>
+                <Route path='/objetivos/detalhes' element={<VizualizarObjetivo/>} />
             </Routes>
         </HashRouter>
     );  

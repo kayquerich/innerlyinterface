@@ -304,3 +304,66 @@ export const buscarNomes = async () => {
 function error_case () {
     alert('O servidor não está respondendo, tente novamente mais tarde')
 }
+
+export const listar_objetivos = async (token) => {
+    try {
+
+        const response = await fetch('http://localhost:8000/objetivos/listar', {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            }
+        })
+
+        if (response.ok) return await response.json();
+        return []
+
+    } catch (error) {
+        error_case()
+    }
+}
+
+export const criar_objetivo = async (dados, token) => {
+    try {
+
+        const response = await fetch('http://localhost:8000/objetivos/criar', {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            },
+            body : JSON.stringify(dados)
+        })
+
+        const lista_objetivos = await listar_objetivos(token)
+        sessionStorage.setItem('objetivos', JSON.stringify(lista_objetivos))
+
+        return await response.json();
+
+    } catch (error) {
+        error_case()
+    }
+}
+
+export const atualizar_objetivo = async (dados,token) => {
+    try {
+
+        const response = await fetch('http://localhost:8000/objetivos/atualizar', {
+            method : 'PUT',
+            headers : {
+                'Content-Type' : 'application/json',
+                'Authorization' : `Token ${token}`
+            },
+            body : JSON.stringify(dados)
+        })
+
+        const new_objetivos = await listar_objetivos(token)
+        sessionStorage.setItem('objetivos', JSON.stringify(new_objetivos))
+
+        return await response.json()
+
+    } catch (error) {
+        error_case()
+    }
+}

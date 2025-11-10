@@ -81,7 +81,7 @@ export default function UserRegistros () {
                             <span>Profissionais</span>
                         </div>
                     </li>
-                    <li>
+                    <li onClick={() => handleclick_link('/objetivos')} >
                         <div>
                             <span>
                                 <Icon icon="bullseye" />

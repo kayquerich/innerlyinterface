@@ -1,0 +1,205 @@
+.text_plus_button {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 7px;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.buttons_bar {
+    width: 100%;
+    height: 70px;
+    margin-block: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search_container {
+    display: flex;
+}
+
+.search_container input {
+    height: 40px;
+    width: 300px;
+    background-color: var(--white-blue);
+    outline: unset;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.search_bar_icon {
+    height: 40px;
+    width: 50px;
+    background-color: var(--white-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px 0px 0px 5px;
+}
+
+/* barra de progresso */
+
+.progress {
+  width: 100%;
+  max-width: 400px;
+  height: 28px;
+  background: #f0f0f0;
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.progress_fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: width 0.5s ease;
+  background: linear-gradient(90deg, #34d399, #06b6d4);
+  color: white;
+  font-weight: 600;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(6, 182, 212, 0.2);
+}
+
+.progress_label {
+  font-size: 14px;
+  padding: 0 8px;
+}
+
+/* tabela */
+
+.tabela_container {
+  width: 100%;
+  overflow-x: auto;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.tabela_objetivos {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+}
+
+.tabela_objetivos thead {
+  background-color: #f9fafb;
+}
+
+.tabela_objetivos th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.tabela_objetivos td {
+  padding: 14px 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tabela_objetivos tbody tr:hover {
+  background-color: #f9fafc;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+/* Descrição */
+.descricao {
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+/* Informações de resultados */
+.resultados_info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.icon_check {
+  display: flex;
+  align-items: center;
+  color: #10b981;
+  font-size: 1rem;
+}
+
+/* Data */
+.data_criacao {
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .tabela_objetivos th,
+  .tabela_objetivos td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .descricao {
+    font-size: 0.9rem;
+  }
+}
+
+/* barra de filtragem */
+
+.filtroBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 24px 0;
+  background: #ffffff;
+  padding: 16px 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap;
+}
+
+.inputGroup {
+  flex: 1;
+  min-width: 180px;
+}
+
+.inputGroup input,
+.inputGroup select {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  background: #f9fafb;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .filtroBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
